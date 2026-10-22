@@ -1,0 +1,35 @@
+{
+  "heroBadge": "Services that stay with your success",
+  "heroTitle": "More Than Software. A Better Experience, Built With You.",
+  "heroSubtitle": "From implementation and training to support and improvement, we help your team create real value with Key Business Suite.",
+  "heroCta": "Talk to Our Team",
+  "heroTrust": "Clear support and follow-up",
+  "heroImageAlt": "Team providing technology and business support",
+  "overviewEyebrow": "A continuous partnership",
+  "overviewTitle": "We Stay Close After Go-Live",
+  "overviewText": "The success of any system depends on adoption and continuous improvement. That is why we work with your team at every stage, from initial setup to ongoing optimization.",
+  "overviewImageAlt": "Team working on an implementation plan",
+  "overviewPoints": { "one": "Structured implementation", "two": "Practical training", "three": "Specialized support", "four": "Continuous improvement" },
+  "servicesEyebrow": "How we help",
+  "servicesTitle": "Services Designed to Make Your Journey Easier",
+  "servicesSubtitle": "An integrated service experience that helps your organization launch with confidence and operate efficiently.",
+  "processEyebrow": "The implementation journey",
+  "processTitle": "From the First Conversation to Measurable Results",
+  "processSubtitle": "We work in clear steps so you always know where we are and what comes next.",
+  "process": [
+    { "title": "Understand Your Needs", "desc": "We review your operations, goals, and challenges." },
+    { "title": "Prepare the Solution", "desc": "We configure the modules around your organization." },
+    { "title": "Train Your Team", "desc": "We help users start with confidence." },
+    { "title": "Keep Improving", "desc": "We continue supporting and improving as you grow." }
+  ],
+  "ctaTitle": "Ready for a More Organized Next Step?",
+  "ctaSubtitle": "Talk to our team and let us identify the service that fits your needs.",
+  "ctaBtn": "Start a Conversation",
+  "services": {
+    "support": { "title": "Technical Support", "desc": "A specialized team that helps you handle questions and issues with clarity and speed.", "features": ["Issue follow-up", "User guidance", "Clear communication channels"] },
+    "implementation": { "title": "Implementation & Setup", "desc": "We help prepare the platform around the way your organization operates.", "features": ["Process discovery", "Module configuration", "Launch preparation"] },
+    "training": { "title": "Training", "desc": "Practical training that helps your teams use the platform and get value from it.", "features": ["Tailored sessions", "Real-work examples", "Helpful materials"] },
+    "reporting": { "title": "Reporting & Customization", "desc": "We help you reach clearer reporting and a more relevant user experience.", "features": ["Need-based reports", "Form customization", "Useful leadership indicators"] },
+    "integration": { "title": "Integration & Improvement", "desc": "Scalable solutions that can adapt to your future business requirements.", "features": ["Integration planning", "Scalable architecture", "Continuous improvements"] }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "لوحة التحكم",
+  "kpi": {
+    "totalSales": "إجمالي المبيعات",
+    "netProfit": "صافي الربح",
+    "receivables": "مستحقات العملاء",
+    "payables": "مستحقات الموردين",
+    "inventoryValue": "قيمة المخزون",
+    "thisMonth": "هذا الشهر",
+    "vsLastMonth": "مقارنة بالشهر الماضي"
+  },
+  "charts": {
+    "salesProfit": "المبيعات والأرباح",
+    "expenseBreakdown": "توزيع المصروفات",
+    "branchSales": "مبيعات الفروع",
+    "cashFlow": "التدفق النقدي"
+  },
+  "recentTransactions": "آخر العمليات",
+  "alerts": "التنبيهات",
+  "lowStock": "مخزون منخفض",
+  "overdueInvoices": "فواتير متأخرة",
+  "demoLabel": "بيانات تجريبية — للعرض فقط",
+  "filters": {
+    "period": "الفترة",
+    "branch": "الفرع",
+    "allBranches": "جميع الفروع",
+    "thisMonth": "هذا الشهر",
+    "lastMonth": "الشهر الماضي",
+    "thisYear": "هذا العام",
+    "custom": "فترة مخصصة"
+  }
+}

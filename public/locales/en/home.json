@@ -1,0 +1,65 @@
+{
+  "heroBadge": "All-in-One ERP Platform",
+  "heroTitle": "Smarter Operations. Stronger Growth.",
+  "heroSubtitle": "An integrated platform that brings accounting, sales, purchasing, inventory, and HR together so your team can see clearly and move faster.",
+  "heroVisualCaption": "Clearer insight. Better decisions.",
+  "primaryCta": "Request a Demo",
+  "secondaryCta": "Explore Solutions",
+  "heroPoints": {
+    "unified": "Unified data",
+    "decisions": "Faster decisions",
+    "scale": "Built to scale"
+  },
+  "partners": {
+    "eyebrow": "Our Trusted Partners",
+    "title": "Building Success with Visionary Partners",
+    "subtitle": "Over 250+ leading enterprises trust USoft solutions to drive operational efficiency and sustainable growth.",
+    "galleryCaption": "Strategic partnerships and success stories across diverse sectors",
+    "imageAlt": "Partner showcase {{number}}",
+    "viewAll": "Explore All Partners & Success Stories",
+    "items": [
+      { "ar": "مجموعة الأفق للتجارة", "en": "Al-Ofuq Trading Group", "sector": "تجارة واستيراد", "sectorEn": "Trading & Import" },
+      { "ar": "شركة الرواد للصناعات", "en": "Al-Rowad Industries", "sector": "صناعة وهندسة", "sectorEn": "Manufacturing" },
+      { "ar": "مؤسسة النخبة للخدمات", "en": "Elite Services Corp", "sector": "خدمات واستشارات", "sectorEn": "Services & Consulting" },
+      { "ar": "المتحدة للمراكز اللوجستية", "en": "United Logistics Co.", "sector": "شحن وتوزيع", "sectorEn": "Logistics & Fleet" },
+      { "ar": "مجموعة الفلاح للإنشاءات", "en": "Al-Falah Contracting", "sector": "مقاولات وبناء", "sectorEn": "Construction" },
+      { "ar": "شركة قمم لتطوير الأنظمة", "en": "Qimam Systems & Tech", "sector": "تقنية وبرمجيات", "sectorEn": "Technology & IT" },
+      { "ar": "سلسلة أسواق البركة", "en": "Al-Baraka Retail", "sector": "تجزئة ونقاط بيع", "sectorEn": "Retail & Supermarkets" },
+      { "ar": "مجموعة النور الطبية", "en": "Al-Noor Medical Group", "sector": "رعاية صحية وأدوية", "sectorEn": "Healthcare & Pharma" }
+    ]
+  },
+  "capabilitiesTitle": "Everything You Need to Run Your Business",
+  "capabilitiesSubtitle": "Connected modules that help you organize operations and turn data into practical decisions.",
+  "capabilities": {
+    "accounting": { "title": "General Accounting", "desc": "Manage your chart of accounts, journals, cost centers, and financial reports with clarity." },
+    "sales": { "title": "Sales & Customers", "desc": "Track quotations, invoices, collections, and customer accounts in one connected cycle." },
+    "purchases": { "title": "Purchasing & Suppliers", "desc": "Organize purchase requests, invoices, payments, and supplier relationships." },
+    "inventory": { "title": "Inventory & Warehouses", "desc": "Monitor products, movements, stock counts, and reorder levels across locations." },
+    "hr": { "title": "Human Resources", "desc": "Manage employee records, attendance, leave, and payroll with ease." },
+    "reports": { "title": "Reports & Analytics", "desc": "Get the insights your leadership team needs to understand performance and act with confidence." }
+  },
+  "showcase": {
+    "eyebrow": "Key Business Suite in numbers",
+    "title": "Experience You Can Measure. Trust You Can Build.",
+    "subtitle": "Editable showcase figures that communicate presence, experience, and the value delivered to customers.",
+    "stats": {
+      "companies": { "icon": "01", "value": "+250", "label": "Companies & organizations" },
+      "clients": { "icon": "02", "value": "+1,500", "label": "Clients & users" },
+      "years": { "icon": "03", "value": "+15", "label": "Years of experience" }
+    }
+  },
+  "whyTitle": "Why Key Business Suite?",
+  "whySubtitle": "Integrated solutions that give your team the tools and visibility it needs to grow with confidence.",
+  "why": {
+    "unified": { "title": "One Unified View", "desc": "Bring data from departments and branches together in one clear business picture." },
+    "data": { "title": "Data-Driven Decisions", "desc": "Turn daily numbers into meaningful indicators and reports for leadership." },
+    "scale": { "title": "Built for Growth", "desc": "Start with what you need today and add modules and branches as you grow." },
+    "branches": { "title": "Multi-Branch Management", "desc": "Monitor branch and department performance while keeping information centralized." },
+    "bilingual": { "title": "Arabic & English", "desc": "A flexible interface for multilingual teams and business needs." }
+  },
+  "industriesTitle": "Solutions for Multiple Industries",
+  "industries": ["Commerce", "Manufacturing", "Services", "Distribution", "Organizations"],
+  "finalCtaTitle": "Build a Clearer View of Your Business",
+  "finalCtaSubtitle": "Discover how one platform can make your operations more organized and your decisions more confident.",
+  "finalCtaBtn": "Talk to Our Team"
+}

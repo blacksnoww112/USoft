@@ -1,0 +1,16 @@
+{
+  "appName": "USoft",
+  "appNameAr": "يوسوفت",
+  "tagline": "Smarter Operations. Stronger Growth.",
+  "taglineAr": "إدارة أذكى لأعمال أكثر نمواً",
+  "defaultLanguage": "ar",
+  "supportedLanguages": ["ar", "en"],
+  "companyEmail": "[info@usoft-eg.com , sales@usoft-eg.com]",
+  "companyPhone": "[+20 2222638031, +20 222638041, +20 01022264121, +20 01022264123]",
+  "supportHours": {
+    "ar": "الأحد – الخميس",
+    "en": "Sunday – Thursday"
+  },
+  "demoMode": true,
+  "version": "1.0.1"
+}

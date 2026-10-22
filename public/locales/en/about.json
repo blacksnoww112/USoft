@@ -1,0 +1,29 @@
+{
+  "heroBadge": "About Us",
+  "heroTitle": "Technology Solutions Designed Around Your Growth",
+  "heroSubtitle": "We help organizations simplify operations, unify data, and make clearer decisions through integrated and flexible solutions.",
+  "visionTitle": "Our Vision",
+  "visionText": "To be the technology partner that helps organizations work smarter and gives their teams one unified view to grow with confidence.",
+  "visionQuote": "Turning everyday operational complexity into a clearer, more organized, and scalable experience.",
+  "missionTitle": "Our Mission",
+  "mission": [
+    "Simplify administrative and financial operations across the organization.",
+    "Unify data and connect departments and branches in one system.",
+    "Improve reporting quality and support data-driven decisions.",
+    "Deliver a flexible experience that fits the needs of every team."
+  ],
+  "journeyEyebrow": "How We Work",
+  "journeyTitle": "From an Idea to a Clear Business Impact",
+  "journeySubtitle": "A practical approach that helps us understand your needs and build a solution ready to grow with you.",
+  "journey": [
+    { "title": "Understand Your Needs", "description": "We start by understanding your business, your team's challenges, and the outcomes you want to achieve." },
+    { "title": "Design the Right Solution", "description": "We organize the modules and workflows around the way your organization actually operates." },
+    { "title": "Help You Get Started", "description": "We create a clear experience that helps users adopt the platform and get value from it." },
+    { "title": "Keep Moving With You", "description": "We provide follow-up, support, and continuous improvement as your business grows." }
+  ],
+  "statsEyebrow": "Trust Built Over Time",
+  "statsTitle": "Numbers That Reflect Our Clients' Trust",
+  "ctaTitle": "Want to Get to Know Us Better?",
+  "ctaSubtitle": "Talk to our team and discover how we can help you build a clearer operating system.",
+  "ctaBtn": "Contact Us"
+}

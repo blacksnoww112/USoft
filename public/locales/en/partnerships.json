@@ -1,0 +1,28 @@
+{
+  "heroBadge": "Success Partners",
+  "heroTitle": "Building an Integrated Ecosystem With Leading Partners",
+  "heroSubtitle": "We take pride in partnering with hundreds of businesses and institutions across key sectors that rely on Key Business Suite to power daily operations.",
+  "heroCta": "Become a Partner",
+  "searchPlaceholder": "Search by partner or company name...",
+  "filterAll": "All Sectors",
+  "sectors": {
+    "trade": "Commerce & Distribution",
+    "manufacturing": "Manufacturing & Production",
+    "services": "Contracting & Services",
+    "retail": "Retail & Multi-Branch Chains",
+    "healthcare": "Healthcare & Pharmaceuticals",
+    "tech": "Strategic & Tech Partners"
+  },
+  "stats": {
+    "totalPartners": { "value": "+250", "label": "Partner Organizations" },
+    "sectorsCount": { "value": "6+", "label": "Core Business Sectors" },
+    "retentionRate": { "value": "98%", "label": "Retention & Renewal Rate" },
+    "experienceYears": { "value": "+15", "label": "Years of Mutual Trust" }
+  },
+  "trustEyebrow": "Long-Term Collaboration",
+  "trustTitle": "Relationships Built on Real Value & Shared Growth",
+  "trustSubtitle": "We do not merely deliver software; we serve as an operational and technical arm supporting expansions and strategic decisions.",
+  "ctaTitle": "Ready to Join Our Success Partners?",
+  "ctaSubtitle": "Whether upgrading your operating system or exploring strategic collaboration, our team is ready to get started.",
+  "ctaBtn": "Contact Partnerships Team"
+}

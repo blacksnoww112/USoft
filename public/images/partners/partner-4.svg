@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" fill="none">
+  <rect width="180" height="50" rx="8" fill="#F0F4F8"/>
+  <path d="M18 32V20L26 15L34 20V32H18Z" fill="#27AE60"/>
+  <rect x="23" y="24" width="6" height="8" fill="#FFFFFF"/>
+  <text x="48" y="32" font-family="'Cairo', sans-serif" font-size="14" font-weight="bold" fill="#173B67">مجموعة التوزيع</text>
+</svg>
