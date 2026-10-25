@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import { Toaster } from 'sonner'
 import AppRoutes from './routes/AppRoutes'
 import ScrollToTop from './components/common/ScrollToTop'
@@ -26,7 +26,7 @@ function App() {
   }, [theme])
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <ScrollToTop />
       <AppRoutes />
       <Toaster
@@ -35,7 +35,7 @@ function App() {
         closeButton
         toastOptions={{ duration: 4000 }}
       />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" fill="none">
+  <rect width="180" height="50" rx="8" fill="#F0F4F8"/>
+  <circle cx="26" cy="25" r="11" fill="#38BDF8"/>
+  <circle cx="26" cy="25" r="6" fill="#173B67"/>
+  <text x="48" y="32" font-family="'Cairo', sans-serif" font-size="14" font-weight="bold" fill="#173B67">النخبة للخدمات</text>
+</svg>

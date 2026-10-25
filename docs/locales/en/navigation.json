@@ -1,0 +1,22 @@
+{
+  "home": "Home",
+  "about": "About",
+  "solutions": "Solutions",
+  "services": "Services",
+  "partnerships": "Partnerships",
+  "contact": "Contact",
+  "dashboard": "Dashboard",
+  "accounting": "Accounting",
+  "sales": "Sales",
+  "purchases": "Purchases",
+  "inventory": "Inventory",
+  "assets": "Fixed Assets",
+  "hr": "Human Resources",
+  "payroll": "Payroll",
+  "pos": "Point of Sale",
+  "reports": "Reports",
+  "settings": "Settings",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu",
+  "switchLang": "عربي"
+}

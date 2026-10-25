@@ -43,10 +43,18 @@
     <meta name="twitter:description" content="نظام ERP سحابي متكامل يجمع بين قوة الأداء وسهولة الاستخدام للشركات والمصانع والمؤسسات التجارية مع الربط المعتمد بالفاتورة الإلكترونية." />
     <meta name="twitter:image" content="https://blacksnoww112.github.io/USoft/images/brand/Logo%20Icon.png" />
 
+    <!-- Fallback redirect if served unbundled from GitHub Pages root -->
+    <script id="gh-fallback">
+      if (window.location.hostname.includes('github.io') && !window.location.pathname.includes('/docs')) {
+        var base = window.location.pathname.replace(/\/?$/, '/docs/');
+        window.location.replace(base + window.location.search + window.location.hash);
+      }
+    </script>
+
     <!-- Favicon & Icons -->
-    <link rel="icon" type="image/png" href="/images/brand/Logo Icon.png" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/images/brand/Logo Icon.png" />
+    <link rel="icon" type="image/png" href="./images/brand/Logo Icon.png" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./images/brand/Logo Icon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

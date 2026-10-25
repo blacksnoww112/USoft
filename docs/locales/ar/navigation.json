@@ -1,0 +1,22 @@
+{
+  "home": "الرئيسية",
+  "about": "من نحن",
+  "solutions": "الحلول",
+  "services": "الخدمات",
+  "partnerships": "الشراكات",
+  "contact": "تواصل معنا",
+  "dashboard": "لوحة التحكم",
+  "accounting": "الحسابات",
+  "sales": "المبيعات",
+  "purchases": "المشتريات",
+  "inventory": "المخزون",
+  "assets": "الأصول الثابتة",
+  "hr": "الموارد البشرية",
+  "payroll": "الرواتب",
+  "pos": "نقاط البيع",
+  "reports": "التقارير",
+  "settings": "الإعدادات",
+  "openMenu": "فتح القائمة",
+  "closeMenu": "إغلاق القائمة",
+  "switchLang": "English"
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Dashboard",
+  "kpi": {
+    "totalSales": "Total Sales",
+    "netProfit": "Net Profit",
+    "receivables": "Receivables",
+    "payables": "Payables",
+    "inventoryValue": "Inventory Value",
+    "thisMonth": "This Month",
+    "vsLastMonth": "vs. Last Month"
+  },
+  "charts": {
+    "salesProfit": "Sales & Profit",
+    "expenseBreakdown": "Expense Breakdown",
+    "branchSales": "Branch Sales",
+    "cashFlow": "Cash Flow"
+  },
+  "recentTransactions": "Recent Transactions",
+  "alerts": "Alerts",
+  "lowStock": "Low Stock",
+  "overdueInvoices": "Overdue Invoices",
+  "demoLabel": "Demo Data — Preview Only",
+  "filters": {
+    "period": "Period",
+    "branch": "Branch",
+    "allBranches": "All Branches",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "thisYear": "This Year",
+    "custom": "Custom Range"
+  }
+}

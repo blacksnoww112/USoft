@@ -62,12 +62,22 @@ function contactApiPlugin() {
   }
 }
 
+function removeGhFallbackPlugin() {
+  return {
+    name: 'remove-gh-fallback-plugin',
+    transformIndexHtml(html) {
+      return html.replace(/<script id="gh-fallback">[\s\S]*?<\/script>\s*/i, '')
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/USoft/',
+  base: './',
   plugins: [
     tailwindcss(),
     react(),
+    removeGhFallbackPlugin(),
     contactApiPlugin(),
     copy404Plugin(),
   ],
