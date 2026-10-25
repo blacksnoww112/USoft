@@ -5,6 +5,7 @@ import { Menu, X, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from '../common/ThemeToggle'
 import Button from '../common/Button'
+import WhatsAppButton from '../common/WhatsAppButton'
 import useLanguageStore from '../../store/languageStore'
 import useThemeStore from '../../store/themeStore'
 
@@ -18,7 +19,7 @@ const NAV_LINKS = [
 ]
 
 const FOOTER_EMAILS = ['info@usoft-eg.com', 'Sales@usoft-eg.com']
-const FOOTER_PHONES = ['+20222638031', '+20222638041', '+20 01022264121', '+20 01022264123']
+const FOOTER_PHONES = ['01022264121', '01022264123', '+20222638031', '+20222638041']
 const GOOGLE_MAPS_LINK = 'https://maps.app.goo.gl/s87mR7HJXAhFhcMJ6'
 
 function PublicLayout({ children }) {
@@ -265,6 +266,9 @@ function PublicLayout({ children }) {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Action Button */}
+      <WhatsAppButton />
     </div>
   )
 }

@@ -11,7 +11,7 @@ import useLanguageStore from '../../store/languageStore'
 import PublicLayout from '../../components/layout/PublicLayout'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
-
+import { PARTNERS_LIST } from '../../data/partnersData'
 
 /* ─── capability icons ─── */
 const CAP_ICONS = {
@@ -32,17 +32,6 @@ const WHY_ICONS = {
 }
 
 const INDUSTRY_ICONS = [Building2, Factory, Briefcase, Truck, Globe2]
-
-const PARTNER_LOGOS = [
-  '/images/partners/partner-1.svg',
-  '/images/partners/partner-2.svg',
-  '/images/partners/partner-3.svg',
-  '/images/partners/partner-4.svg',
-  '/images/partners/partner-5.svg',
-  '/images/partners/partner-6.svg',
-  '/images/partners/partner-1.svg',
-  '/images/partners/partner-3.svg',
-]
 
 const PARTNER_IMAGES = [
   '/images/partners/showcase-1.jpg',
@@ -176,62 +165,58 @@ function Home() {
             <div className="flex w-max py-2">
               {/* Track 1 */}
               <div className="flex shrink-0 items-center gap-5 pe-5 animate-marquee group-hover:[animation-play-state:paused]">
-                {PARTNER_LOGOS.map((logo, index) => {
-                  const partner = t(`partners.items.${index % 8}`, { returnObjects: true })
-                  return (
-                    <Link
-                      key={`t1-${logo}-${index}`}
-                      to="/partnerships"
-                      className="partner-logo-card"
-                    >
-                      <div className="flex h-10 w-24 items-center justify-center rounded-lg bg-[#F8FAFC] p-1 transition-all duration-300 group-hover:bg-[#EBF2FF] dark:bg-[#1E2E48]/60">
-                        <img
-                          src={logo}
-                          alt={dir === 'rtl' ? partner.ar : partner.en}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                      <div className="flex flex-col text-start">
-                        <span className="text-xs font-bold text-[#172033] dark:text-white leading-tight">
-                          {dir === 'rtl' ? partner.ar : partner.en}
-                        </span>
-                        <span className="text-[10px] font-medium text-[#2F80ED] leading-tight mt-0.5">
-                          {dir === 'rtl' ? partner.sector : partner.sectorEn}
-                        </span>
-                      </div>
-                    </Link>
-                  )
-                })}
+                {PARTNERS_LIST.map((partner) => (
+                  <Link
+                    key={`t1-${partner.id}`}
+                    to="/partnerships"
+                    className="partner-logo-card inline-flex items-center gap-3 rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-white dark:bg-[#0B1526] p-2.5 pe-4 shadow-sm hover:shadow-md hover:border-[#2F80ED]/40 transition-all duration-300"
+                  >
+                    <div className="flex h-11 w-24 shrink-0 items-center justify-center rounded-xl bg-white p-1 border border-slate-100 shadow-2xs">
+                      <img
+                        src={partner.logo}
+                        alt={dir === 'rtl' ? partner.nameAr : partner.nameEn}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-col text-start whitespace-nowrap">
+                      <span className="text-xs font-bold text-[#172033] dark:text-white leading-tight">
+                        {dir === 'rtl' ? partner.nameAr : partner.nameEn}
+                      </span>
+                      <span className="text-[10px] font-semibold text-[#2F80ED] dark:text-[#38BDF8] leading-tight mt-0.5">
+                        {dir === 'rtl' ? partner.sectorAr : partner.sectorEn}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
 
               {/* Track 2 */}
               <div className="flex shrink-0 items-center gap-5 pe-5 animate-marquee group-hover:[animation-play-state:paused]" aria-hidden="true">
-                {PARTNER_LOGOS.map((logo, index) => {
-                  const partner = t(`partners.items.${index % 8}`, { returnObjects: true })
-                  return (
-                    <Link
-                      key={`t2-${logo}-${index}`}
-                      to="/partnerships"
-                      className="partner-logo-card"
-                    >
-                      <div className="flex h-10 w-24 items-center justify-center rounded-lg bg-[#F8FAFC] p-1 transition-all duration-300 group-hover:bg-[#EBF2FF] dark:bg-[#1E2E48]/60">
-                        <img
-                          src={logo}
-                          alt={dir === 'rtl' ? partner.ar : partner.en}
-                          className="max-h-full max-w-full object-contain"
-                        />
-                      </div>
-                      <div className="flex flex-col text-start">
-                        <span className="text-xs font-bold text-[#172033] dark:text-white leading-tight">
-                          {dir === 'rtl' ? partner.ar : partner.en}
-                        </span>
-                        <span className="text-[10px] font-medium text-[#2F80ED] leading-tight mt-0.5">
-                          {dir === 'rtl' ? partner.sector : partner.sectorEn}
-                        </span>
-                      </div>
-                    </Link>
-                  )
-                })}
+                {PARTNERS_LIST.map((partner) => (
+                  <Link
+                    key={`t2-${partner.id}`}
+                    to="/partnerships"
+                    className="partner-logo-card inline-flex items-center gap-3 rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-white dark:bg-[#0B1526] p-2.5 pe-4 shadow-sm hover:shadow-md hover:border-[#2F80ED]/40 transition-all duration-300"
+                  >
+                    <div className="flex h-11 w-24 shrink-0 items-center justify-center rounded-xl bg-white p-1 border border-slate-100 shadow-2xs">
+                      <img
+                        src={partner.logo}
+                        alt={dir === 'rtl' ? partner.nameAr : partner.nameEn}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="flex flex-col text-start whitespace-nowrap">
+                      <span className="text-xs font-bold text-[#172033] dark:text-white leading-tight">
+                        {dir === 'rtl' ? partner.nameAr : partner.nameEn}
+                      </span>
+                      <span className="text-[10px] font-semibold text-[#2F80ED] dark:text-[#38BDF8] leading-tight mt-0.5">
+                        {dir === 'rtl' ? partner.sectorAr : partner.sectorEn}
+                      </span>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

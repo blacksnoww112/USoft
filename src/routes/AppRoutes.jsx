@@ -11,7 +11,6 @@ const Partnerships = lazy(() => import('../pages/public/Partnerships'))
 const Contact      = lazy(() => import('../pages/public/Contact'))
 
 /* ── App pages ── */
-const Dashboard      = lazy(() => import('../pages/app/Dashboard'))
 const Accounting     = lazy(() => import('../pages/app/Accounting'))
 const Sales          = lazy(() => import('../pages/app/Sales'))
 const Purchases      = lazy(() => import('../pages/app/Purchases'))
@@ -37,8 +36,7 @@ function AppRoutes() {
 
         {/* App showcase */}
         <Route path="/app">
-          <Route index element={<Navigate to="/app/dashboard" replace />} />
-          <Route path="dashboard"   element={<Dashboard />} />
+          <Route index element={<Navigate to="/app/accounting" replace />} />
           <Route path="accounting"  element={<Accounting />} />
           <Route path="sales"       element={<Sales />} />
           <Route path="purchases"   element={<Purchases />} />

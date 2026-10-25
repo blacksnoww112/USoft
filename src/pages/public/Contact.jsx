@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import Button from '../../components/common/Button'
 
-const PHONES = ['+20222638031', '+20222638041', '+20 01022264121', '+20 01022264123']
+const PHONES = ['01022264121', '01022264123', '+20222638031', '+20222638041']
 const EMAILS = ['info@usoft-eg.com', 'Sales@usoft-eg.com']
 const GOOGLE_MAPS_LINK = 'https://maps.app.goo.gl/s87mR7HJXAhFhcMJ6'
 const GOOGLE_MAPS_EMBED = 'https://maps.google.com/maps?q=30.0800274,31.3149486&t=&z=17&ie=UTF8&iwloc=&output=embed'
@@ -20,6 +20,7 @@ function Contact() {
   const { t } = useTranslation('contact')
   const { dir } = useLanguageStore()
   const [submitted, setSubmitted] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
   const ArrowIcon = dir === 'rtl' ? ArrowLeft : ArrowRight
   const schema = z.object({
     name: z.string().min(2, t('validation.required')), company: z.string().min(2, t('validation.required')),
@@ -28,7 +29,30 @@ function Contact() {
     message: z.string().min(10, t('validation.message')),
   })
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({ resolver: zodResolver(schema) })
-  const onSubmit = async () => { await new Promise((resolve) => setTimeout(resolve, 800)); setSubmitted(true) }
+  const onSubmit = async (formData) => {
+    try {
+      setErrorMsg('')
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      const result = await response.json()
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+      setSubmitted(true)
+    } catch (err) {
+      console.error('Contact form submission error:', err)
+      setErrorMsg(
+        dir === 'rtl'
+          ? 'تعذر إرسال الرسالة في الوقت الحالي. يرجى المحاولة مرة أخرى أو التواصل معنا عبر الهاتف/واتساب.'
+          : 'Unable to send message at this time. Please try again or contact us via phone/WhatsApp.'
+      )
+    }
+  }
   const sectors = t('sectors', { returnObjects: true })
   const modules = t('modules', { returnObjects: true })
   const fields = t('fields', { returnObjects: true })
@@ -266,6 +290,11 @@ function Contact() {
                     />
                     {errors.message && <p className="mt-1 text-xs text-red-500 dark:text-red-400">{errors.message.message}</p>}
                   </div>
+                  {errorMsg && (
+                    <div className="sm:col-span-2 rounded-xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/30 p-3.5 text-sm text-red-600 dark:text-red-400">
+                      {errorMsg}
+                    </div>
+                  )}
                   <div className="sm:col-span-2">
                     <Button
                       type="submit"

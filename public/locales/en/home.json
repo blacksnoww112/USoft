@@ -45,7 +45,7 @@
     "stats": {
       "companies": { "icon": "01", "value": "+250", "label": "Companies & organizations" },
       "clients": { "icon": "02", "value": "+1,500", "label": "Clients & users" },
-      "years": { "icon": "03", "value": "+15", "label": "Years of experience" }
+      "years": { "icon": "03", "value": "+20", "label": "Years of experience" }
     }
   },
   "whyTitle": "Why Key Business Suite?",

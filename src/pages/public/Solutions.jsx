@@ -41,6 +41,21 @@ const MODULE_CATEGORIES = {
   shareholders: 'financial', specialized: 'specialized', attendance: 'hr',
 }
 
+const MODULE_APP_ROUTES = {
+  accounting: '/app/accounting',
+  sales: '/app/sales',
+  purchases: '/app/purchases',
+  inventory: '/app/inventory',
+  assets: '/app/assets',
+  hr: '/app/hr',
+  payroll: '/app/payroll',
+  pos: '/app/pos',
+  reports: '/app/reports',
+  shareholders: '/app/accounting',
+  specialized: '/app/settings',
+  attendance: '/app/hr',
+}
+
 function Solutions() {
   const { t } = useTranslation('solutions')
   const { dir } = useLanguageStore()
@@ -117,7 +132,21 @@ function Solutions() {
                   <button onClick={() => setExpanded(isOpen ? null : key)} className="flex w-full items-center gap-1.5 text-start text-xs font-semibold text-[#2F80ED]" aria-expanded={isOpen}><span>{t('featuresLabel')}</span><ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} /></button>
                   {isOpen && <ul className="mt-3 space-y-2 animate-fade-in">{mod.features.map((feature, fi) => <li key={fi} className="flex items-start gap-2 text-xs leading-relaxed text-[#667085]"><CheckCircle2 size={13} className="mt-0.5 flex-shrink-0 text-[#27AE60]" />{feature}</li>)}</ul>}
                 </div>
-                <div className="border-t border-[#E4E7EC] px-5 py-3"><Link to="/contact" className="inline-flex items-center gap-1 text-xs font-semibold text-[#173B67] transition hover:gap-2 hover:text-[#2F80ED]">{t('requestDemo')}<ArrowIcon size={12} /></Link></div>
+                <div className="border-t border-[#E4E7EC] px-5 py-3.5 flex items-center justify-between gap-2 bg-slate-50/60 dark:bg-[#070D18]/60">
+                  <Link
+                    to={MODULE_APP_ROUTES[key] || '/app/accounting'}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-[#2F80ED] text-white px-3 py-1.5 text-xs font-bold transition hover:bg-[#173B67] shadow-xs"
+                  >
+                    <span>{dir === 'rtl' ? 'شرح وتفاصيل النظام' : 'System Details'}</span>
+                    <ArrowIcon size={12} />
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#667085] transition hover:text-[#2F80ED]"
+                  >
+                    <span>{t('requestDemo')}</span>
+                  </Link>
+                </div>
               </article>
             })}
           </div>

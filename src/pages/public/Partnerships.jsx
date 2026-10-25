@@ -1,172 +1,41 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
-  Building2, Factory, Truck, ShoppingBag, HeartPulse,
-  Cpu, ArrowLeft, ArrowRight, Search, CheckCircle2,
-  ExternalLink, Sparkles, Handshake, Users, ShieldCheck,
+  ArrowLeft, ArrowRight, CheckCircle2,
+  Sparkles, Handshake, ShieldCheck, X,
+  ExternalLink, Layers, Award,
 } from 'lucide-react'
 import PublicLayout from '../../components/layout/PublicLayout'
 import useLanguageStore from '../../store/languageStore'
 import Button from '../../components/common/Button'
-
-const SECTOR_ICONS = {
-  trade: Truck,
-  manufacturing: Factory,
-  services: Building2,
-  retail: ShoppingBag,
-  healthcare: HeartPulse,
-  tech: Cpu,
-}
-
-const PARTNERS_DATA = [
-  {
-    id: 'p1',
-    nameAr: 'مجموعة الأفق للتجارة والاستيراد',
-    nameEn: 'Al-Ofuq Trading & Import Group',
-    sector: 'trade',
-    logo: '/images/partners/partner-1.svg',
-    branches: 14,
-    year: '2016',
-    descAr: 'إدارة متكاملة لـ 14 فرعاً ومستودعاً مركزياً مع تتبع دقيق للمبيعات وسلاسل الإمداد.',
-    descEn: 'Unified management for 14 branches & warehouses with real-time supply chain tracking.',
-    modules: ['الحسابات', 'المبيعات', 'المخازن', 'التقارير'],
-    modulesEn: ['Accounting', 'Sales', 'Inventory', 'Reports'],
-  },
-  {
-    id: 'p2',
-    nameAr: 'شركة الرواد للصناعات الهندسية',
-    nameEn: 'Al-Rowad Engineering Industries',
-    sector: 'manufacturing',
-    logo: '/images/partners/partner-2.svg',
-    branches: 3,
-    year: '2018',
-    descAr: 'ربط خطوط الإنتاج وحسابات التكاليف ومراقبة المواد الخام وإدارة أصول المصنع.',
-    descEn: 'Connecting production lines, job-costing, raw material monitoring & asset tracking.',
-    modules: ['التكاليف', 'المشتريات', 'المخازن', 'الأصول'],
-    modulesEn: ['Costing', 'Purchases', 'Inventory', 'Assets'],
-  },
-  {
-    id: 'p3',
-    nameAr: 'مؤسسة النخبة للخدمات والاستشارات',
-    nameEn: 'Elite Services & Consulting Corp',
-    sector: 'services',
-    logo: '/images/partners/partner-3.svg',
-    branches: 6,
-    year: '2019',
-    descAr: 'تنظيم العقود والفوترة الدورية وإدارة شؤون الموظفين والرواتب بدقة عالية.',
-    descEn: 'Streamlining service contracts, recurring invoicing, workforce HR & automated payroll.',
-    modules: ['الموارد البشرية', 'الرواتب', 'الحسابات'],
-    modulesEn: ['HR', 'Payroll', 'Accounting'],
-  },
-  {
-    id: 'p4',
-    nameAr: 'الشركة المتحدة للمراكز اللوجستية والتوزيع',
-    nameEn: 'United Logistics & Distribution Co.',
-    sector: 'trade',
-    logo: '/images/partners/partner-4.svg',
-    branches: 22,
-    year: '2017',
-    descAr: 'ربط شبكات التوزيع وسيارات النقل بالمستودعات والمبيعات اللحظية.',
-    descEn: 'Fleet delivery synchronization, multi-depot stock sync and mobile collections.',
-    modules: ['المخازن', 'المبيعات', 'المشتريات'],
-    modulesEn: ['Inventory', 'Sales', 'Purchases'],
-  },
-  {
-    id: 'p5',
-    nameAr: 'مجموعة الفلاح للإنشاءات والمقاولات',
-    nameEn: 'Al-Falah Contracting & Construction',
-    sector: 'services',
-    logo: '/images/partners/partner-5.svg',
-    branches: 8,
-    year: '2015',
-    descAr: 'متابعة مراكز تكلفة المشاريع والمستخلصات ومدفوعات الموردين وإهلاك المعدات.',
-    descEn: 'Project cost centers, subcontractor payment certs & heavy equipment lifecycle.',
-    modules: ['الحسابات', 'الأصول', 'المشتريات'],
-    modulesEn: ['Accounting', 'Assets', 'Purchases'],
-  },
-  {
-    id: 'p6',
-    nameAr: 'شركة قمم لتطوير الأعمال والأنظمة',
-    nameEn: 'Qimam Business Systems & Tech',
-    sector: 'tech',
-    logo: '/images/partners/partner-6.svg',
-    branches: 2,
-    year: '2021',
-    descAr: 'شراكة تكامل تقني لتوفير خدمات التحول الرقمي والربط البرمجي السحابي.',
-    descEn: 'Integration partnership delivering cloud transformation and API connectivity.',
-    modules: ['التكامل', 'التقارير', 'حلول مخصصة'],
-    modulesEn: ['Integration', 'Reports', 'Custom Solutions'],
-  },
-  {
-    id: 'p7',
-    nameAr: 'سلسلة أسواق البركة للتجزئة',
-    nameEn: 'Al-Baraka Retail Supermarket Chain',
-    sector: 'retail',
-    logo: '/images/partners/partner-1.svg',
-    branches: 18,
-    year: '2020',
-    descAr: 'تشغيل شاشات نقاط البيع (POS) عبر الفروع مع مزامنة لحظية للأصناف والمخزون.',
-    descEn: 'Operating high-traffic POS registers across branches with real-time stock sync.',
-    modules: ['نقاط البيع', 'المخازن', 'المبيعات'],
-    modulesEn: ['POS', 'Inventory', 'Sales'],
-  },
-  {
-    id: 'p8',
-    nameAr: 'مجموعة النور الطبية والصيدليات',
-    nameEn: 'Al-Noor Medical & Pharma Chain',
-    sector: 'healthcare',
-    logo: '/images/partners/partner-3.svg',
-    branches: 11,
-    year: '2019',
-    descAr: 'إدارة تواريخ الصلاحية والتشغيلات الدوائية ومتابعة مبيعات الفروع المترابطة.',
-    descEn: 'Batch numbers, expiration tracking and unified multi-pharmacy procurement.',
-    modules: ['المخازن', 'نقاط البيع', 'المشتريات'],
-    modulesEn: ['Inventory', 'POS', 'Purchasing'],
-  },
-  {
-    id: 'p9',
-    nameAr: 'مصانع الدلتا للتعبئة والتغليف',
-    nameEn: 'Delta Packaging Industries',
-    sector: 'manufacturing',
-    logo: '/images/partners/partner-2.svg',
-    branches: 4,
-    year: '2018',
-    descAr: 'متابعة أوامر التشغيل، التالف الصناعي، وحساب تكلفة الوحدة المصنعة بدقة.',
-    descEn: 'Work order management, scrap accounting, and unit cost breakdown analysis.',
-    modules: ['التكاليف', 'المخازن', 'الحسابات'],
-    modulesEn: ['Costing', 'Inventory', 'Accounting'],
-  },
-]
+import { PARTNERS_LIST } from '../../data/partnersData'
 
 function Partnerships() {
   const { t } = useTranslation('partnerships')
   const { dir } = useLanguageStore()
-  const ArrowIcon = dir === 'rtl' ? ArrowLeft : ArrowRight
+  const isRtl = dir === 'rtl'
+  const ArrowIcon = isRtl ? ArrowLeft : ArrowRight
 
-  const [activeSector, setActiveSector] = useState('all')
-  const [searchQuery, setSearchQuery] = useState('')
-
-  const sectors = t('sectors', { returnObjects: true })
+  const [selectedPartner, setSelectedPartner] = useState(null)
   const stats = t('stats', { returnObjects: true })
 
-  // Filtering
-  const filteredPartners = useMemo(() => {
-    return PARTNERS_DATA.filter((partner) => {
-      const matchesSector = activeSector === 'all' || partner.sector === activeSector
-      const q = searchQuery.trim().toLowerCase()
-      if (!q) return matchesSector
-
-      const nameMatch =
-        partner.nameAr.toLowerCase().includes(q) ||
-        partner.nameEn.toLowerCase().includes(q)
-      const descMatch =
-        partner.descAr.toLowerCase().includes(q) ||
-        partner.descEn.toLowerCase().includes(q)
-
-      return matchesSector && (nameMatch || descMatch)
-    })
-  }, [activeSector, searchQuery])
+  // Lock body scroll & listen to Escape key when modal is open
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedPartner(null)
+    }
+    if (selectedPartner) {
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', onKeyDown)
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [selectedPartner])
 
   return (
     <PublicLayout>
@@ -204,19 +73,19 @@ function Partnerships() {
       </section>
 
       {/* ── 2. METRICS STRIP ─────────────────────────────────── */}
-      <section className="border-b border-[#E4E7EC] bg-white py-10 shadow-sm">
+      <section className="border-b border-[#E4E7EC] dark:border-slate-800 bg-white dark:bg-[#0B1526] py-10 shadow-sm transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
             {Object.entries(stats).map(([key, stat], idx) => (
               <div
                 key={key}
-                className="group rounded-2xl border border-[#E4E7EC] bg-[#F5F7FA] p-5 text-center transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2F80ED]/40 hover:bg-white hover:shadow-card-md"
+                className="group rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-[#F5F7FA] dark:bg-[#070D18] p-5 text-center transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2F80ED]/40 dark:hover:border-[#38BDF8]/40 hover:bg-white dark:hover:bg-[#0F1B2F] hover:shadow-card-md"
                 style={{ animationDelay: `${idx * 0.1}s` }}
               >
-                <p className="text-3xl font-black text-[#173B67] transition-transform duration-300 group-hover:scale-105 md:text-4xl">
+                <p className="text-3xl font-black text-[#173B67] dark:text-white transition-transform duration-300 group-hover:scale-105 md:text-4xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs font-semibold text-[#667085] md:text-sm">
+                <p className="mt-2 text-xs font-semibold text-[#667085] dark:text-slate-300 md:text-sm">
                   {stat.label}
                 </p>
               </div>
@@ -225,215 +94,291 @@ function Partnerships() {
         </div>
       </section>
 
-      {/* ── 3. FILTER TABS & SEARCH ──────────────────────────── */}
-      <section className="sticky top-16 z-30 border-b border-[#E4E7EC] bg-white/95 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            {/* Sector Tabs */}
-            <div className="flex overflow-x-auto pb-1 md:pb-0 gap-1.5 no-scrollbar">
-              <button
-                onClick={() => setActiveSector('all')}
-                className={`whitespace-nowrap rounded-xl px-4 py-2 text-xs font-bold transition-all duration-300 ${
-                  activeSector === 'all'
-                    ? 'bg-[#173B67] text-white shadow-md'
-                    : 'bg-[#F5F7FA] text-[#667085] hover:bg-[#EBF2FF] hover:text-[#173B67]'
-                }`}
+      {/* ── 3. SECTION INTRO ─────────────────────────────────── */}
+      <section className="bg-[#F8FAFC] dark:bg-[#070D18] pt-16 pb-6 text-center transition-colors">
+        <div className="mx-auto max-w-3xl px-4">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED] dark:text-[#38BDF8] mb-2">
+            {isRtl ? 'شركاء النجاح الرائدون' : 'Leading Success Partners'}
+          </span>
+          <h2 className="section-title dark:text-white mb-3">
+            {isRtl ? 'شركات ومؤسسات تعتمد على حلول USoft' : 'Companies & Enterprises Powered by USoft'}
+          </h2>
+          <p className="text-sm md:text-base text-[#667085] dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            {isRtl
+              ? 'اضغط على أي شركة لاستعراض تفاصيل الشراكة وقصة النجاح وحلول USoft المطبقة لديها.'
+              : 'Click on any partner to view partnership details, success highlights, and deployed USoft solutions.'}
+          </p>
+        </div>
+      </section>
+
+      {/* ── 4. ALL PARTNERS DIRECT GRID ──────────────────────── */}
+      <section className="bg-[#F8FAFC] dark:bg-[#070D18] pb-24 transition-colors">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PARTNERS_LIST.map((partner, idx) => (
+              <article
+                key={partner.id}
+                onClick={() => setSelectedPartner(partner)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    setSelectedPartner(partner)
+                  }
+                }}
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-white dark:bg-[#0B1526] p-6 shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED]/50 dark:hover:border-[#38BDF8]/50 hover:shadow-card-lg animate-fade-up cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#2F80ED]/40 text-start"
+                style={{ animationDelay: `${(idx % 6) * 0.08}s` }}
               >
-                {t('filterAll')}
-              </button>
+                <div>
+                  {/* Logo Container */}
+                  <div className="flex h-28 w-full items-center justify-center rounded-xl border border-[#E4E7EC] dark:border-slate-800 bg-white p-4 shadow-2xs transition-transform duration-500 group-hover:scale-[1.02]">
+                    <img
+                      src={partner.logo}
+                      alt={isRtl ? partner.nameAr : partner.nameEn}
+                      className="max-h-full max-w-full object-contain filter contrast-105"
+                      loading="lazy"
+                    />
+                  </div>
 
-              {Object.entries(sectors).map(([key, label]) => {
-                const Icon = SECTOR_ICONS[key] || Building2
-                const isSelected = activeSector === key
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setActiveSector(key)}
-                    className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl px-4 py-2 text-xs font-bold transition-all duration-300 ${
-                      isSelected
-                        ? 'bg-[#2F80ED] text-white shadow-md'
-                        : 'bg-[#F5F7FA] text-[#667085] hover:bg-[#EBF2FF] hover:text-[#173B67]'
-                    }`}
-                  >
-                    <Icon size={14} />
-                    {label}
-                  </button>
-                )
-              })}
-            </div>
+                  {/* Sector Tag & Status */}
+                  <div className="mt-4 flex items-center justify-between gap-2">
+                    <span className="inline-block rounded-md bg-[#EBF2FF] dark:bg-[#172A45] px-2.5 py-1 text-[11px] font-bold text-[#2F80ED] dark:text-[#38BDF8]">
+                      {isRtl ? partner.sectorAr : partner.sectorEn}
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 size={13} />
+                      {isRtl ? 'شريك معتمد' : 'Verified Partner'}
+                    </span>
+                  </div>
 
-            {/* Search Input */}
-            <div className="relative w-full md:w-72">
-              <Search
-                size={16}
-                className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-[#667085]"
-              />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={t('searchPlaceholder')}
-                className="w-full rounded-xl border border-[#E4E7EC] bg-[#F5F7FA] py-2 pe-3 ps-9 text-xs outline-none transition duration-300 focus:border-[#2F80ED] focus:bg-white focus:ring-2 focus:ring-[#2F80ED]/20"
-              />
-            </div>
+                  {/* Title & Description */}
+                  <h3 className="mt-3 text-lg font-bold text-[#173B67] dark:text-white leading-snug group-hover:text-[#2F80ED] dark:group-hover:text-[#38BDF8] transition-colors">
+                    {isRtl ? partner.nameAr : partner.nameEn}
+                  </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-[#667085] dark:text-slate-300 line-clamp-3">
+                    {isRtl ? partner.descAr : partner.descEn}
+                  </p>
+                </div>
+
+                {/* View Details Action Link */}
+                <div className="mt-5 pt-3.5 border-t border-[#E4E7EC]/70 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-[#2F80ED] dark:text-[#38BDF8]">
+                  <span>{isRtl ? 'عرض تفاصيل الشراكة' : 'View Partnership Details'}</span>
+                  <ExternalLink size={14} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── 4. PARTNERS GRID ─────────────────────────────────── */}
-      <section className="bg-[#F5F7FA] py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {filteredPartners.length === 0 ? (
-            <div className="rounded-2xl border border-[#E4E7EC] bg-white py-16 text-center shadow-card">
-              <Users size={40} className="mx-auto mb-3 text-[#667085]/60" />
-              <p className="font-bold text-[#172033]">
-                {dir === 'rtl' ? 'لا توجد نتائج تطابق بحثك' : 'No partners match your search'}
-              </p>
+      {/* ── 5. POPUP MODAL (بوبس بيدج لعرض تفاصيل الشريك) ─────── */}
+      {selectedPartner && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-partner-title"
+        >
+          {/* Backdrop with blur */}
+          <div
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-md transition-opacity animate-fade-in"
+            onClick={() => setSelectedPartner(null)}
+            aria-hidden="true"
+          />
+
+          {/* Modal Card */}
+          <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-[#E4E7EC] dark:border-slate-700/80 bg-white dark:bg-[#0B1526] shadow-2xl transition-all animate-scale-in max-h-[90vh] flex flex-col z-10">
+            {/* Top Bar with Close Button */}
+            <div className="relative bg-gradient-to-r from-[#173B67] via-[#1E4E8C] to-[#2F80ED] p-6 text-white shrink-0">
               <button
-                onClick={() => {
-                  setActiveSector('all')
-                  setSearchQuery('')
-                }}
-                className="mt-4 rounded-lg bg-[#EBF2FF] px-4 py-2 text-xs font-bold text-[#2F80ED] transition hover:bg-[#2F80ED] hover:text-white"
+                onClick={() => setSelectedPartner(null)}
+                className="absolute top-4 end-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 hover:rotate-90 transition-all duration-300 focus:outline-none"
+                aria-label={isRtl ? 'إغلاق' : 'Close'}
               >
-                {dir === 'rtl' ? 'إعادة ضبط التصفية' : 'Reset filters'}
+                <X size={20} />
               </button>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 pe-8">
+                {/* Logo Box */}
+                <div className="flex h-20 w-32 shrink-0 items-center justify-center rounded-2xl bg-white p-2.5 shadow-md">
+                  <img
+                    src={selectedPartner.logo}
+                    alt={isRtl ? selectedPartner.nameAr : selectedPartner.nameEn}
+                    className="max-h-full max-w-full object-contain filter contrast-105"
+                  />
+                </div>
+
+                {/* Header Information */}
+                <div>
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-0.5 text-xs font-semibold backdrop-blur-sm text-white mb-1.5">
+                    <Award size={13} className="text-[#38BDF8]" />
+                    <span>{isRtl ? selectedPartner.sectorAr : selectedPartner.sectorEn}</span>
+                  </div>
+                  <h3 id="modal-partner-title" className="text-xl sm:text-2xl font-black text-white leading-tight">
+                    {isRtl ? selectedPartner.nameAr : selectedPartner.nameEn}
+                  </h3>
+                  <p className="text-xs text-white/80 mt-1">
+                    {isRtl ? selectedPartner.nameEn : selectedPartner.nameAr}
+                  </p>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filteredPartners.map((partner, idx) => {
-                const Icon = SECTOR_ICONS[partner.sector] || Building2
-                const sectorLabel = sectors[partner.sector] || partner.sector
-                return (
-                  <article
-                    key={partner.id}
-                    className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white p-6 shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED]/40 hover:shadow-card-lg animate-fade-up"
-                    style={{ animationDelay: `${idx * 0.05}s` }}
-                  >
-                    <div>
-                      {/* Card Header */}
-                      <div className="mb-5 flex items-start justify-between gap-3">
-                        <div className="flex h-14 w-28 items-center justify-center rounded-xl border border-[#E4E7EC] bg-[#F8FAFC] p-2 transition duration-500 group-hover:scale-105 group-hover:border-[#2F80ED]/30">
-                          <img
-                            src={partner.logo}
-                            alt={dir === 'rtl' ? partner.nameAr : partner.nameEn}
-                            className="max-h-full max-w-full object-contain"
-                          />
-                        </div>
 
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#EBF2FF] px-3 py-1 text-[11px] font-bold text-[#2F80ED]">
-                          <Icon size={12} />
-                          {sectorLabel}
-                        </span>
-                      </div>
+            {/* Scrollable Body Content */}
+            <div className="overflow-y-auto p-6 sm:p-8 space-y-6 text-start">
+              {/* 1. Partnership Overview */}
+              <div>
+                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2">
+                  <Handshake size={17} />
+                  <span>{isRtl ? 'نبذة عن الشراكة وقصة النجاح' : 'Partnership & Success Story'}</span>
+                </h4>
+                <div className="rounded-2xl bg-[#F8FAFC] dark:bg-[#070D18] p-4 border border-[#E4E7EC] dark:border-slate-800">
+                  <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-200">
+                    {isRtl ? selectedPartner.descAr : selectedPartner.descEn}
+                  </p>
+                </div>
+              </div>
 
-                      {/* Title & Desc */}
-                      <h3 className="mb-2 text-base font-bold text-[#172033] transition-colors group-hover:text-[#2F80ED]">
-                        {dir === 'rtl' ? partner.nameAr : partner.nameEn}
-                      </h3>
+              {/* 2. Deployed Modules & Solutions */}
+              {selectedPartner.tagsAr && selectedPartner.tagsAr.length > 0 && (
+                <div>
+                  <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2.5">
+                    <Layers size={17} />
+                    <span>{isRtl ? 'حلول ومنظومات USoft المطبقة' : 'Deployed USoft ERP Modules'}</span>
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {(isRtl ? selectedPartner.tagsAr : selectedPartner.tagsEn).map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="inline-flex items-center gap-1.5 rounded-xl border border-[#2F80ED]/20 bg-[#EBF2FF] dark:bg-[#172A45] px-3.5 py-1.5 text-xs font-bold text-[#2F80ED] dark:text-[#38BDF8]"
+                      >
+                        <CheckCircle2 size={13} className="text-emerald-500" />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-                      <p className="mb-4 text-xs leading-relaxed text-[#667085]">
-                        {dir === 'rtl' ? partner.descAr : partner.descEn}
-                      </p>
+              {/* 3. Key Achievements & Value Delivered */}
+              <div>
+                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2.5">
+                  <ShieldCheck size={17} />
+                  <span>{isRtl ? 'أبرز المخرجات والقيمة المضافة' : 'Key Value & Operational Impact'}</span>
+                </h4>
+                <div className="space-y-2.5">
+                  {[
+                    isRtl
+                      ? 'مزامنة لحظية للبيانات وسلاسل الإمداد عبر جميع المستودعات والمصانع والفروع.'
+                      : 'Real-time synchronization of operations and supply chains across branches and plants.',
+                    isRtl
+                      ? 'رقابة مالية ومحاسبية دقيقة على التكاليف وهوامش الربحية وتدفقات السيولة.'
+                      : 'Rigorous financial and costing control with automated cash flow oversight.',
+                    isRtl
+                      ? 'تقارير إحصائية وتحليلية تدعم الإدارة التنفيذية في سرعة اتخاذ القرارات اليومية.'
+                      : 'Automated executive KPI dashboards empowering rapid strategic business decisions.',
+                  ].map((highlight, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#475569] dark:text-slate-300">
+                      <CheckCircle2 size={16} className="text-[#2F80ED] dark:text-[#38BDF8] shrink-0 mt-0.5" />
+                      <span>{highlight}</span>
                     </div>
-
-                    <div>
-                      {/* Meta info */}
-                      <div className="mb-4 flex items-center justify-between border-t border-[#E4E7EC]/70 pt-3 text-[11px] text-[#667085]">
-                        <span>
-                          {dir === 'rtl' ? 'عدد الفروع:' : 'Branches:'}{' '}
-                          <strong className="text-[#172033]">{partner.branches}</strong>
-                        </span>
-                        <span>
-                          {dir === 'rtl' ? 'شريك منذ:' : 'Partner since:'}{' '}
-                          <strong className="text-[#172033]">{partner.year}</strong>
-                        </span>
-                      </div>
-
-                      {/* Modules tags */}
-                      <div className="flex flex-wrap gap-1.5">
-                        {(dir === 'rtl' ? partner.modules : partner.modulesEn).map((mod, i) => (
-                          <span
-                            key={i}
-                            className="rounded-md bg-[#F5F7FA] px-2 py-0.5 text-[10px] font-medium text-[#173B67]"
-                          >
-                            {mod}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                )
-              })}
+                  ))}
+                </div>
+              </div>
             </div>
-          )}
+
+            {/* Modal Footer Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-[#E4E7EC] dark:border-slate-800 bg-[#F8FAFC] dark:bg-[#070D18] px-6 py-4 shrink-0">
+              <span className="text-xs text-[#667085] dark:text-slate-400">
+                {isRtl ? 'هل تريد تطبيق نظام مماثل في شركتك؟' : 'Interested in a tailored solution?'}
+              </span>
+
+              <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                <button
+                  onClick={() => setSelectedPartner(null)}
+                  className="w-1/2 sm:w-auto rounded-xl border border-[#CBD5E1] dark:border-slate-700 px-4 py-2 text-xs font-bold text-[#475569] dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 transition"
+                >
+                  {isRtl ? 'إغلاق' : 'Close'}
+                </button>
+                <Link
+                  to="/contact"
+                  className="w-1/2 sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#2F80ED] hover:bg-[#173B67] dark:bg-[#38BDF8] dark:hover:bg-white dark:text-[#0F1B2F] px-4 py-2 text-xs font-bold text-white shadow-sm transition"
+                  onClick={() => setSelectedPartner(null)}
+                >
+                  <span>{isRtl ? 'طلب استشارة' : 'Contact Sales'}</span>
+                  <ArrowIcon size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      )}
 
-      {/* ── 5. VALUE PROPOSITION ─────────────────────────────── */}
-      <section className="bg-white py-20">
+      {/* ── 6. VALUE PROPOSITION ─────────────────────────────── */}
+      <section className="bg-white dark:bg-[#0B1526] py-20 border-t border-[#E4E7EC] dark:border-slate-800 transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">
+            <div className={isRtl ? 'text-right' : 'text-left'}>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED] dark:text-[#38BDF8]">
                 {t('trustEyebrow')}
               </p>
-              <h2 className="section-title mb-4">{t('trustTitle')}</h2>
-              <p className="text-base leading-relaxed text-[#667085]">
+              <h2 className="section-title mb-4 dark:text-white">{t('trustTitle')}</h2>
+              <p className="text-base leading-relaxed text-[#667085] dark:text-slate-300">
                 {t('trustSubtitle')}
               </p>
 
               <div className="mt-8 space-y-3">
                 {[
-                  dir === 'rtl'
+                  isRtl
                     ? 'دعم فني واستشاري مخصص لكل شريك يضمن استقرار المنظومة'
                     : 'Dedicated technical and advisory support ensuring system continuity',
-                  dir === 'rtl'
+                  isRtl
                     ? 'تحديثات دورية تلبي المتطلبات المحاسبية والضريبية المعتمدة'
                     : 'Periodic updates fulfilling statutory accounting and compliance criteria',
-                  dir === 'rtl'
+                  isRtl
                     ? 'قابلية استيعاب التوسعات وإضافة فروع ومستودعات جديدة فوراً'
                     : 'Instant scalability to add new branches, warehouses, and users seamlessly',
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 size={18} className="flex-shrink-0 text-[#27AE60]" />
-                    <span className="text-sm font-semibold text-[#173B67]">{item}</span>
+                    <CheckCircle2 size={18} className="shrink-0 text-[#27AE60]" />
+                    <span className="text-sm font-semibold text-[#173B67] dark:text-slate-200">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="relative">
-              <div className="overflow-hidden rounded-[2rem] border border-[#E4E7EC] bg-[#F5F7FA] p-8 shadow-card-lg">
+              <div className="overflow-hidden rounded-[2rem] border border-[#E4E7EC] dark:border-slate-800 bg-[#F5F7FA] dark:bg-[#070D18] p-8 shadow-card-lg">
                 <div className="mb-6 flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#2F80ED] text-white shadow-md">
                     <ShieldCheck size={26} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#173B67]">
-                      {dir === 'rtl' ? 'معايير اعتماد الشراكة' : 'Partnership Standards'}
+                    <h4 className="font-bold text-[#173B67] dark:text-white">
+                      {isRtl ? 'معايير اعتماد الشراكة' : 'Partnership Standards'}
                     </h4>
-                    <p className="text-xs text-[#667085]">
-                      {dir === 'rtl' ? 'جودة التشغيل وضمان النتائج' : 'Operational quality & verified outcomes'}
+                    <p className="text-xs text-[#667085] dark:text-slate-400">
+                      {isRtl ? 'جودة التشغيل وضمان النتائج' : 'Operational quality & verified outcomes'}
                     </p>
                   </div>
                 </div>
 
-                <p className="text-sm leading-relaxed text-[#667085]">
-                  {dir === 'rtl'
+                <p className="text-sm leading-relaxed text-[#667085] dark:text-slate-300">
+                  {isRtl
                     ? 'كل قصة نجاح تبدأ بفهم عميق لاحتياجات الشركة، ثم ضبط مسارات العمل وتهيئة فرق العمل بأعلى درجات الاحترافية.'
                     : 'Every success story begins with a profound understanding of client workflows, aligning processes and empowering teams with utmost professionalism.'}
                 </p>
 
-                <div className="mt-6 flex items-center justify-between rounded-xl bg-white p-4 border border-[#E4E7EC]">
-                  <span className="text-xs font-bold text-[#173B67]">
-                    {dir === 'rtl' ? 'جاهز للانطلاق معنا؟' : 'Ready to start with us?'}
+                <div className="mt-6 flex items-center justify-between rounded-xl bg-white dark:bg-[#0F1B2F] p-4 border border-[#E4E7EC] dark:border-slate-800">
+                  <span className="text-xs font-bold text-[#173B67] dark:text-white">
+                    {isRtl ? 'جاهز للانطلاق معنا؟' : 'Ready to start with us?'}
                   </span>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2F80ED] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2F80ED] dark:text-[#38BDF8] hover:underline"
                   >
-                    {dir === 'rtl' ? 'اطلب استشارة' : 'Get a consultation'}
+                    {isRtl ? 'اطلب استشارة' : 'Get a consultation'}
                     <ArrowIcon size={14} />
                   </Link>
                 </div>
@@ -443,7 +388,7 @@ function Partnerships() {
         </div>
       </section>
 
-      {/* ── 6. FINAL CTA ─────────────────────────────────────── */}
+      {/* ── 7. FINAL CTA ─────────────────────────────────────── */}
       <section className="hero-gradient relative overflow-hidden py-20 text-center">
         <div className="relative mx-auto max-w-3xl px-4">
           <Sparkles size={36} className="mx-auto mb-4 text-[#38BDF8]" />
