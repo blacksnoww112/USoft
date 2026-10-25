@@ -1,4 +1,7 @@
-export const PARTNERS_LIST = [
+const b = import.meta.env.BASE_URL || '/'
+const BASE = b.endsWith('/') ? b : `${b}/`
+
+const RAW_PARTNERS = [
   {
     id: 'dice',
     nameAr: 'دايس للملابس الجاهزة',
@@ -213,6 +216,10 @@ export const PARTNERS_LIST = [
     descAr: 'متابعة أوزان القبان، حركة استلام وصرف الغلال، وتكاليف تشغيل المطاحن وجودة الإنتاج.',
     descEn: 'Weighbridge automation, silo grain intake & dispatch, milling batch costs, and lab quality control.',
     tagsAr: ['إدارة الصوامع والمطاحن', 'التكاليف', 'المخازن'],
-    tagsEn: ['Milling & Silos', 'Costing', 'Warehousing'],
   },
 ]
+
+export const PARTNERS_LIST = RAW_PARTNERS.map(p => ({
+  ...p,
+  logo: `${BASE}${p.logo.replace(/^\//, '')}`
+}))

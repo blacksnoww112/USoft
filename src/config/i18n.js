@@ -9,9 +9,9 @@ i18n
     lng: localStorage.getItem('usoft-lang') || 'ar',
     fallbackLng: 'en',
     defaultNS: 'common',
-    ns: ['common', 'navigation', 'home', 'about', 'solutions', 'services', 'contact', 'dashboard', 'modules'],
+    ns: ['common', 'navigation', 'home', 'about', 'solutions', 'services', 'contact', 'dashboard', 'partnerships'],
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
     },
     interpolation: {
       escapeValue: false,

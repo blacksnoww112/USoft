@@ -1,7 +1,25 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { handleContactSubmission } from './api/contactHandler.js'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+function copy404Plugin() {
+  return {
+    name: 'copy-404-plugin',
+    closeBundle() {
+      const distIndex = path.resolve(__dirname, 'dist/index.html')
+      const dist404 = path.resolve(__dirname, 'dist/404.html')
+      if (fs.existsSync(distIndex)) {
+        fs.copyFileSync(distIndex, dist404)
+      }
+    },
+  }
+}
 
 function contactApiPlugin() {
   const handler = async (req, res) => {
@@ -46,9 +64,11 @@ function contactApiPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/USoft/',
   plugins: [
     tailwindcss(),
     react(),
     contactApiPlugin(),
+    copy404Plugin(),
   ],
 })
