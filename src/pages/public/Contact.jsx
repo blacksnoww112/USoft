@@ -10,6 +10,7 @@ import {
   Sparkles, Send, MessageCircle, ExternalLink, Navigation,
 } from 'lucide-react'
 import Button from '../../components/common/Button'
+import { getAssetPath } from '../../utils/assetPath'
 
 const PHONES = ['01022264121', '01022264123', '+20222638031', '+20222638041']
 const EMAILS = ['info@usoft-eg.com', 'Sales@usoft-eg.com']
@@ -88,10 +89,10 @@ function Contact() {
           </div>
           <div className="relative grid grid-cols-2 gap-3 animate-slide-right">
             <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl">
-              <img src="/images/contact/contact-hero.jpg" alt={t('heroImageAlt')} className="h-56 w-full object-cover transition duration-700 hover:scale-110" />
+              <img src={getAssetPath('/images/contact/contact-hero.jpg')} alt={t('heroImageAlt')} className="h-56 w-full object-cover transition duration-700 hover:scale-110" />
             </div>
             <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl">
-              <img src="/images/contact/team.jpg" alt={t('teamImageAlt')} className="h-56 w-full object-cover transition duration-700 hover:scale-110" />
+              <img src={getAssetPath('/images/contact/team.jpg')} alt={t('teamImageAlt')} className="h-56 w-full object-cover transition duration-700 hover:scale-110" />
             </div>
           </div>
         </div>
@@ -174,7 +175,7 @@ function Contact() {
             {/* Office photo */}
             <div className="group overflow-hidden rounded-[2rem] border border-[#E4E7EC] dark:border-[#1E2E48] bg-white dark:bg-[#0F1B2F] p-3 shadow-card-lg dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
               <img
-                src="/images/contact/Office.jpg"
+                src={getAssetPath('/images/contact/Office.jpg')}
                 alt={t('officeImageAlt')}
                 className="h-64 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105"
               />

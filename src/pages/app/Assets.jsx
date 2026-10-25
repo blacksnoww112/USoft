@@ -18,6 +18,7 @@ import {
 import PublicLayout from '../../components/layout/PublicLayout'
 import ModuleNav from '../../components/layout/ModuleNav'
 import useLanguageStore from '../../store/languageStore'
+import { getAssetPath } from '../../utils/assetPath'
 
 function Assets() {
   const { dir } = useLanguageStore()
@@ -136,7 +137,7 @@ function Assets() {
             <div className="relative group animate-slide-right">
               <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/5 p-2 shadow-2xl backdrop-blur-md">
                 <img
-                  src="/images/solutions/SolutionsFixedAssets.jpg"
+                  src={getAssetPath('/images/solutions/SolutionsFixedAssets.jpg')}
                   alt={isRtl ? 'نظام الأصول الثابتة USoft' : 'USoft Fixed Assets System'}
                   className="h-80 sm:h-96 w-full rounded-2xl object-cover transition duration-700 group-hover:scale-105"
                 />

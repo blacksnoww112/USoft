@@ -3,6 +3,7 @@ import PublicLayout from '../../components/layout/PublicLayout'
 import { useTranslation } from 'react-i18next'
 import useLanguageStore from '../../store/languageStore'
 import { Link } from 'react-router-dom'
+import { getAssetPath } from '../../utils/assetPath'
 import {
   BarChart3, Users, ShoppingCart, Package, Building2, Briefcase, CreditCard,
   Monitor, FileText, PieChart, GitMerge, Settings, ArrowRight, ArrowLeft,
@@ -16,18 +17,18 @@ const MODULE_ICONS = {
 }
 
 const MODULE_IMAGES = {
-  accounting: '/images/solutions/SolutionsAccounting.jpg',
-  sales: '/images/solutions/SolutionsSales.jpg',
-  purchases: '/images/solutions/SolutionsPurchases.jpg',
-  inventory: '/images/solutions/SolutionsInventory.jpg',
-  assets: '/images/solutions/SolutionsFixedAssets.jpg',
-  hr: '/images/solutions/SolutionsHumanResources.jpg',
-  payroll: '/images/solutions/SolutionsPayroll.jpg',
-  pos: '/images/solutions/SolutionsSales.jpg',
-  reports: '/images/solutions/SolutionsReports.jpg',
-  shareholders: '/images/solutions/SolutionsReports.jpg',
-  specialized: '/images/solutions/SolutionsSpecialized.jpg',
-  attendance: '/images/solutions/SolutionsAttendance.jpg',
+  accounting: getAssetPath('/images/solutions/SolutionsAccounting.jpg'),
+  sales: getAssetPath('/images/solutions/SolutionsSales.jpg'),
+  purchases: getAssetPath('/images/solutions/SolutionsPurchases.jpg'),
+  inventory: getAssetPath('/images/solutions/SolutionsInventory.jpg'),
+  assets: getAssetPath('/images/solutions/SolutionsFixedAssets.jpg'),
+  hr: getAssetPath('/images/solutions/SolutionsHumanResources.jpg'),
+  payroll: getAssetPath('/images/solutions/SolutionsPayroll.jpg'),
+  pos: getAssetPath('/images/solutions/SolutionsSales.jpg'),
+  reports: getAssetPath('/images/solutions/SolutionsReports.jpg'),
+  shareholders: getAssetPath('/images/solutions/SolutionsReports.jpg'),
+  specialized: getAssetPath('/images/solutions/SolutionsSpecialized.jpg'),
+  attendance: getAssetPath('/images/solutions/SolutionsAttendance.jpg'),
 }
 
 const CATEGORY_FILTER = {
@@ -85,8 +86,8 @@ function Solutions() {
             </Link>
           </div>
           <div className="relative grid grid-cols-2 gap-3 animate-slide-right">
-            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src="/images/solutions/SolutionsHero1.jpg" alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src="/images/solutions/SolutionsHero2.jpg" alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero1.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero2.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
           </div>
         </div>
       </section>
@@ -104,7 +105,7 @@ function Solutions() {
             </div>
           </div>
           <div className="group relative overflow-hidden rounded-[2rem] bg-[#F5F7FA] p-3 shadow-card-lg animate-slide-right">
-            <img src="/images/solutions/SolutionsOverView.jpg" alt={t('overviewImageAlt')} className="h-72 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105" />
+            <img src={getAssetPath('/images/solutions/SolutionsOverView.jpg')} alt={t('overviewImageAlt')} className="h-72 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105" />
             <div className="absolute bottom-7 start-7 rounded-xl border border-white/20 bg-[#173B67]/85 px-4 py-3 text-white backdrop-blur-md"><p className="text-xs text-white/60"> USoft</p><p className="mt-1 text-sm font-bold">{t('overviewCaption')}</p></div>
           </div>
         </div>

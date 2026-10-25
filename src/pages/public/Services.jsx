@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import useLanguageStore from '../../store/languageStore'
 import { Link } from 'react-router-dom'
 import Button from '../../components/common/Button'
+import { getAssetPath } from '../../utils/assetPath'
 import {
   HeadphonesIcon, Wrench, GraduationCap, BarChart2, Plug,
   ArrowRight, ArrowLeft, CheckCircle2, Sparkles, ShieldCheck, MessageCircle,
@@ -11,11 +12,11 @@ import {
 
 const SERVICE_ICONS = [HeadphonesIcon, Wrench, GraduationCap, BarChart2, Plug]
 const SERVICE_IMAGES = [
-  '/images/services/Servicessupport.jpg',
-  '/images/services/ServicesImplementation.jpg',
-  '/images/services/ServicesTraining.jpg',
-  '/images/services/ServicesReporting.jpg',
-  '/images/services/ServicesIntegration.jpg',
+  getAssetPath('/images/services/Servicessupport.jpg'),
+  getAssetPath('/images/services/ServicesImplementation.jpg'),
+  getAssetPath('/images/services/ServicesTraining.jpg'),
+  getAssetPath('/images/services/ServicesReporting.jpg'),
+  getAssetPath('/images/services/ServicesIntegration.jpg'),
 ]
 
 function Services() {
@@ -39,8 +40,8 @@ function Services() {
             <div className="mt-8 flex flex-wrap gap-3"><Link to="/contact"><Button size="lg" variant="accent">{t('heroCta')}<ArrowIcon size={18} /></Button></Link><span className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm font-semibold text-white/80"><ShieldCheck size={17} className="text-[#38BDF8]" />{t('heroTrust')}</span></div>
           </div>
           <div className="grid grid-cols-2 gap-3 animate-slide-right">
-            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src="/images/services/ServicesHero1.jpg" alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src="/images/services/ServicesHero2.jpg" alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/services/ServicesHero1.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/services/ServicesHero2.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
           </div>
         </div>
       </section>
@@ -49,7 +50,7 @@ function Services() {
       <section className="relative overflow-hidden bg-white py-16">
         <div className="pointer-events-none absolute end-0 top-0 h-72 w-72 rounded-full bg-[#EBF2FF] blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
-          <div className="group overflow-hidden rounded-[2rem] bg-[#F5F7FA] p-3 shadow-card-lg animate-slide-left"><img src="/images/services/ServicesOverView.jpg" alt={t('overviewImageAlt')} className="h-72 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105" /></div>
+          <div className="group overflow-hidden rounded-[2rem] bg-[#F5F7FA] p-3 shadow-card-lg animate-slide-left"><img src={getAssetPath('/images/services/ServicesOverView.jpg')} alt={t('overviewImageAlt')} className="h-72 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105" /></div>
           <div className={`${dir === 'rtl' ? 'text-right' : 'text-left'} animate-slide-right`}><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">{t('overviewEyebrow')}</p><h2 className="section-title mb-4">{t('overviewTitle')}</h2><p className="text-lg leading-relaxed text-[#667085]">{t('overviewText')}</p><div className="mt-7 grid gap-3 sm:grid-cols-2">{Object.values(t('overviewPoints', { returnObjects: true })).map((point, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-[#173B67]"><CheckCircle2 size={17} className="text-[#27AE60]" />{point}</div>)}</div></div>
         </div>
       </section>

@@ -12,6 +12,7 @@ import PublicLayout from '../../components/layout/PublicLayout'
 import Button from '../../components/common/Button'
 import Card from '../../components/common/Card'
 import { PARTNERS_LIST } from '../../data/partnersData'
+import { getAssetPath } from '../../utils/assetPath'
 
 /* ─── capability icons ─── */
 const CAP_ICONS = {
@@ -34,10 +35,10 @@ const WHY_ICONS = {
 const INDUSTRY_ICONS = [Building2, Factory, Briefcase, Truck, Globe2]
 
 const PARTNER_IMAGES = [
-  '/images/partners/showcase-1.jpg',
-  '/images/partners/showcase-2.jpg',
-  '/images/partners/showcase-3.jpg',
-  '/images/partners/showcase-4.jpg',
+  getAssetPath('/images/partners/showcase-1.jpg'),
+  getAssetPath('/images/partners/showcase-2.jpg'),
+  getAssetPath('/images/partners/showcase-3.jpg'),
+  getAssetPath('/images/partners/showcase-4.jpg'),
 ]
 
 /* ─── reusable section wrapper ─── */
@@ -73,7 +74,7 @@ function Home() {
             <div className="absolute -inset-5 animate-pulse rounded-[2rem] bg-[#2F80ED]/20 blur-2xl" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-2 shadow-2xl backdrop-blur-sm">
               <img
-                src="/images/HeroSection.jpg"
+                src={getAssetPath('/images/HeroSection.jpg')}
                 alt={dir === 'rtl' ? 'معاينة واجهة منصة USoft' : 'USoft platform preview'}
                 className="block aspect-[4/3] w-full rounded-[1.5rem] object-cover transition duration-700 hover:scale-105"
               />

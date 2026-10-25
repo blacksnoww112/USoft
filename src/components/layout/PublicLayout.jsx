@@ -8,6 +8,7 @@ import Button from '../common/Button'
 import WhatsAppButton from '../common/WhatsAppButton'
 import useLanguageStore from '../../store/languageStore'
 import useThemeStore from '../../store/themeStore'
+import { getAssetPath } from '../../utils/assetPath'
 
 const NAV_LINKS = [
   { to: '/',             key: 'home'         },
@@ -53,7 +54,7 @@ function PublicLayout({ children }) {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group" aria-label="USoft Home">
               <img
-                src={isDark ? '/images/brand/USoftDarkMode.png' : '/images/brand/USoftLightMode.png'}
+                src={getAssetPath(isDark ? '/images/brand/USoftDarkMode.png' : '/images/brand/USoftLightMode.png')}
                 alt="USoft"
                 className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
@@ -146,7 +147,7 @@ function PublicLayout({ children }) {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/images/brand/USoftDarkMode.png"
+                  src={getAssetPath('/images/brand/USoftDarkMode.png')}
                   alt="USoft"
                   className="h-11 w-auto object-contain"
                 />

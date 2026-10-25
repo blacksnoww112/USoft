@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import useLanguageStore from '../../store/languageStore'
 import useThemeStore from '../../store/themeStore'
+import { getAssetPath } from '../../utils/assetPath'
 
 export const APP_NAVIGATION = [
   {
@@ -166,7 +167,7 @@ function Sidebar({ mobileOpen = false, onCloseMobile = () => {} }) {
         <div className="flex h-16 items-center justify-between px-5 border-b border-[#E4E7EC] dark:border-[#1E2E48]">
           <Link to="/" className="flex items-center gap-2.5">
             <img
-              src={isDark ? '/images/brand/USoftDarkMode.png' : '/images/brand/USoftLightMode.png'}
+              src={getAssetPath(isDark ? '/images/brand/USoftDarkMode.png' : '/images/brand/USoftLightMode.png')}
               alt="USoft"
               className="h-8 w-auto object-contain"
             />
