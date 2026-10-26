@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Inpatient & Patient Accounts",
+  "heroTitle": "Complete Inpatient Management & Patient Billing",
+  "heroSubtitle": "A comprehensive system covering the full inpatient lifecycle from admission to discharge, including bed management, medications, procedures, patient accounts, and health insurance.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "Smart Bed Management",
+  "heroBoxDesc": "Real-time occupancy map with transfer and discharge alerts.",
+  "visionEyebrow": "Core Architecture",
+  "visionTitle": "How Does the Inpatient System Transform Your Healthcare Facility?",
+  "visionDesc": "The system connects bed management, treatment, medications, and patient accounts in one platform, ensuring billing accuracy, cost transparency, and improved healthcare quality.",
+  "features": [
+    {
+      "title": "Admission, Discharge & Transfer (ADT)",
+      "desc": "Complete ADT management from bed and room assignment at admission through inter-department transfers to final discharge, with discharge reasons and medical reports."
+    },
+    {
+      "title": "Inpatient Medical Record & Doctor Orders",
+      "desc": "Comprehensive inpatient record with diagnoses, doctor orders, nursing notes, and treatment protocols, with a complete timeline of every procedure during the stay."
+    },
+    {
+      "title": "Medication & Medical Supplies Tracking",
+      "desc": "Real-time tracking of medication and medical supply consumption per patient, linked to pharmacy inventory with automatic patient account cost updates."
+    },
+    {
+      "title": "Bed, Ward & Room Management",
+      "desc": "Interactive bed occupancy map with classifications (standard, private, ICU), patient transfers between rooms and wards, and real-time bed status tracking."
+    },
+    {
+      "title": "Patient Accounts & Comprehensive Billing",
+      "desc": "Cumulative patient account covering room charges, procedures, medications, labs, radiology, and consultations, with insurance, corporate accounts, and installment payment plans."
+    },
+    {
+      "title": "Inpatient Reports & Analytics",
+      "desc": "Reports on occupancy rates, average length of stay, admission/discharge statistics, and revenue per department, with real-time KPIs for administrative decisions."
+    }
+  ],
+  "workflowEyebrow": "Workflow",
+  "workflowTitle": "Inpatient Journey Step-by-Step",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Admission & Bed Assignment",
+      "desc": "Patient is admitted and assigned an appropriate bed and ward based on condition and specialty."
+    },
+    {
+      "step": "02",
+      "title": "Treatment & Daily Rounds",
+      "desc": "Doctor conducts daily rounds, recording medical orders and nursing notes in the electronic file."
+    },
+    {
+      "step": "03",
+      "title": "Cost Accumulation & Services",
+      "desc": "Every service, medication, and supply is automatically logged to the patient account and linked to insurance."
+    },
+    {
+      "step": "04",
+      "title": "Discharge & Final Settlement",
+      "desc": "Discharge summary, final financial settlement, and complete medical report are generated."
+    }
+  ],
+  "closingTitle": "Ready to Upgrade Your Inpatient Operations?",
+  "closingDesc": "Speak with our healthcare ERP advisors today and schedule a live walkthrough of the Inpatient & Patient Accounts module.",
+  "closingBtn": "Book a Live Demo"
+}

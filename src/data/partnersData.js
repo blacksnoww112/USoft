@@ -2,6 +2,119 @@ const b = import.meta.env.BASE_URL || '/'
 const BASE = b.endsWith('/') ? b : `${b}/`
 
 const RAW_PARTNERS = [
+  // ── 1. Top Priority Partner 1: بنك نكست ────────────────────────
+  {
+    id: 'bank-nxt',
+    nameAr: 'بنك نكست (Bank NXT)',
+    nameEn: 'Bank NXT',
+    sectorAr: 'القطاع المصرفي والخدمات المالية',
+    sectorEn: 'Banking & Financial Services',
+    logo: '/images/Partnerships/بنك نكست.jpg',
+    descAr: 'شراكة مصرفية استراتيجية لإدارة دورة الأصول الثابتة، عمليات المشتريات والمناقصات، والرقابة التشغيلية والمالية وفق أعلى المعايير المصرفية.',
+    descEn: 'Strategic enterprise partnership managing fixed asset lifecycles, corporate procurement, and financial governance adhering to rigorous banking standards.',
+    tagsAr: ['الأصول الثابتة', 'المشتريات والمناقصات', 'الرقابة المالية', 'التقارير'],
+    tagsEn: ['Fixed Assets', 'Procurement', 'Financial Control', 'Reports'],
+  },
+
+  // ── 2. Top Priority Partner 2: أمانة المراكز الطبية المتخصصة ──────────────────────────
+  {
+    id: 'smc',
+    nameAr: 'أمانة المراكز الطبية المتخصصة',
+    nameEn: 'Specialized Medical Centers (SMC)',
+    sectorAr: 'الرعاية الصحية والقطاع الطبي',
+    sectorEn: 'Healthcare & Specialized Medical Centers',
+    logo: '/images/Partnerships/أمانه المراكز الطبيه المتخصصه.jpg',
+    descAr: 'منظومة إدارية ومخزنية متكاملة لتنظيم التوريدات والمستلزمات والأصول الطبية والمخازن التابعة للمراكز الطبية التخصصية.',
+    descEn: 'Unified enterprise system organizing medical supplies, equipment assets, central warehousing, and procurement across medical centers.',
+    tagsAr: ['المستلزمات الطبية', 'المخازن المركزية', 'الأصول والمعدات', 'المشتريات'],
+    tagsEn: ['Medical Supplies', 'Central Inventory', 'Assets', 'Procurement'],
+  },
+
+  // ── 3. Top Priority Partner 3: شاي العروسة ─────────────────────
+  {
+    id: 'el-arosa',
+    nameAr: 'شاي العروسة ',
+    nameEn: 'El Arosa Tea ',
+    sectorAr: 'صناعات غذائية وتوزيع',
+    sectorEn: 'Food & Distribution',
+    logo: '/images/Partnerships/El Arosa Tea.jpg',
+    descAr: 'إدارة أسطول التوزيع والمستودعات اللوجستية الكبرى وحسابات المبيعات وسلاسل الإمداد على مستوى الجمهورية.',
+    descEn: 'Managing nationwide distribution logistics, large-scale warehouses, and FMCG wholesale billing.',
+    tagsAr: ['التوزيع والأسطول', 'المخازن المركزية', 'المبيعات', 'التقارير'],
+    tagsEn: ['Distribution', 'Warehouses', 'Sales', 'Reports'],
+  },
+
+  // ── 4. Top Priority Partner 4: مكرونة حواء ─────────────────────
+  {
+    id: 'hawa',
+    nameAr: 'مكرونة حواء',
+    nameEn: 'Hawaa Pasta',
+    sectorAr: 'صناعات غذائية وتوزيع',
+    sectorEn: 'Food Industries & Pasta Manufacturing',
+    logo: '/images/Partnerships/Hawa.jpg',
+    descAr: 'إدارة خطوط إنتاج وتعبئة المعكرونة، ضبط التكاليف الصناعية والمواد الخام، ومتابعة حركة المستودعات وسلاسل التوزيع الكبرى.',
+    descEn: 'Managing high-volume pasta manufacturing, industrial recipe costing, central warehousing, and nationwide retail distribution networks.',
+    tagsAr: ['إدارة الإنتاج', 'حسابات التكاليف', 'المخازن المركزية', 'المبيعات'],
+    tagsEn: ['Production', 'Costing', 'Warehouses', 'Sales'],
+  },
+
+  // ── 5. Top Priority Partner 5: معهد ناصر ───────────────────────
+  {
+    id: 'nasser-institute',
+    nameAr: 'معهد ناصر للبحوث والعلاج',
+    nameEn: 'Nasser Institute for Research & Treatment',
+    sectorAr: 'الرعاية الصحية والمستشفيات الكبرى',
+    sectorEn: 'Healthcare & Specialized Medical Institutes',
+    logo: '/images/Partnerships/معهد ناصر.jpg',
+    descAr: 'ميكنة متطورة لإدارة الصيدليات والمستلزمات الطبية، المستودعات، الأصول والمعدات الطبية، والرقابة على الموازنات التشغيلية للمستشفى.',
+    descEn: 'Advanced medical supply chain automation, hospital pharmacy inventory, clinical equipment asset management, and budget oversight.',
+    tagsAr: ['المستلزمات الطبية', 'إدارة الأصول', 'المخازن', 'الرقابة المالية'],
+    tagsEn: ['Medical Supplies', 'Asset Management', 'Inventory', 'Budget Control'],
+  },
+
+  // ── 6. Top Priority Partner 6: وادي دجلة للتنمية الزراعية ──────
+  {
+    id: 'wadi-degla',
+    nameAr: 'وادي دجلة للتنمية الزراعية',
+    nameEn: 'Wadi Degla Agricultural Development',
+    sectorAr: 'تنمية زراعية واستثمار',
+    sectorEn: 'Agricultural Development & Agribusiness',
+    logo: '/images/Partnerships/Wadi Degla.jpeg',
+    descAr: 'منظومة متكاملة لإدارة المشاريع الزراعية والإنتاج، مراكز التكلفة التشغيلية، ومتابعة حركة المستودعات والتوريدات وسلاسل الإمداد.',
+    descEn: 'Enterprise management for agribusiness operations, crop yields, operational cost centers, equipment assets, and supply logistics.',
+    tagsAr: ['مراكز التكلفة', 'إدارة المشاريع', 'المخازن', 'الحسابات'],
+    tagsEn: ['Cost Centers', 'Projects', 'Warehouses', 'Accounting'],
+  },
+
+  // ── 7. Top Priority Partner 7: أكتيف أبو علاء (Active) ─────────
+  {
+    id: 'active',
+    nameAr: 'أكتيف أبو علاء (Active Abou Alaa)',
+    nameEn: 'Active Abou Alaa Sportswear',
+    sectorAr: 'ملابس ومستلزمات رياضية وتجزئة',
+    sectorEn: 'Sportswear Retail Chain',
+    logo: '/images/Partnerships/active.jpg',
+    descAr: 'إدارة شبكة الفروع ونقاط البيع السريعة مع مزامنة لحظية للمخزون والباركود والخصومات والعروض الترويجية عبر الجمهورية.',
+    descEn: 'POS store synchronization, multi-branch stock transfers, barcode tracking, and loyalty promotions across nationwide outlets.',
+    tagsAr: ['نقاط البيع', 'المخازن المركزية', 'المبيعات', 'الباركود'],
+    tagsEn: ['POS', 'Central Stock', 'Sales', 'Barcode'],
+  },
+
+  // ── 8. Top Priority Partner 8: CPC الصناعي ────────────────────
+  {
+    id: 'cpc',
+    nameAr: 'مجمع CPC مصر للمناطق الصناعية',
+    nameEn: 'CPC Egypt Industrial Parks',
+    sectorAr: 'تطوير وتشغيل المدن والمجمعات الصناعية',
+    sectorEn: 'Industrial Parks & Facilities Management',
+    logo: '/images/Partnerships/مجمع CPC الصناعي.jpeg',
+    descAr: 'إدارة مرافق المناطق الصناعية، عقود المستثمرين والمصانع، والتحصيل والفوترة الدورية للخدمات والصيانة والمرافق العامة.',
+    descEn: 'Industrial facility administration, investor contracts, recurring utility and maintenance billing, and service management.',
+    tagsAr: ['إدارة المرافق والعقود', 'الفوترة والتحصيل', 'التقارير'],
+    tagsEn: ['Facility Management', 'Billing', 'Reports'],
+  },
+
+  // ── 9. دايس للملابس الجاهزة ──────────────────────────────────
   {
     id: 'dice',
     nameAr: 'دايس للملابس الجاهزة',
@@ -14,18 +127,8 @@ const RAW_PARTNERS = [
     tagsAr: ['إدارة الإنتاج', 'المخازن', 'نقاط البيع', 'الحسابات'],
     tagsEn: ['Production', 'Inventory', 'POS', 'Accounting'],
   },
-  {
-    id: 'el-arosa',
-    nameAr: 'شاي العروسة (مجموعة بدوي)',
-    nameEn: 'El Arosa Tea (Badawi Group)',
-    sectorAr: 'صناعات غذائية وتوزيع',
-    sectorEn: 'Food & Distribution',
-    logo: '/images/Partnerships/El Arosa Tea.jpg',
-    descAr: 'إدارة أسطول التوزيع والمستودعات اللوجستية الكبرى وحسابات المبيعات وسلاسل الإمداد على مستوى الجمهورية.',
-    descEn: 'Managing nationwide distribution logistics, large-scale warehouses, and FMCG wholesale billing.',
-    tagsAr: ['التوزيع والأسطول', 'المخازن المركزية', 'المبيعات', 'التقارير'],
-    tagsEn: ['Distribution', 'Warehouses', 'Sales', 'Reports'],
-  },
+
+  // ── 10. شركة الجيزة للغزل والنسيج ────────────────────────────
   {
     id: 'giza-textiles',
     nameAr: 'شركة الجيزة للغزل والنسيج',
@@ -38,6 +141,8 @@ const RAW_PARTNERS = [
     tagsAr: ['حسابات التكاليف', 'إدارة الأصول', 'المشتريات', 'المخازن'],
     tagsEn: ['Costing', 'Fixed Assets', 'Purchasing', 'Inventory'],
   },
+
+  // ── 11. جولسان مصر ───────────────────────────────────────────
   {
     id: 'gulsan',
     nameAr: 'جولسان مصر (Gülsan Egypt)',
@@ -50,18 +155,8 @@ const RAW_PARTNERS = [
     tagsAr: ['المحاسبة المتقدمة', 'المخزون', 'التكاليف'],
     tagsEn: ['Financials', 'Inventory', 'Cost Control'],
   },
-  {
-    id: 'hawa',
-    nameAr: 'مجموعة حواء للتجارة والصناعة',
-    nameEn: 'Hawa Trading & Industry Group',
-    sectorAr: 'تجارة وتوريدات هندسية وصناعية',
-    sectorEn: 'Engineering & Industrial Trade',
-    logo: '/images/Partnerships/Hawa.jpg',
-    descAr: 'متابعة دورة المشتريات والتوريدات والمخزون وحسابات العملاء والموردين بدقة متكاملة.',
-    descEn: 'Complete procurement lifecycle, inventory controls, vendor management, and unified receivables.',
-    tagsAr: ['المشتريات', 'المبيعات', 'المخازن', 'الحسابات'],
-    tagsEn: ['Purchases', 'Sales', 'Inventory', 'Accounting'],
-  },
+
+  // ── 12. شركة الإسماعيلية مصر للدواجن ─────────────────────────
   {
     id: 'ismailia-poultry',
     nameAr: 'شركة الإسماعيلية مصر للدواجن',
@@ -74,6 +169,8 @@ const RAW_PARTNERS = [
     tagsAr: ['التكاليف والتشغيل', 'المخازن', 'سلاسل الإمداد'],
     tagsEn: ['Costing', 'Warehousing', 'Supply Chain'],
   },
+
+  // ── 13. مجموعة كي سي جي للنسيج ───────────────────────────────
   {
     id: 'kcg',
     nameAr: 'مجموعة كي سي جي للنسيج (KCG)',
@@ -86,6 +183,8 @@ const RAW_PARTNERS = [
     tagsAr: ['الموارد البشرية', 'الرواتب', 'التكاليف', 'المخازن'],
     tagsEn: ['HR', 'Payroll', 'Costing', 'Inventory'],
   },
+
+  // ── 14. شركة كارمكو للصناعات الهندسية ─────────────────────────
   {
     id: 'karmko',
     nameAr: 'شركة كارمكو للصناعات الهندسية',
@@ -98,6 +197,8 @@ const RAW_PARTNERS = [
     tagsAr: ['التصنيع', 'مراقبة التكاليف', 'الأصول'],
     tagsEn: ['Manufacturing', 'Cost Control', 'Assets'],
   },
+
+  // ── 15. شركة سينجر مصر ───────────────────────────────────────
   {
     id: 'singer',
     nameAr: 'شركة سينجر مصر (Singer Egypt)',
@@ -110,6 +211,8 @@ const RAW_PARTNERS = [
     tagsAr: ['نقاط البيع', 'الصيانة', 'المخازن', 'المبيعات'],
     tagsEn: ['POS', 'Maintenance', 'Inventory', 'Sales'],
   },
+
+  // ── 16. شركة تي آند سي للملابس ───────────────────────────────
   {
     id: 'tc-garments',
     nameAr: 'شركة تي آند سي للملابس (T&C Garments)',
@@ -122,30 +225,8 @@ const RAW_PARTNERS = [
     tagsAr: ['الإنتاج', 'التكاليف', 'المخازن', 'الموارد البشرية'],
     tagsEn: ['Production', 'Costing', 'Inventory', 'HR'],
   },
-  {
-    id: 'wadi-degla',
-    nameAr: 'مجموعة وادي دجلة القابضة',
-    nameEn: 'Wadi Degla Holding',
-    sectorAr: 'استثمار عقاري وأندية ورياضة',
-    sectorEn: 'Real Estate & Sports Clubs',
-    logo: '/images/Partnerships/Wadi Degla.jpeg',
-    descAr: 'منظومة مالية وإدارية موحدة تدعم التوسع التشغيلي وإدارة الأصول والمشاريع الكبرى والخدمات.',
-    descEn: 'Enterprise accounting, multi-entity financial consolidation, and large-scale project asset management.',
-    tagsAr: ['الحسابات العامة', 'الأصول الثابتة', 'إدارة المشاريع'],
-    tagsEn: ['Accounting', 'Fixed Assets', 'Projects'],
-  },
-  {
-    id: 'active',
-    nameAr: 'أكتيف أبو علاء (Active Abou Alaa)',
-    nameEn: 'Active Abou Alaa Sportswear',
-    sectorAr: 'ملابس ومستلزمات رياضية وتجزئة',
-    sectorEn: 'Sportswear Retail Chain',
-    logo: '/images/Partnerships/active.jpg',
-    descAr: 'إدارة شبكة الفروع ونقاط البيع السريعة مع مزامنة لحظية للمخزون والباركود والخصومات والعروض.',
-    descEn: 'POS store synchronization, multi-branch stock transfers, barcode tracking, and loyalty promotions.',
-    tagsAr: ['نقاط البيع', 'المخازن المركزية', 'المبيعات'],
-    tagsEn: ['POS', 'Central Stock', 'Sales'],
-  },
+
+  // ── 17. الإسكندرية للاستثمارات والتنمية العمرانية ────────────
   {
     id: 'alex-urban',
     nameAr: 'الإسكندرية للاستثمارات والتنمية العمرانية',
@@ -158,6 +239,8 @@ const RAW_PARTNERS = [
     tagsAr: ['إدارة العقود والأقساط', 'مراكز التكلفة', 'الحسابات'],
     tagsEn: ['Contracts & Installments', 'Cost Centers', 'Accounting'],
   },
+
+  // ── 18. الجيزة العامة للمقاولات والاستثمار العقاري ───────────
   {
     id: 'giza-contracting',
     nameAr: 'الجيزة العامة للمقاولات والاستثمار العقاري',
@@ -170,6 +253,8 @@ const RAW_PARTNERS = [
     tagsAr: ['المستخلصات', 'المقاولات', 'المشتريات', 'الأصول'],
     tagsEn: ['Certificates', 'Contracting', 'Procurement', 'Assets'],
   },
+
+  // ── 19. مجموعة الرضوان للتجارة والتوريدات ───────────────────
   {
     id: 'al-radwan',
     nameAr: 'مجموعة الرضوان للتجارة والتوريدات',
@@ -182,6 +267,8 @@ const RAW_PARTNERS = [
     tagsAr: ['المبيعات', 'المشتريات', 'المخازن', 'الحسابات'],
     tagsEn: ['Sales', 'Purchases', 'Inventory', 'Accounting'],
   },
+
+  // ── 20. الشركة المتحدة للإسكان والتعمير ───────────────────────
   {
     id: 'united-housing',
     nameAr: 'الشركة المتحدة للإسكان والتعمير',
@@ -194,18 +281,8 @@ const RAW_PARTNERS = [
     tagsAr: ['التطوير العقاري', 'الأصول', 'الحسابات العامة'],
     tagsEn: ['Real Estate', 'Assets', 'Financials'],
   },
-  {
-    id: 'cpc',
-    nameAr: 'مجمع CPC مصر للمناطق الصناعية',
-    nameEn: 'CPC Egypt Industrial Parks',
-    sectorAr: 'تطوير وتشغيل المدن الصناعية',
-    sectorEn: 'Industrial Parks & Facilities Management',
-    logo: '/images/Partnerships/مجمع CPC الصناعي.jpeg',
-    descAr: 'إدارة مرافق المناطق الصناعية، عقود المستثمرين والمصانع، والتحصيل والفوترة الدورية للخدمات.',
-    descEn: 'Industrial facility administration, investor contracts, recurring maintenance billing, and utilities management.',
-    tagsAr: ['إدارة المرافق والعقود', 'الفوترة', 'التقارير'],
-    tagsEn: ['Facility Management', 'Billing', 'Reports'],
-  },
+
+  // ── 21. شركة مطاحن المنهاري للحبوب ────────────────────────────
   {
     id: 'al-menhary',
     nameAr: 'شركة مطاحن المنهاري للحبوب',
@@ -216,6 +293,7 @@ const RAW_PARTNERS = [
     descAr: 'متابعة أوزان القبان، حركة استلام وصرف الغلال، وتكاليف تشغيل المطاحن وجودة الإنتاج.',
     descEn: 'Weighbridge automation, silo grain intake & dispatch, milling batch costs, and lab quality control.',
     tagsAr: ['إدارة الصوامع والمطاحن', 'التكاليف', 'المخازن'],
+    tagsEn: ['Silos & Milling', 'Costing', 'Warehousing'],
   },
 ]
 

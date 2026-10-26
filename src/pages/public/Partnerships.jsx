@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import {
   ArrowLeft, ArrowRight, CheckCircle2,
   Sparkles, Handshake, ShieldCheck, X,
-  ExternalLink, Layers, Award,
+  ExternalLink, Award,
 } from 'lucide-react'
 import PublicLayout from '../../components/layout/PublicLayout'
 import useLanguageStore from '../../store/languageStore'
@@ -105,8 +105,8 @@ function Partnerships() {
           </h2>
           <p className="text-sm md:text-base text-[#667085] dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             {isRtl
-              ? 'اضغط على أي شركة لاستعراض تفاصيل الشراكة وقصة النجاح وحلول USoft المطبقة لديها.'
-              : 'Click on any partner to view partnership details, success highlights, and deployed USoft solutions.'}
+              ? 'اضغط على أي شركة لاستعراض تفاصيل الشراكة وقصة النجاح وأبرز المخرجات التشغيلية.'
+              : 'Click on any partner to view partnership details, success story, and key operational impact.'}
           </p>
         </div>
       </section>
@@ -229,45 +229,24 @@ function Partnerships() {
             <div className="overflow-y-auto p-6 sm:p-8 space-y-6 text-start">
               {/* 1. Partnership Overview */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2">
+                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2.5">
                   <Handshake size={17} />
                   <span>{isRtl ? 'نبذة عن الشراكة وقصة النجاح' : 'Partnership & Success Story'}</span>
                 </h4>
-                <div className="rounded-2xl bg-[#F8FAFC] dark:bg-[#070D18] p-4 border border-[#E4E7EC] dark:border-slate-800">
-                  <p className="text-sm leading-relaxed text-[#475569] dark:text-slate-200">
+                <div className="rounded-2xl bg-[#F8FAFC] dark:bg-[#070D18] p-5 border border-[#E4E7EC] dark:border-slate-800">
+                  <p className="text-sm sm:text-base leading-relaxed text-[#475569] dark:text-slate-200">
                     {isRtl ? selectedPartner.descAr : selectedPartner.descEn}
                   </p>
                 </div>
               </div>
 
-              {/* 2. Deployed Modules & Solutions */}
-              {selectedPartner.tagsAr && selectedPartner.tagsAr.length > 0 && (
-                <div>
-                  <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2.5">
-                    <Layers size={17} />
-                    <span>{isRtl ? 'حلول ومنظومات USoft المطبقة' : 'Deployed USoft ERP Modules'}</span>
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {(isRtl ? selectedPartner.tagsAr : selectedPartner.tagsEn).map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center gap-1.5 rounded-xl border border-[#2F80ED]/20 bg-[#EBF2FF] dark:bg-[#172A45] px-3.5 py-1.5 text-xs font-bold text-[#2F80ED] dark:text-[#38BDF8]"
-                      >
-                        <CheckCircle2 size={13} className="text-emerald-500" />
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* 3. Key Achievements & Value Delivered */}
+              {/* 2. Key Achievements & Value Delivered */}
               <div>
-                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-2.5">
+                <h4 className="flex items-center gap-2 text-sm font-bold text-[#173B67] dark:text-[#38BDF8] uppercase tracking-wider mb-3">
                   <ShieldCheck size={17} />
                   <span>{isRtl ? 'أبرز المخرجات والقيمة المضافة' : 'Key Value & Operational Impact'}</span>
                 </h4>
-                <div className="space-y-2.5">
+                <div className="grid gap-3">
                   {[
                     isRtl
                       ? 'مزامنة لحظية للبيانات وسلاسل الإمداد عبر جميع المستودعات والمصانع والفروع.'
@@ -279,9 +258,14 @@ function Partnerships() {
                       ? 'تقارير إحصائية وتحليلية تدعم الإدارة التنفيذية في سرعة اتخاذ القرارات اليومية.'
                       : 'Automated executive KPI dashboards empowering rapid strategic business decisions.',
                   ].map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#475569] dark:text-slate-300">
-                      <CheckCircle2 size={16} className="text-[#2F80ED] dark:text-[#38BDF8] shrink-0 mt-0.5" />
-                      <span>{highlight}</span>
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 rounded-xl bg-[#F8FAFC] dark:bg-[#070D18]/60 p-3.5 border border-[#E4E7EC]/70 dark:border-slate-800/80 text-xs sm:text-sm text-[#475569] dark:text-slate-200"
+                    >
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#EBF2FF] dark:bg-[#172A45] text-[#2F80ED] dark:text-[#38BDF8] mt-0.5">
+                        <CheckCircle2 size={15} />
+                      </div>
+                      <span className="leading-relaxed">{highlight}</span>
                     </div>
                   ))}
                 </div>

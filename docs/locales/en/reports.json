@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Business Intelligence & Reporting",
+  "heroTitle": "Financial BI & Executive Reporting Suite",
+  "heroSubtitle": "Turn fragmented transactional data into strategic corporate clarity: comprehensive P&L, cash flow audits, and exportable operational analytics.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "150+ Standard Reports",
+  "heroBoxDesc": "Accurate statements for audit readiness.",
+  "visionEyebrow": "Executive Clarity",
+  "visionTitle": "Actionable Intelligence for Business Leaders",
+  "visionDesc": "You cannot manage what you cannot measure. USoft reporting equips corporate executives with real-time transparency into branch performance, margins, and obligations.",
+  "features": [
+    {
+      "title": "Auditor-Certified Financial Statements",
+      "desc": "Generate Comprehensive P&L, Balance Sheet, Cash Flow, and Trial Balance compliant with Egyptian Accounting Standards and IFRS."
+    },
+    {
+      "title": "Multi-Level Profitability & Margin Analytics",
+      "desc": "Drill down into standalone profitability per product, customer account, branch, and project to direct strategic capital."
+    },
+    {
+      "title": "Tax Inspection & Regulatory Filing Reports",
+      "desc": "Generate automated VAT returns, withholding tax declarations (Form 41), and ETA reconciliation schedules ready for statutory submission."
+    },
+    {
+      "title": "Custom Report Designer & Advanced Query Filters",
+      "desc": "Flexible query builder enabling users to customize data columns, apply multi-branch filters, and aggregate custom business metrics."
+    },
+    {
+      "title": "Scheduled Report Delivery via Email",
+      "desc": "Configure automated scheduled dispatch of daily executive sales recaps and monthly financial summaries directly to leadership emails."
+    },
+    {
+      "title": "Universal Format Exports (Excel, PDF, CSV)",
+      "desc": "One-click formatted export to Microsoft Excel formulas, publication-ready PDF documents with corporate letterheads, and CSV files."
+    }
+  ],
+  "workflowEyebrow": "Reporting Process",
+  "workflowTitle": "From Data Gathering to Executive Export",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Select Report",
+      "desc": "Choose from over 150 standard operational and financial templates."
+    },
+    {
+      "step": "02",
+      "title": "Configure Filters",
+      "desc": "Set date bounds, branches, currencies, and cost center criteria."
+    },
+    {
+      "step": "03",
+      "title": "Generate & Drill Down",
+      "desc": "Instant calculation with interactive drill-down to source vouchers."
+    },
+    {
+      "step": "04",
+      "title": "Export & Share",
+      "desc": "Export to Excel, generate signed PDF, or send via scheduled email."
+    }
+  ],
+  "closingTitle": "Ready for Instant, Audit-Ready Financial Statements?",
+  "closingDesc": "Consult with our ERP advisors to explore our standard and custom reporting capabilities.",
+  "closingBtn": "Book a Live Demo"
+}

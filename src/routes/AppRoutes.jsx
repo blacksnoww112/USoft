@@ -21,6 +21,11 @@ const Payroll        = lazy(() => import('../pages/app/Payroll'))
 const PointOfSale    = lazy(() => import('../pages/app/PointOfSale'))
 const Reports        = lazy(() => import('../pages/app/Reports'))
 const Settings       = lazy(() => import('../pages/app/Settings'))
+const OutpatientClinics = lazy(() => import('../pages/app/OutpatientClinics'))
+const InpatientAccounts = lazy(() => import('../pages/app/InpatientAccounts'))
+const RealEstate        = lazy(() => import('../pages/app/RealEstate'))
+const Contracting       = lazy(() => import('../pages/app/Contracting'))
+const Production        = lazy(() => import('../pages/app/Production'))
 
 function AppRoutes() {
   return (
@@ -47,6 +52,11 @@ function AppRoutes() {
           <Route path="pos"         element={<PointOfSale />} />
           <Route path="reports"     element={<Reports />} />
           <Route path="settings"    element={<Settings />} />
+          <Route path="outpatient"  element={<OutpatientClinics />} />
+          <Route path="inpatient"   element={<InpatientAccounts />} />
+          <Route path="real-estate" element={<RealEstate />} />
+          <Route path="contracting" element={<Contracting />} />
+          <Route path="production"  element={<Production />} />
         </Route>
 
         {/* Fallback */}

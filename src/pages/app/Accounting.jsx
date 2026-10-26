@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   BarChart3,
   CheckCircle2,
@@ -8,12 +9,9 @@ import {
   ArrowLeft,
   ShieldCheck,
   FileText,
-  DollarSign,
   Layers,
   Building,
-  TrendingUp,
   Workflow,
-  Check,
   PieChart,
 } from 'lucide-react'
 import PublicLayout from '../../components/layout/PublicLayout'
@@ -22,77 +20,14 @@ import useLanguageStore from '../../store/languageStore'
 import { getAssetPath } from '../../utils/assetPath'
 
 function Accounting() {
+  const { t } = useTranslation('accounting')
   const { dir } = useLanguageStore()
   const isRtl = dir === 'rtl'
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight
 
-  const features = [
-    {
-      icon: Layers,
-      title: isRtl ? 'دليل وشجرة حسابات ديناميكية متعددة المستويات' : 'Multi-Level Dynamic Chart of Accounts',
-      desc: isRtl
-        ? 'بناء دليل محاسبي مرن يتناسب مع كافة الأنشطة التجارية والصناعية والخدمية وفقاً لمعايير المحاسبة المصرية (EAS) والدولية (IFRS)، مع ترقيم هرمي وتصنيف دقيق للأصول، الخصوم، حقوق الملكية، الإيرادات والمصروفات.'
-        : 'Flexible chart of accounts compliant with Egyptian and International (IFRS) standards with hierarchical coding and clear classifications.',
-    },
-    {
-      icon: Workflow,
-      title: isRtl ? 'الترحيل الآلي للقيود اليومية من كافة الأقسام' : 'Automated Journal Entry Posting',
-      desc: isRtl
-        ? 'يتم توليد وترحيل قيود اليومية تلقائياً من حركات المبيعات، المشتريات، أذون المخازن، الرواتب، وإهلاك الأصول دون أي تدخل يدوي، مما يقضي تماماً على احتمالات الخطأ البشري ويوفر مئات الساعات شهرياً.'
-        : 'Automatic posting of entries generated across sales, procurement, inventory, payroll, and assets without human intervention.',
-    },
-    {
-      icon: PieChart,
-      title: isRtl ? 'مراكز التكلفة والمشاريع متعددة الأبعاد' : 'Multi-Dimensional Cost Centers',
-      desc: isRtl
-        ? 'توزيع الإيرادات والمصروفات بدقة متناهية على مستوى الفروع، المشاريع، خطوط الإنتاج، أو الأقسام، مما يمكنك من معرفة ربحية كل نشاط أو فرع بشكل منفصل وبمنتهى الشفافية.'
-        : 'Allocate revenue and expenditures across branches, projects, or production lines to evaluate standalone profitability.',
-    },
-    {
-      icon: Building,
-      title: isRtl ? 'إدارة الخزائن والحسابات البنكية والتسويات' : 'Cash & Bank Management with Reconciliation',
-      desc: isRtl
-        ? 'متابعة لحظية لأرصدة الخزائن النقدية والحسابات البنكية المتعددة والعملات الأجنبية، مع إمكانية استيراد كشوف الحساب البنكية وإجراء التسويات التلقائية وتتبع الشيكات الصادرة والواردة.'
-        : 'Real-time multi-currency bank account and cash drawer tracking, automated bank reconciliation, and check register.',
-    },
-    {
-      icon: ShieldCheck,
-      title: isRtl ? 'التوافق التام مع منظومة الفاتورة الإلكترونية والضرائب' : 'ETA E-Invoicing & Tax Compliance',
-      desc: isRtl
-        ? 'ربط مباشر وموثق مع مصلحة الضرائب المصرية (ETA) لإصدار الفواتير والإيصالات الإلكترونية وحساب ضريبة القيمة المضافة 14% وضريبة الخصم والإضافة وإعداد الإقرارات الدورية بضغطة زر.'
-        : 'Full integration with the Egyptian Tax Authority (ETA) for certified e-invoices, VAT 14%, and automated statutory returns.',
-    },
-    {
-      icon: FileText,
-      title: isRtl ? 'القوائم المالية الختامية وموازين المراجعة اللحظية' : 'Real-Time Financial Statements & Trial Balance',
-      desc: isRtl
-        ? 'توليد ميزان المراجعة بالأرصدة والمجاميع، قائمة الدخل الشامل (الأرباح والخسائر)، الميزانية العمومية، وقائمة التدفقات النقدية في أي لحظة مع مقارنات سنوية ودورية دقيقة.'
-        : 'Instant generation of Trial Balance, Comprehensive P&L, Balance Sheet, and Cash Flow statements with period comparisons.',
-    },
-  ]
-
-  const steps = [
-    {
-      step: '01',
-      title: isRtl ? 'تسجيل العمليات والحركات' : 'Operations & Inception',
-      desc: isRtl ? 'تتم العمليات في نقاط البيع، الفواتير، المشتريات، وصرف الرواتب وتغذية النظام بالبيانات الأولية.' : 'Transactions initiate across sales, POS, purchasing, and payroll.',
-    },
-    {
-      step: '02',
-      title: isRtl ? 'توليد القيود المحاسبية آلياً' : 'Automated Ledger Creation',
-      desc: isRtl ? 'يقوم محرك USoft المالي بإنشاء قيود مزدوجة متوازنة تلقائياً وفقاً للتوجيه المحاسبي المعتمد.' : 'Engine creates balanced double-entry vouchers automatically.',
-    },
-    {
-      step: '03',
-      title: isRtl ? 'الترحيل للأستاذ ومراكز التكلفة' : 'Posting & Cost Center Allocation',
-      desc: isRtl ? 'ترحيل فوري لأرصدة الحسابات وربط المصروفات والإيرادات بمراكز التكلفة المعنية.' : 'Instant posting to general ledger and related cost centers.',
-    },
-    {
-      step: '04',
-      title: isRtl ? 'استخراج التقارير والقرارات' : 'Financial Intelligence & Reports',
-      desc: isRtl ? 'إتاحة القوائم المالية اللحظية للإدارة المالية وأصحاب القرار لمتابعة ربحية الشركة بدقة.' : 'Audited reports and P&L statements made available for executives.',
-    },
-  ]
+  const featureIcons = [Layers, Workflow, PieChart, Building, ShieldCheck, FileText]
+  const features = t('features', { returnObjects: true }) || []
+  const steps = t('steps', { returnObjects: true }) || []
 
   return (
     <PublicLayout>
@@ -106,15 +41,13 @@ function Accounting() {
             <div className={`${isRtl ? 'text-right' : 'text-left'} space-y-6 animate-fade-up`}>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold text-white">
                 <BarChart3 size={15} className="text-[#38BDF8]" />
-                {isRtl ? 'الإدارة المالية والمحاسبة العامة' : 'Financial Accounting Engine'}
+                {t('heroBadge')}
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-                {isRtl ? 'نظام المحاسبة العامة وشجرة الحسابات المتكاملة' : 'General Ledger & Financial Accounting'}
+                {t('heroTitle')}
               </h1>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">
-                {isRtl
-                  ? 'القلب المالي النابض لشركتك؛ صُمم ليمنح الإدارة المالية دقة متناهية، رقابة صارمة على التدفقات النقدية، وإقفالاً سنوياً وشهرياً ميسراً وفقاً لأعلى معايير المحاسبة والامتثال الضريبي.'
-                  : 'The financial backbone of your business, built for maximum accuracy, total cash flow oversight, and effortless period closures in full compliance with accounting standards.'}
+                {t('heroSubtitle')}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -122,14 +55,14 @@ function Accounting() {
                   to="/contact"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-7 py-3.5 text-sm font-bold text-[#173B67] transition duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span>{isRtl ? 'طلب استشارة وعرض تجريبي' : 'Request Free Demo'}</span>
+                  <span>{t('demoBtn')}</span>
                   <ArrowIcon size={16} />
                 </Link>
                 <Link
                   to="/solutions"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition duration-300 hover:bg-white/10"
                 >
-                  <span>{isRtl ? 'الرجوع إلى قائمة الحلول' : 'All Solutions'}</span>
+                  <span>{t('allSolutionsBtn')}</span>
                 </Link>
               </div>
             </div>
@@ -139,17 +72,17 @@ function Accounting() {
               <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/5 p-2 shadow-2xl backdrop-blur-md">
                 <img
                   src={getAssetPath('/images/solutions/SolutionsAccounting.jpg')}
-                  alt={isRtl ? 'نظام المحاسبة العامة USoft' : 'USoft Accounting System'}
+                  alt={t('heroTitle')}
                   className="h-80 sm:h-96 w-full rounded-2xl object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="absolute -bottom-5 -start-5 rounded-2xl border border-white/20 bg-[#173B67]/90 p-4 text-white shadow-xl backdrop-blur-md max-w-xs hidden sm:block">
                 <div className="flex items-center gap-2 text-[#38BDF8] font-bold text-xs mb-1">
                   <CheckCircle2 size={16} />
-                  <span>{isRtl ? 'توازن محاسبي لحظي 100%' : '100% Balanced Ledgers'}</span>
+                  <span>{t('heroBoxTitle')}</span>
                 </div>
                 <p className="text-[11px] text-white/80">
-                  {isRtl ? 'توليد موازين المراجعة والقوائم المالية آلياً بدون انتظار إقفال الشهر.' : 'Instant real-time financial reporting.'}
+                  {t('heroBoxDesc')}
                 </p>
               </div>
             </div>
@@ -162,22 +95,20 @@ function Accounting() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'رؤية المنظومة' : 'Core Architecture'}
+              {t('visionEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-              {isRtl ? 'كيف يُحدث نظام المحاسبة في USoft فارقاً حقيقياً في شركتك؟' : 'Why USoft General Ledger is Built Differently'}
+              {t('visionTitle')}
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-              {isRtl
-                ? 'في الشركات المتنامية، يؤدي تشتت البيانات بين الفواتير وأذون المخازن وحسابات البنوك إلى تأخر القوائم المالية وضياع هوامش الأرباح. يربط نظام USoft المحاسبي كافة أطراف المنشأة في قاعدة بيانات موحدة تنعكس فيها كل حركة تشغيلية كقيد مالي فوري متوازن.'
-                : 'Eliminate isolated financial silos. Every warehouse movement, customer sale, vendor invoice, and payroll expense translates into automatic double-entry ledgers instantly.'}
+              {t('visionDesc')}
             </p>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => {
-              const Icon = f.icon
+              const Icon = featureIcons[i] || Sparkles
               return (
                 <div
                   key={i}
@@ -200,10 +131,10 @@ function Accounting() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'تسلسل العمليات' : 'Workflow'}
+              {t('workflowEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
-              {isRtl ? 'دورة تدفق البيانات المالية داخل المنظومة' : 'Financial Workflow Step-by-Step'}
+              {t('workflowTitle')}
             </h2>
           </div>
 
@@ -228,19 +159,17 @@ function Accounting() {
             <Sparkles size={32} />
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-            {isRtl ? 'جاهز للارتقاء بالإدارة المالية لشركتك لمستوى احترافي؟' : 'Ready to Transform Your Corporate Financials?'}
+            {t('closingTitle')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            {isRtl
-              ? 'تواصل مع مستشاري USoft اليوم وشاهد عرضاً توضيحياً حياً لكيفية إدارة القيود وشجرة الحسابات والقوائم المالية لمنشأتك.'
-              : 'Speak with our ERP advisors today and schedule a live walkthrough tailored to your industry.'}
+            {t('closingDesc')}
           </p>
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-xl bg-[#2F80ED] hover:bg-[#1C68CC] dark:bg-[#38BDF8] dark:hover:bg-white dark:text-[#0A1220] px-8 py-3.5 text-sm font-bold text-white shadow-md transition"
             >
-              <span>{isRtl ? 'احجز موعد عرض توضيحي (Demo)' : 'Book a Live Demo'}</span>
+              <span>{t('closingBtn')}</span>
               <ArrowIcon size={16} />
             </Link>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   Briefcase,
   CheckCircle2,
@@ -10,9 +11,7 @@ import {
   Fingerprint,
   CalendarDays,
   Network,
-  FileBadge,
   Award,
-  Workflow,
   ShieldCheck,
 } from 'lucide-react'
 import PublicLayout from '../../components/layout/PublicLayout'
@@ -21,77 +20,14 @@ import useLanguageStore from '../../store/languageStore'
 import { getAssetPath } from '../../utils/assetPath'
 
 function HumanResources() {
+  const { t } = useTranslation('hr')
   const { dir } = useLanguageStore()
   const isRtl = dir === 'rtl'
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight
 
-  const features = [
-    {
-      icon: Users,
-      title: isRtl ? 'الملف الوظيفي الإلكتروني الشامل والوثائق' : '360° Digital Employee Profile & Document Archive',
-      desc: isRtl
-        ? 'أرشيف رقمي كامل لكل موظف يحتوي على البيانات الشخصية، المؤهلات، صورة العقد، الرقم التأميني، مع تنبيهات تلقائية باقتراب انتهاء عقود العمل أو التراخيص الرسمية.'
-        : 'Comprehensive digital dossiers for all employees with contracts, national IDs, social security, and automated renewal alerts.',
-    },
-    {
-      icon: Fingerprint,
-      title: isRtl ? 'الربط المباشر مع أجهزة البصمة اللحظية' : 'Direct Biometric Attendance Machine Integration',
-      desc: isRtl
-        ? 'سحب سجلات الحضور والانصراف آلياً من أجهزة البصمة، مع دعم أوقات العمل المرنة، الورديات المتعددة، احتساب التأخيرات، الانصراف المبكر، والعمل الإضافي بدقة ثانية بثانية.'
-        : 'Real-time biometric data sync supporting multi-shift patterns, flexible working hours, overtime, and punctuality rules.',
-    },
-    {
-      icon: CalendarDays,
-      title: isRtl ? 'إدارة رصيد الإجازات والأذونات وبوابة الخدمة الذاتية' : 'Leave Balance Engine & Employee Self-Service (ESS)',
-      desc: isRtl
-        ? 'بوابة للموظف لتقديم طلبات الإجازات السنوية والمرضية والعارضة والأذونات، مع تحديث رصيد الإجازات المستحق تلقائياً وإشعار المدير المباشر للاعتماد الفوري.'
-        : 'Self-service portal for leave requests with automatic balance entitlement updates and hierarchical approvals.',
-    },
-    {
-      icon: Network,
-      title: isRtl ? 'الهيكل الإداري والتنظيمي وتوصيف الوظائف' : 'Organizational Hierarchy & Job Profiles',
-      desc: isRtl
-        ? 'رسم الهيكل الإداري للشركة (إدارات، أقسام، فروع)، وتحديد خطوط التبعية والمسؤوليات، مع توصيف وظيفي واضح لكل مسمى وربطها بالسلالم الوظيفية.'
-        : 'Interactive corporate organizational structure mapping reporting lines, job descriptions, and salary bands.',
-    },
-    {
-      icon: Award,
-      title: isRtl ? 'تقييمات الأداء ومؤشرات الإنجاز (KPIs)' : 'Performance Appraisals & Periodic KPIs',
-      desc: isRtl
-        ? 'تصميم نماذج تقييم دورية (شهرية/ربع سنوية/سنوية) مبنية على أهداف واضحة ومؤشرات أداء قابلة للقياس، لمساعدة الإدارة على تحديد الترقيات والمكافآت بموضوعية.'
-        : 'Configurable periodic appraisal frameworks linking individual targets to department goals for fair talent evaluation.',
-    },
-    {
-      icon: ShieldCheck,
-      title: isRtl ? 'الامتثال التام لقوانين العمل والتأمينات الاجتماعية' : 'Labor Law & Social Security Compliance',
-      desc: isRtl
-        ? 'صياغة اللائحة الداخلية للجزاءات والمكافآت بما يتطابق مع نصوص قانون العمل المصري، وحساب مدد الخدمة ومكافأة نهاية الخدمة بضغطة زر.'
-        : 'Strict adherence to Egyptian labor code regulations, official disciplinary ladders, and severance pay computations.',
-    },
-  ]
-
-  const steps = [
-    {
-      step: '01',
-      title: isRtl ? 'تسجيل بيانات الموظف والتعيين' : 'Onboarding & Profile',
-      desc: isRtl ? 'إدخال بيانات الموظف، العقد، الراتب، وربطه بالقسم والمدير المباشر.' : 'Create employee record, attach documents, and assign position.',
-    },
-    {
-      step: '02',
-      title: isRtl ? 'تسجيل البصمة والورديات' : 'Biometric Assignment',
-      desc: isRtl ? 'تعريف كود البصمة وتعيين الوردية ونظام الحضور المطلوب.' : 'Link device ID, shift pattern, and grace periods.',
-    },
-    {
-      step: '03',
-      title: isRtl ? 'متابعة الدوام والإجازات' : 'Attendance & Leaves',
-      desc: isRtl ? 'مراقبة الحضور اليومي آلياً واعتماد طلبات الإجازات والأذونات.' : 'Automated daily attendance logging and leave management.',
-    },
-    {
-      step: '04',
-      title: isRtl ? 'الترحيل التلقائي للرواتب' : 'Payroll Sync',
-      desc: isRtl ? 'ترحيل ساعات العمل والغياب والتأخيرات لمسير الرواتب دون تدخل يدوي.' : 'Send attendance adjustments directly into monthly payroll.',
-    },
-  ]
+  const featureIcons = [Users, Fingerprint, CalendarDays, Network, Award, ShieldCheck]
+  const features = t('features', { returnObjects: true }) || []
+  const steps = t('steps', { returnObjects: true }) || []
 
   return (
     <PublicLayout>
@@ -105,15 +41,13 @@ function HumanResources() {
             <div className={`${isRtl ? 'text-right' : 'text-left'} space-y-6 animate-fade-up`}>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold text-white">
                 <Briefcase size={15} className="text-[#38BDF8]" />
-                {isRtl ? 'الموارد البشرية وشؤون العاملين' : 'Human Capital Management'}
+                {t('heroBadge')}
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-                {isRtl ? 'نظام إدارة الموارد البشرية وشؤون العاملين (HR)' : 'Enterprise Human Resources Management'}
+                {t('heroTitle')}
               </h1>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">
-                {isRtl
-                  ? 'منظومة إدارية تضع فريق عملك في قلب الاهتمام؛ من الحضور بالبصمة وإدارة الإجازات، وحتى الهيكل التنظيمي وتقييمات الأداء، في بيئة عمل رقمية ترفع الإنتاجية.'
-                  : 'Empower your workforce with automated biometric attendance, digital self-service leave workflows, and performance governance.'}
+                {t('heroSubtitle')}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -121,14 +55,14 @@ function HumanResources() {
                   to="/contact"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-7 py-3.5 text-sm font-bold text-[#173B67] transition duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span>{isRtl ? 'طلب استشارة وعرض تجريبي' : 'Request Free Demo'}</span>
+                  <span>{t('demoBtn')}</span>
                   <ArrowIcon size={16} />
                 </Link>
                 <Link
                   to="/solutions"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition duration-300 hover:bg-white/10"
                 >
-                  <span>{isRtl ? 'الرجوع إلى قائمة الحلول' : 'All Solutions'}</span>
+                  <span>{t('allSolutionsBtn')}</span>
                 </Link>
               </div>
             </div>
@@ -138,17 +72,17 @@ function HumanResources() {
               <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/5 p-2 shadow-2xl backdrop-blur-md">
                 <img
                   src={getAssetPath('/images/solutions/SolutionsHumanResources.jpg')}
-                  alt={isRtl ? 'نظام الموارد البشرية USoft' : 'USoft HR System'}
+                  alt={t('heroTitle')}
                   className="h-80 sm:h-96 w-full rounded-2xl object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="absolute -bottom-5 -start-5 rounded-2xl border border-white/20 bg-[#173B67]/90 p-4 text-white shadow-xl backdrop-blur-md max-w-xs hidden sm:block">
                 <div className="flex items-center gap-2 text-[#38BDF8] font-bold text-xs mb-1">
                   <CheckCircle2 size={16} />
-                  <span>{isRtl ? 'ربط لحظي مع أجهزة البصمة' : 'Live Biometric Synchronization'}</span>
+                  <span>{t('heroBoxTitle')}</span>
                 </div>
                 <p className="text-[11px] text-white/80">
-                  {isRtl ? 'سحب فوري لسجلات الحضور دون تأخير.' : 'Zero manual timesheet errors.'}
+                  {t('heroBoxDesc')}
                 </p>
               </div>
             </div>
@@ -161,22 +95,20 @@ function HumanResources() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'إدارة الكفاءات' : 'Workforce Empowerment'}
+              {t('visionEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-              {isRtl ? 'حوكمة رقمية متكاملة لشؤون الموظفين' : 'Digital Workforce Governance in One Place'}
+              {t('visionTitle')}
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-              {isRtl
-                ? 'وفّر على فريق الموارد البشرية مئات الساعات المهدرة في حساب ساعات الغياب والتأخير ومطابقة الإجازات الورقية. نظام USoft يربط البصمة بملف الموظف بالرواتب في دورة آلية سلسة.'
-                : 'Free your HR department from tedious paperwork and manual spreadsheets. Connect attendance, approvals, and compliance directly into enterprise operations.'}
+              {t('visionDesc')}
             </p>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => {
-              const Icon = f.icon
+              const Icon = featureIcons[i] || Sparkles
               return (
                 <div
                   key={i}
@@ -199,10 +131,10 @@ function HumanResources() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'المسار الإداري' : 'Workflow'}
+              {t('workflowEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
-              {isRtl ? 'كيف تتدفق عمليات شؤون العاملين داخل المنظومة؟' : 'Daily Workforce Management Cycle'}
+              {t('workflowTitle')}
             </h2>
           </div>
 
@@ -227,19 +159,17 @@ function HumanResources() {
             <Sparkles size={32} />
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-            {isRtl ? 'هل تريد تطوير إدارة مواردك البشرية وضبط الحضور؟' : 'Ready to Elevate Your HR Management?'}
+            {t('closingTitle')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            {isRtl
-              ? 'تحدث مع مستشاري USoft واطلع على كيفية تكامل شؤون العاملين مع بصمة الحضور ومسير الرواتب.'
-              : 'Consult with our team to experience how USoft HR seamlessly connects people and processes.'}
+            {t('closingDesc')}
           </p>
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-xl bg-[#2F80ED] hover:bg-[#1C68CC] dark:bg-[#38BDF8] dark:hover:bg-white dark:text-[#0A1220] px-8 py-3.5 text-sm font-bold text-white shadow-md transition"
             >
-              <span>{isRtl ? 'احجز موعد عرض توضيحي (Demo)' : 'Book a Live Demo'}</span>
+              <span>{t('closingBtn')}</span>
               <ArrowIcon size={16} />
             </Link>
           </div>

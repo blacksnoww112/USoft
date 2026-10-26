@@ -11,6 +11,11 @@ import {
   Monitor,
   FileText,
   Settings,
+  Stethoscope,
+  BedDouble,
+  Landmark,
+  HardHat,
+  Factory,
 } from 'lucide-react'
 import useLanguageStore from '../../store/languageStore'
 
@@ -23,6 +28,11 @@ export const MODULE_ITEMS = [
   { path: '/app/hr', icon: Briefcase, nameAr: 'الموارد البشرية', nameEn: 'HR Management' },
   { path: '/app/payroll', icon: CreditCard, nameAr: 'الرواتب والأجور', nameEn: 'Payroll' },
   { path: '/app/pos', icon: Monitor, nameAr: 'نقاط البيع (POS)', nameEn: 'Point of Sale' },
+  { path: '/app/outpatient', icon: Stethoscope, nameAr: 'العيادات الخارجية', nameEn: 'Outpatient' },
+  { path: '/app/inpatient', icon: BedDouble, nameAr: 'داخلي وحسابات المرضى', nameEn: 'Inpatient' },
+  { path: '/app/real-estate', icon: Landmark, nameAr: 'الاستثمار العقاري', nameEn: 'Real Estate' },
+  { path: '/app/contracting', icon: HardHat, nameAr: 'المقاولات', nameEn: 'Contracting' },
+  { path: '/app/production', icon: Factory, nameAr: 'الإنتاج والتصنيع', nameEn: 'Production' },
   { path: '/app/reports', icon: FileText, nameAr: 'التقارير الذكية', nameEn: 'Reports & BI' },
   { path: '/app/settings', icon: Settings, nameAr: 'التهيئة والربط', nameEn: 'System Config' },
 ]

@@ -26,10 +26,10 @@
   "ctaSubtitle": "Talk to our team and let us identify the service that fits your needs.",
   "ctaBtn": "Start a Conversation",
   "services": {
-    "support": { "title": "Technical Support", "desc": "A specialized team that helps you handle questions and issues with clarity and speed.", "features": ["Issue follow-up", "User guidance", "Clear communication channels"] },
+    "integration": { "title": "Integration & Improvement", "desc": "Scalable solutions that can adapt to your future business requirements.", "features": ["Integration planning", "Scalable architecture", "Continuous improvements"] },
     "implementation": { "title": "Implementation & Setup", "desc": "We help prepare the platform around the way your organization operates.", "features": ["Process discovery", "Module configuration", "Launch preparation"] },
+    "support": { "title": "Technical Support", "desc": "A specialized team that helps you handle questions and issues with clarity and speed.", "features": ["Issue follow-up", "User guidance", "Clear communication channels"] },
     "training": { "title": "Training", "desc": "Practical training that helps your teams use the platform and get value from it.", "features": ["Tailored sessions", "Real-work examples", "Helpful materials"] },
-    "reporting": { "title": "Reporting & Customization", "desc": "We help you reach clearer reporting and a more relevant user experience.", "features": ["Need-based reports", "Form customization", "Useful leadership indicators"] },
-    "integration": { "title": "Integration & Improvement", "desc": "Scalable solutions that can adapt to your future business requirements.", "features": ["Integration planning", "Scalable architecture", "Continuous improvements"] }
+    "reporting": { "title": "Reporting & Customization", "desc": "We help you reach clearer reporting and a more relevant user experience.", "features": ["Need-based reports", "Form customization", "Useful leadership indicators"] }
   }
 }

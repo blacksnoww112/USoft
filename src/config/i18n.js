@@ -9,7 +9,11 @@ i18n
     lng: localStorage.getItem('usoft-lang') || 'ar',
     fallbackLng: 'en',
     defaultNS: 'common',
-    ns: ['common', 'navigation', 'home', 'about', 'solutions', 'services', 'contact', 'dashboard', 'partnerships'],
+    ns: [
+      'common', 'navigation', 'home', 'about', 'solutions', 'services', 'contact', 'dashboard', 'partnerships',
+      'accounting', 'sales', 'purchases', 'inventory', 'assets', 'hr', 'payroll', 'pos', 'reports', 'settings',
+      'outpatient', 'inpatient', 'realestate', 'contracting', 'production'
+    ],
     backend: {
       loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
     },

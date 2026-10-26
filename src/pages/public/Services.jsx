@@ -10,14 +10,30 @@ import {
   ArrowRight, ArrowLeft, CheckCircle2, Sparkles, ShieldCheck, MessageCircle,
 } from 'lucide-react'
 
-const SERVICE_ICONS = [HeadphonesIcon, Wrench, GraduationCap, BarChart2, Plug]
-const SERVICE_IMAGES = [
-  getAssetPath('/images/services/Servicessupport.jpg'),
-  getAssetPath('/images/services/ServicesImplementation.jpg'),
-  getAssetPath('/images/services/ServicesTraining.jpg'),
-  getAssetPath('/images/services/ServicesReporting.jpg'),
-  getAssetPath('/images/services/ServicesIntegration.jpg'),
-]
+const SERVICE_ORDER = ['integration', 'implementation', 'support', 'training', 'reporting']
+
+const SERVICE_META = {
+  integration: {
+    icon: Plug,
+    image: getAssetPath('/images/services/ServicesIntegration.jpg'),
+  },
+  implementation: {
+    icon: Wrench,
+    image: getAssetPath('/images/services/ServicesImplementation.jpg'),
+  },
+  support: {
+    icon: HeadphonesIcon,
+    image: getAssetPath('/images/services/Servicessupport.jpg'),
+  },
+  training: {
+    icon: GraduationCap,
+    image: getAssetPath('/images/services/ServicesTraining.jpg'),
+  },
+  reporting: {
+    icon: BarChart2,
+    image: getAssetPath('/images/services/ServicesReporting.jpg'),
+  },
+}
 
 function Services() {
   const { t } = useTranslation('services')
@@ -61,7 +77,44 @@ function Services() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-2xl text-center"><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">{t('servicesEyebrow')}</p><h2 className="section-title mb-4">{t('servicesTitle')}</h2><p className="section-subtitle mx-auto">{t('servicesSubtitle')}</p></div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {Object.entries(services).map(([key, service], i) => { const Icon = SERVICE_ICONS[i] ?? CheckCircle2; return <article key={key} className="group overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED]/40 hover:shadow-card-lg animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}><div className="relative overflow-hidden"><img src={SERVICE_IMAGES[i]} alt={service.title} className="h-44 w-full object-cover transition duration-700 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-[#173B67]/75 to-transparent" /><div className="absolute bottom-4 start-5 flex h-12 w-12 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-md transition duration-500 group-hover:rotate-6 group-hover:bg-[#2F80ED]"><Icon size={22} /></div></div><div className="p-6"><h3 className="mb-2 text-lg font-bold text-[#172033]">{service.title}</h3><p className="mb-5 text-sm leading-relaxed text-[#667085]">{service.desc}</p><ul className="space-y-2">{service.features.map((feature, fi) => <li key={fi} className="flex items-start gap-2 text-xs leading-relaxed text-[#667085]"><CheckCircle2 size={14} className="mt-0.5 flex-shrink-0 text-[#27AE60]" />{feature}</li>)}</ul></div></article> })}
+            {SERVICE_ORDER.map((key, i) => {
+              const service = services[key]
+              if (!service) return null
+              const meta = SERVICE_META[key] || {}
+              const Icon = meta.icon || CheckCircle2
+              const image = meta.image
+              return (
+                <article
+                  key={key}
+                  className="group overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED]/40 hover:shadow-card-lg animate-fade-up"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={image}
+                      alt={service.title}
+                      className="h-44 w-full object-cover transition duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#173B67]/75 to-transparent" />
+                    <div className="absolute bottom-4 start-5 flex h-12 w-12 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-md transition duration-500 group-hover:rotate-6 group-hover:bg-[#2F80ED]">
+                      <Icon size={22} />
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-lg font-bold text-[#172033]">{service.title}</h3>
+                    <p className="mb-5 text-sm leading-relaxed text-[#667085]">{service.desc}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, fi) => (
+                        <li key={fi} className="flex items-start gap-2 text-xs leading-relaxed text-[#667085]">
+                          <CheckCircle2 size={14} className="mt-0.5 flex-shrink-0 text-[#27AE60]" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Real Estate Investment & Development",
+  "heroTitle": "Real Estate Investment & Property Portfolio Suite",
+  "heroSubtitle": "Complete management for real estate developments, unit bookings, flexible installment plans, sales/lease contracts, and automated receivables tracking.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "Smart Installments & Collections",
+  "heroBoxDesc": "Automated payment schedules with post-dated check notifications.",
+  "visionEyebrow": "Core Architecture",
+  "visionTitle": "Drive Higher Profitability Across Real Estate Assets",
+  "visionDesc": "Real estate operations demand absolute control over unit reservations, payment maturity dates, and occupancy rates. USoft manages the entire project lifecycle from blueprint to delivery and after-sales.",
+  "features": [
+    {
+      "title": "Project, Master Plan & Unit Management",
+      "desc": "Define real estate projects and classify units (residential, commercial, administrative, villas) with real-time status tracking (available, reserved, sold, leased)."
+    },
+    {
+      "title": "Reservation & Sales/Lease Contracts",
+      "desc": "Generate official sales and lease agreements with structured down payments, maintenance deposits, and clear handover terms."
+    },
+    {
+      "title": "Installment Schedules & Receivables",
+      "desc": "Issue flexible payment schedules (monthly, quarterly, annual), track post-dated checks, and automate overdue notifications to clients."
+    },
+    {
+      "title": "Broker & Sales Commission Engine",
+      "desc": "Automatically calculate sales representative and external broker commissions based on collection milestones and deal parameters."
+    },
+    {
+      "title": "Facility Maintenance & After-Sales",
+      "desc": "Manage unit maintenance requests, utility agreements, and operational service expenses for compounds and commercial towers."
+    },
+    {
+      "title": "Automated GL Integration & Cash Flow",
+      "desc": "Post sales revenue, rental dues, and development expenditures directly to the general ledger and project cost centers."
+    }
+  ],
+  "workflowEyebrow": "Workflow",
+  "workflowTitle": "Real Estate Project Lifecycle in USoft",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Project & Unit Setup",
+      "desc": "Define development phases, architectural layouts, unit specifications, and pricing matrices."
+    },
+    {
+      "step": "02",
+      "title": "Booking & Contract Signing",
+      "desc": "Reserve unit, log initial down payment, and produce certified purchase agreements."
+    },
+    {
+      "step": "03",
+      "title": "Installments & Collections",
+      "desc": "Collect recurring dues, monitor check portfolios, and issue automated reminders."
+    },
+    {
+      "step": "04",
+      "title": "Handover & Facility Operations",
+      "desc": "Execute unit inspection protocol, formal handover, and ongoing facility management."
+    }
+  ],
+  "closingTitle": "Ready to Scale Your Real Estate Operations?",
+  "closingDesc": "Connect with USoft advisors today and schedule a tailored live walkthrough of our Real Estate platform.",
+  "closingBtn": "Book a Live Demo"
+}

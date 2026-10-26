@@ -8,12 +8,15 @@ import {
   BarChart3, Users, ShoppingCart, Package, Building2, Briefcase, CreditCard,
   Monitor, FileText, PieChart, GitMerge, Settings, ArrowRight, ArrowLeft,
   CheckCircle2, ChevronDown, Sparkles, ShieldCheck, Layers3,
+  Stethoscope, BedDouble, Landmark, HardHat, Factory,
 } from 'lucide-react'
 
 const MODULE_ICONS = {
   accounting: BarChart3, sales: Users, purchases: ShoppingCart, inventory: Package,
   assets: Building2, hr: Briefcase, payroll: CreditCard, pos: Monitor,
   reports: FileText, shareholders: PieChart, specialized: Settings, attendance: GitMerge,
+  outpatient: Stethoscope, inpatient: BedDouble,
+  realestate: Landmark, contracting: HardHat, production: Factory,
 }
 
 const MODULE_IMAGES = {
@@ -27,34 +30,45 @@ const MODULE_IMAGES = {
   pos: getAssetPath('/images/solutions/SolutionsSales.jpg'),
   reports: getAssetPath('/images/solutions/SolutionsReports.jpg'),
   shareholders: getAssetPath('/images/solutions/SolutionsReports.jpg'),
+  outpatient: getAssetPath('/images/solutions/SolutionsOutpatient.jpg'),
+  inpatient: getAssetPath('/images/solutions/SolutionsInpatient.jpg'),
+  realestate: getAssetPath('/images/solutions/SolutionsRealEstate.jpg'),
+  contracting: getAssetPath('/images/solutions/SolutionsContracting.jpg'),
+  production: getAssetPath('/images/solutions/SolutionsProduction.jpg'),
   specialized: getAssetPath('/images/solutions/SolutionsSpecialized.jpg'),
   attendance: getAssetPath('/images/solutions/SolutionsAttendance.jpg'),
 }
 
 const CATEGORY_FILTER = {
-  ar: { all: 'الكل', financial: 'المالية', commercial: 'التجارية', hr: 'الموارد البشرية', specialized: 'متخصصة' },
-  en: { all: 'All', financial: 'Financial', commercial: 'Commercial', hr: 'Human Resources', specialized: 'Specialized' },
+  ar: { all: 'الكل', financial: 'المالية', commercial: 'التجارية', hr: 'الموارد البشرية', hospitals: 'المستشفيات', specialized: 'متخصصة' },
+  en: { all: 'All', financial: 'Financial', commercial: 'Commercial', hr: 'Human Resources', hospitals: 'Hospitals', specialized: 'Specialized' },
 }
 
 const MODULE_CATEGORIES = {
   accounting: 'financial', sales: 'commercial', purchases: 'commercial', inventory: 'commercial',
   assets: 'financial', hr: 'hr', payroll: 'hr', pos: 'commercial', reports: 'specialized',
-  shareholders: 'financial', specialized: 'specialized', attendance: 'hr',
+  shareholders: 'financial', outpatient: 'hospitals', inpatient: 'hospitals', specialized: 'specialized', attendance: 'hr',
+  realestate: 'specialized', contracting: 'specialized', production: 'specialized',
 }
 
 const MODULE_APP_ROUTES = {
-  accounting: '/app/accounting',
-  sales: '/app/sales',
-  purchases: '/app/purchases',
-  inventory: '/app/inventory',
-  assets: '/app/assets',
-  hr: '/app/hr',
-  payroll: '/app/payroll',
-  pos: '/app/pos',
-  reports: '/app/reports',
+  accounting:   '/app/accounting',
+  sales:        '/app/sales',
+  purchases:    '/app/purchases',
+  inventory:    '/app/inventory',
+  assets:       '/app/assets',
+  hr:           '/app/hr',
+  attendance:   '/app/hr',
+  payroll:      '/app/payroll',
+  pos:          '/app/pos',
+  reports:      '/app/reports',
   shareholders: '/app/accounting',
-  specialized: '/app/settings',
-  attendance: '/app/hr',
+  outpatient:   '/app/outpatient',
+  inpatient:    '/app/inpatient',
+  realestate:   '/app/real-estate',
+  contracting:  '/app/contracting',
+  production:   '/app/production',
+  specialized:  '/app/settings',
 }
 
 function Solutions() {
@@ -72,8 +86,8 @@ function Solutions() {
     <PublicLayout>
       {/* Hero */}
       <section className="hero-gradient relative overflow-hidden py-20 lg:py-28">
-        <div className="pointer-events-none absolute -end-20 -top-24 h-80 w-80 animate-[spin_28s_linear_infinite] rounded-full border border-white/10" aria-hidden="true" />
-        <div className="pointer-events-none absolute bottom-0 start-0 h-72 w-72 animate-pulse rounded-full bg-[#38BDF8]/10 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -inset-e-20 -top-24 h-80 w-80 animate-[spin_28s_linear_infinite] rounded-full border border-white/10" aria-hidden="true" />
+        <div className="pointer-events-none absolute bottom-0 inset-s-0 h-72 w-72 animate-pulse rounded-full bg-[#38BDF8]/10 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div className={`${dir === 'rtl' ? 'text-right' : 'text-left'} animate-fade-up`}>
             <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-bold text-white/85">
@@ -86,15 +100,15 @@ function Solutions() {
             </Link>
           </div>
           <div className="relative grid grid-cols-2 gap-3 animate-slide-right">
-            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero1.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
-            <div className="overflow-hidden rounded-[1.5rem] border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero2.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="mt-8 overflow-hidden rounded-3xl border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero1.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
+            <div className="overflow-hidden rounded-3xl border border-white/20 shadow-2xl"><img src={getAssetPath('/images/solutions/SolutionsHero2.jpg')} alt={t('heroImageAlt')} className="h-48 w-full object-cover transition duration-700 hover:scale-110 sm:h-64" /></div>
           </div>
         </div>
       </section>
 
       {/* Intro */}
       <section className="relative overflow-hidden bg-white py-16">
-        <div className="pointer-events-none absolute end-0 top-0 h-64 w-64 rounded-full bg-[#EBF2FF] blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-e-0 top-0 h-64 w-64 rounded-full bg-[#EBF2FF] blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
           <div className={`${dir === 'rtl' ? 'text-right' : 'text-left'} animate-slide-left`}>
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">{t('introEyebrow')}</p>
@@ -104,9 +118,9 @@ function Solutions() {
               {[t('introPoints.one'), t('introPoints.two'), t('introPoints.three'), t('introPoints.four')].map((point, i) => <div key={i} className="flex items-center gap-2 text-sm font-semibold text-[#173B67]"><CheckCircle2 size={17} className="text-[#27AE60]" />{point}</div>)}
             </div>
           </div>
-          <div className="group relative overflow-hidden rounded-[2rem] bg-[#F5F7FA] p-3 shadow-card-lg animate-slide-right">
-            <img src={getAssetPath('/images/solutions/SolutionsOverView.jpg')} alt={t('overviewImageAlt')} className="h-72 w-full rounded-[1.5rem] object-cover transition duration-700 group-hover:scale-105" />
-            <div className="absolute bottom-7 start-7 rounded-xl border border-white/20 bg-[#173B67]/85 px-4 py-3 text-white backdrop-blur-md"><p className="text-xs text-white/60"> USoft</p><p className="mt-1 text-sm font-bold">{t('overviewCaption')}</p></div>
+          <div className="group relative overflow-hidden rounded-4xl bg-[#F5F7FA] p-3 shadow-card-lg animate-slide-right">
+            <img src={getAssetPath('/images/solutions/SolutionsOverView.jpg')} alt={t('overviewImageAlt')} className="h-72 w-full rounded-3xl object-cover transition duration-700 group-hover:scale-105" />
+            <div className="absolute bottom-7 inset-s-7 rounded-xl border border-white/20 bg-[#173B67]/85 px-4 py-3 text-white backdrop-blur-md"><p className="text-xs text-white/60"> USoft</p><p className="mt-1 text-sm font-bold">{t('overviewCaption')}</p></div>
           </div>
         </div>
       </section>
@@ -120,7 +134,7 @@ function Solutions() {
 
       {/* Modules */}
       <section className="relative overflow-hidden bg-[#F5F7FA] py-20">
-        <div className="pointer-events-none absolute -start-32 top-24 h-72 w-72 rounded-full bg-[#38BDF8]/10 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -inset-s-32 top-24 h-72 w-72 rounded-full bg-[#38BDF8]/10 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-2xl text-center"><p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#2F80ED]">{t('modulesEyebrow')}</p><h2 className="section-title mb-4">{t('modulesTitle')}</h2><p className="section-subtitle mx-auto">{t('modulesSubtitle')}</p></div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -128,10 +142,10 @@ function Solutions() {
               const Icon = MODULE_ICONS[key] ?? BarChart3
               const isOpen = expanded === key
               return <article key={key} className="group overflow-hidden rounded-2xl border border-[#E4E7EC] bg-white shadow-card transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED]/40 hover:shadow-card-lg animate-fade-up" style={{ animationDelay: `${i * 0.06}s` }}>
-                <div className="relative overflow-hidden"><img src={MODULE_IMAGES[key]} alt={mod.title} className="h-40 w-full object-cover transition duration-700 group-hover:scale-110" /><div className="absolute inset-0 bg-gradient-to-t from-[#173B67]/70 to-transparent" /><div className="absolute bottom-4 start-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-md transition duration-500 group-hover:rotate-6 group-hover:bg-[#2F80ED]"><Icon size={20} /></div></div>
+                <div className="relative overflow-hidden"><img src={MODULE_IMAGES[key]} alt={mod.title} className="h-40 w-full object-cover transition duration-700 group-hover:scale-110" /><div className="absolute inset-0 bg-linear-to-t from-[#173B67]/70 to-transparent" /><div className="absolute bottom-4 inset-s-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-white backdrop-blur-md transition duration-500 group-hover:rotate-6 group-hover:bg-[#2F80ED]"><Icon size={20} /></div></div>
                 <div className="p-5"><h3 className="mb-2 font-bold text-[#172033]">{mod.title}</h3><p className="mb-4 text-sm leading-relaxed text-[#667085]">{mod.desc}</p>
                   <button onClick={() => setExpanded(isOpen ? null : key)} className="flex w-full items-center gap-1.5 text-start text-xs font-semibold text-[#2F80ED]" aria-expanded={isOpen}><span>{t('featuresLabel')}</span><ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} /></button>
-                  {isOpen && <ul className="mt-3 space-y-2 animate-fade-in">{mod.features.map((feature, fi) => <li key={fi} className="flex items-start gap-2 text-xs leading-relaxed text-[#667085]"><CheckCircle2 size={13} className="mt-0.5 flex-shrink-0 text-[#27AE60]" />{feature}</li>)}</ul>}
+                  {isOpen && <ul className="mt-3 space-y-2 animate-fade-in">{mod.features.map((feature, fi) => <li key={fi} className="flex items-start gap-2 text-xs leading-relaxed text-[#667085]"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-[#27AE60]" />{feature}</li>)}</ul>}
                 </div>
                 <div className="border-t border-[#E4E7EC] px-5 py-3.5 flex items-center justify-between gap-2 bg-slate-50/60 dark:bg-[#070D18]/60">
                   <Link

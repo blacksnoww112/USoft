@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Construction & Contracting Operations",
+  "heroTitle": "Contracting, Subcontractor & Progress Invoicing Suite",
+  "heroSubtitle": "An all-in-one digital ERP for contractors: Bills of Quantities (BOQ), owner & subcontractor progress payment certificates, project costing, and milestone tracking.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "100% Verified Progress Billing",
+  "heroBoxDesc": "Automatic retention, down-payment recovery, and statutory tax calculations.",
+  "visionEyebrow": "Core Architecture",
+  "visionTitle": "Master Profit Margins and Cost Controls Across Job Sites",
+  "visionDesc": "Contracting requires stringent supervision of material wastage, heavy equipment utilization, and subcontractor claims. USoft gives you immediate visibility into estimated vs. actual expenses per item.",
+  "features": [
+    {
+      "title": "Bill of Quantities (BOQ) & Estimations",
+      "desc": "Break down tender estimates into granular line items with standard costs for materials, labor, machinery, and subcontracts, benchmarked against real site expenses."
+    },
+    {
+      "title": "Owner & Subcontractor Progress Invoices",
+      "desc": "Generate milestone payment certificates reflecting cumulative progress percentages, advance payment amortization, performance retentions, and delay penalties."
+    },
+    {
+      "title": "Subcontractor Agreement Governance",
+      "desc": "Document subcontractor contracts with itemized rates and auto-generate payment vouchers while deducting company-supplied materials and retention buffers."
+    },
+    {
+      "title": "Site Cost Centers & Expense Tracking",
+      "desc": "Tie material issues, machine hours, and daily labor logs directly to relevant project WBS elements for real-time project profitability."
+    },
+    {
+      "title": "Heavy Equipment & Plant Management",
+      "desc": "Track operating hours for owned and rented machinery, fuel logs, maintenance schedules, and allocate equipment depreciation directly across jobs."
+    },
+    {
+      "title": "Bank Guarantees & Letters of Credit (LG/LC)",
+      "desc": "Track bid bonds, performance bonds, and advance payment guarantees with expiration alerts, renewals, and related banking fees."
+    }
+  ],
+  "workflowEyebrow": "Workflow",
+  "workflowTitle": "Contracting Project Lifecycle in USoft",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Tender Study & BOQ Structuring",
+      "desc": "Input project line items, unit cost benchmarks, profit margins, and produce formal tender bids."
+    },
+    {
+      "step": "02",
+      "title": "Contracting & Subcontractor Allotment",
+      "desc": "Formalize client agreements, award packages to subcontractors, and initialize project cost centers."
+    },
+    {
+      "step": "03",
+      "title": "Site Execution & Direct Cost Tracking",
+      "desc": "Issue raw materials, track equipment hour meters and labor timesheets against budgeted ceilings."
+    },
+    {
+      "step": "04",
+      "title": "Progress Billing & Handover",
+      "desc": "Issue certified progress certificates to the owner, settle subcontractor dues, and close project retention."
+    }
+  ],
+  "closingTitle": "Ready to Enforce Full Control Over Your Construction Projects?",
+  "closingDesc": "Connect with USoft specialists today and explore how our contracting module elevates operational margins.",
+  "closingBtn": "Book a Live Demo"
+}

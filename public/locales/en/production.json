@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Manufacturing, Planning & Industrial Production",
+  "heroTitle": "Production, Manufacturing & Bill of Materials (BOM) System",
+  "heroSubtitle": "A comprehensive industrial solution for production lines; Bill of Materials (BOM), work orders, Material Requirements Planning (MRP), quality control, and industrial cost accounting.",
+  "demoBtn": "Request Demo & Consultation",
+  "allSolutionsBtn": "Back to Solutions",
+  "heroBoxTitle": "Smart Manufacturing Planning (MRP)",
+  "heroBoxDesc": "Accurate calculation of raw material requirements, workstation routing, and overhead costs.",
+  "visionEyebrow": "System Vision",
+  "visionTitle": "Maximizing Production Line Efficiency & Eliminating Industrial Waste",
+  "visionDesc": "Factories require precise synchronization between inventory, sales orders, and daily work plans. USoft delivers an integrated bridge connecting raw materials through routing stages to finished goods.",
+  "features": [
+    {
+      "title": "Bill of Materials & Product Tree (BOM)",
+      "desc": "Build multi-level product trees with exact standard quantities of raw materials, sub-assemblies, and scrap allowances per finished unit."
+    },
+    {
+      "title": "Work Orders & Routing Stage Tracking",
+      "desc": "Issue and route job orders to workstations and production lines, tracking real-time order status (open, in-progress, completed, paused) and throughput."
+    },
+    {
+      "title": "Material Requirements Planning (MRP)",
+      "desc": "Analyze sales orders and production forecasts to generate automatic purchase requisitions, preventing assembly bottlenecks and excess stock."
+    },
+    {
+      "title": "Direct & Indirect Industrial Costing",
+      "desc": "Accurately allocate raw material costs, machine depreciation, labor rates, and manufacturing overheads directly to the unit production cost."
+    },
+    {
+      "title": "Quality Control & Sample Inspection (QC)",
+      "desc": "Quality inspection checkpoints for raw materials upon receipt, work-in-progress (WIP) during stages, and final goods prior to warehouse stocking."
+    },
+    {
+      "title": "Machinery Maintenance & Line Scheduling",
+      "desc": "Manage preventive and corrective machine maintenance, track equipment downtime and OEE, and record spare parts consumption."
+    }
+  ],
+  "workflowEyebrow": "Manufacturing Workflow",
+  "workflowTitle": "Stages of the Production & Manufacturing Cycle",
+  "steps": [
+    {
+      "step": "01",
+      "title": "BOM Configuration",
+      "desc": "Define finished good components, routing steps, workstation centers, and standard costs."
+    },
+    {
+      "step": "02",
+      "title": "MRP & Work Order Issuance",
+      "desc": "Schedule production runs, reserve required materials, and dispatch shift work orders."
+    },
+    {
+      "step": "03",
+      "title": "Material Issue, Routing & QC",
+      "desc": "Issue stock to shop floor, monitor stage progression, and perform QC sample checks."
+    },
+    {
+      "step": "04",
+      "title": "Finished Goods & Actual Costing",
+      "desc": "Receive finished inventory into warehouses and finalize actual batch cost breakdown."
+    }
+  ],
+  "closingTitle": "Ready to elevate your factory's production line efficiency?",
+  "closingDesc": "Connect with USoft industrial ERP experts and explore a live demo of the manufacturing system.",
+  "closingBtn": "Book a Demo Meeting"
+}

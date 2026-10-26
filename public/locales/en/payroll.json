@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Payroll & Compensation",
+  "heroTitle": "Automated Corporate Payroll & Salary System",
+  "heroSubtitle": "Transform month-end payroll from tedious days into effortless minutes with automatic tax compliance and batch bank transfers.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "Compliant Bank Direct Deposit",
+  "heroBoxDesc": "One-click bank transfer file exports.",
+  "visionEyebrow": "Speed & Precision",
+  "visionTitle": "Zero Discrepancies, Guaranteed On-Time Paydays",
+  "visionDesc": "Salaries are the most sensitive operational expenditure. Ensure error-free calculations that build organizational trust and strictly satisfy statutory criteria.",
+  "features": [
+    {
+      "title": "Automated Attendance-Driven Salary Calculation",
+      "desc": "Direct synchronization between biometric attendance records and salary computation: automatic overtime bonuses and tardiness deductions."
+    },
+    {
+      "title": "Statutory Payroll Tax & Social Insurance Automation",
+      "desc": "Accurate tiered income tax brackets and social security splits (employee and employer shares) computed in full statutory compliance."
+    },
+    {
+      "title": "Flexible Allowances, Incentives & Bonus Matrices",
+      "desc": "Configure custom fixed or variable allowances (transportation, accommodation, mobile) alongside performance bonuses and commissions."
+    },
+    {
+      "title": "Certified Bank Salary Transfer Files (WPS / ACH)",
+      "desc": "Generate compliant electronic salary dispatch files formatted to Egyptian and regional banking standards for instant batch transfers."
+    },
+    {
+      "title": "Digital & Printable Itemized Employee Payslips",
+      "desc": "Detailed payslips outlining basic salary, gross allowances, statutory deductions, and net payable accessible digitally or via print."
+    },
+    {
+      "title": "Instant General Ledger Payroll Journal Posting",
+      "desc": "Automatic generation of salary accrual and payment vouchers mapped directly to designated departmental cost centers."
+    }
+  ],
+  "workflowEyebrow": "Payroll Cycle",
+  "workflowTitle": "The 4-Step Effortless Payroll Workflow",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Attendance Cut-off",
+      "desc": "Lock monthly attendance and import validated leave balances."
+    },
+    {
+      "step": "02",
+      "title": "Automated Calculation",
+      "desc": "Engine calculates net compensation and statutory taxes."
+    },
+    {
+      "step": "03",
+      "title": "Management Approval",
+      "desc": "Executive sign-off on company-wide salary register."
+    },
+    {
+      "step": "04",
+      "title": "Bank Transfer & Payslips",
+      "desc": "Export bank file for direct deposit and distribute payslips."
+    }
+  ],
+  "closingTitle": "Ready to Automate Your Monthly Payroll Workflow?",
+  "closingDesc": "Consult with our payroll solutions specialists for an exhaustive system walkthrough.",
+  "closingBtn": "Book a Live Demo"
+}

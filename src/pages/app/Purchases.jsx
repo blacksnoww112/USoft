@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import {
   ShoppingCart,
   CheckCircle2,
@@ -10,8 +11,6 @@ import {
   Scale,
   ShieldCheck,
   Building2,
-  Clock,
-  Workflow,
   DollarSign,
   PackageCheck,
 } from 'lucide-react'
@@ -21,77 +20,14 @@ import useLanguageStore from '../../store/languageStore'
 import { getAssetPath } from '../../utils/assetPath'
 
 function Purchases() {
+  const { t } = useTranslation('purchases')
   const { dir } = useLanguageStore()
   const isRtl = dir === 'rtl'
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight
 
-  const features = [
-    {
-      icon: FileCheck2,
-      title: isRtl ? 'دورة طلبات الشراء والاعتمادات الهرمية' : 'Purchase Requisitions & Multi-Level Approvals',
-      desc: isRtl
-        ? 'تمكين الأقسام والمستودعات من رفع طلبات الشراء إلكترونياً، مع توجيهها للمدراء المعنيين للاعتماد المالي والإداري بحسب صلاحيات وسقوف المبالغ المحددة قبل إصدار أي أمر شراء.'
-        : 'Enable departments to submit purchase requests routed through configurable approval hierarchies based on budget thresholds.',
-    },
-    {
-      icon: Scale,
-      title: isRtl ? 'مقارنة عروض أسعار الموردين واختيار الأفضل' : 'Vendor RFQs & Comparison Matrix',
-      desc: isRtl
-        ? 'تسجيل ومقارنة عروض أسعار الموردين المختلفة على مستوى السعر، شروط السداد، ومواعيد التوريد وجودة الخامات لاختيار العرض الأنسب وحفظ تاريخ الأسعار التنافسية.'
-        : 'Compare vendor quotation terms, unit costs, payment facilities, and lead times to select optimal procurement terms.',
-    },
-    {
-      icon: PackageCheck,
-      title: isRtl ? 'المطابقة الثلاثية الصارمة (Three-Way Matching)' : 'Strict 3-Way Matching Verification',
-      desc: isRtl
-        ? 'مطابقة تلقائية صارمة بين ما تم الاتفاق عليه في أمر الشراء (PO)، وما تم استلامه فعلياً في إذن استلام المخزن (GRN)، وما ورد في فاتورة المورد، لمنع سداد أي فروقات أو كميات لم تصل.'
-        : 'Automatic validation comparing Purchase Order against Goods Received Note and Vendor Invoice to prevent financial discrepancies.',
-    },
-    {
-      icon: Building2,
-      title: isRtl ? 'سجل الموردين وتقييم الأداء والجودة' : 'Vendor Registry & Performance Scoring',
-      desc: isRtl
-        ? 'قاعدة بيانات شاملة لبيانات الموردين والملفات الضريبية، مع تقييم آلي لجودة المنتجات، الالتزام بمواعيد التوريد، ونسبة المرتجعات لتحديد أفضل شركاء النجاح.'
-        : 'Centralized vendor profiles with tax IDs, commercial records, and performance ratings based on punctuality and quality adherence.',
-    },
-    {
-      icon: DollarSign,
-      title: isRtl ? 'إدارة استحقاقات الموردين وجدولة المدفوعات' : 'Payables Management & Cash Outflow Planning',
-      desc: isRtl
-        ? 'متابعة الفواتير الآجلة، دفعات الموردين، أوراق الدفع والشيكات المصدرة، مع تقارير السيولة المستقبلية للتخطيط المالي السليم وتجنب التعثر.'
-        : 'Track credit terms, payment schedules, and post-dated checks to forecast cash requirements accurately.',
-    },
-    {
-      icon: ShieldCheck,
-      title: isRtl ? 'حساب تكلفة الشراء الحقيقية والرسوم الملحقة' : 'Landed Cost & Landed Expenses Allocation',
-      desc: isRtl
-        ? 'توزيع تكاليف الشحن، الجمارك، التأمين، والتفريغ آلياً على أصناف الشحنة، لمعرفة تكلفة الصنف الحقيقية الدقيقة لضبط هوامش أرباح البيع لاحقاً.'
-        : 'Distribute freight, customs, clearance, and insurance overheads directly onto SKU unit cost for accurate margin analysis.',
-    },
-  ]
-
-  const steps = [
-    {
-      step: '01',
-      title: isRtl ? 'طلب الشراء والاعتماد' : 'Purchase Request',
-      desc: isRtl ? 'رفع طلب الاحتياج من القسم المختص واعتماده من الإدارة المالية.' : 'Submit requisition and obtain management approval.',
-    },
-    {
-      step: '02',
-      title: isRtl ? 'استدراج العروض وأمر الشراء' : 'Quotation & PO',
-      desc: isRtl ? 'مقارنة عروض الموردين وإصدار أمر الشراء الرسمي وتوجيهه للمورد.' : 'Evaluate vendor quotes and issue certified PO.',
-    },
-    {
-      step: '03',
-      title: isRtl ? 'الاستلام والفحص المخزني' : 'Goods Receipt & Inspection',
-      desc: isRtl ? 'فحص البضائع الواردة، وإصدار إذن الإضافة المخزني بالكميات الفعلية.' : 'Verify shipment physical count and register stock in warehouse.',
-    },
-    {
-      step: '04',
-      title: isRtl ? 'مطابقة الفاتورة وجدولة السداد' : '3-Way Match & Pay',
-      desc: isRtl ? 'مطابقة فاتورة المورد مع أمر الشراء وإذن الإضافة، وجدولة الاستحقاق.' : 'Execute three-way match and schedule accounting payment.',
-    },
-  ]
+  const featureIcons = [FileCheck2, Scale, PackageCheck, Building2, DollarSign, ShieldCheck]
+  const features = t('features', { returnObjects: true }) || []
+  const steps = t('steps', { returnObjects: true }) || []
 
   return (
     <PublicLayout>
@@ -105,15 +41,13 @@ function Purchases() {
             <div className={`${isRtl ? 'text-right' : 'text-left'} space-y-6 animate-fade-up`}>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold text-white">
                 <ShoppingCart size={15} className="text-[#38BDF8]" />
-                {isRtl ? 'المشتريات وسلاسل الإمداد' : 'Procurement & Supply Chain'}
+                {t('heroBadge')}
               </span>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
-                {isRtl ? 'نظام المشتريات الذكي وإدارة الموردين' : 'Enterprise Procurement & Vendor Management'}
+                {t('heroTitle')}
               </h1>
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">
-                {isRtl
-                  ? 'وفر التكاليف وأحكم رقابتك على المشتريات من خلال دورة مستندية محكمة تبدأ بطلب الاحتياج ومقارنة عروض الموردين وتنتهي بالمطابقة الثلاثية الدقيقة مع المخازن.'
-                  : 'Optimize operational expenditure with a structured procurement workflow: requisition approvals, RFQ comparisons, and strict three-way matching.'}
+                {t('heroSubtitle')}
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -121,14 +55,14 @@ function Purchases() {
                   to="/contact"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-7 py-3.5 text-sm font-bold text-[#173B67] transition duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  <span>{isRtl ? 'طلب استشارة وعرض تجريبي' : 'Request Free Demo'}</span>
+                  <span>{t('demoBtn')}</span>
                   <ArrowIcon size={16} />
                 </Link>
                 <Link
                   to="/solutions"
                   className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white transition duration-300 hover:bg-white/10"
                 >
-                  <span>{isRtl ? 'الرجوع إلى قائمة الحلول' : 'All Solutions'}</span>
+                  <span>{t('allSolutionsBtn')}</span>
                 </Link>
               </div>
             </div>
@@ -138,17 +72,17 @@ function Purchases() {
               <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/5 p-2 shadow-2xl backdrop-blur-md">
                 <img
                   src={getAssetPath('/images/solutions/SolutionsPurchases.jpg')}
-                  alt={isRtl ? 'نظام المشتريات USoft' : 'USoft Purchases System'}
+                  alt={t('heroTitle')}
                   className="h-80 sm:h-96 w-full rounded-2xl object-cover transition duration-700 group-hover:scale-105"
                 />
               </div>
               <div className="absolute -bottom-5 -start-5 rounded-2xl border border-white/20 bg-[#173B67]/90 p-4 text-white shadow-xl backdrop-blur-md max-w-xs hidden sm:block">
                 <div className="flex items-center gap-2 text-[#38BDF8] font-bold text-xs mb-1">
                   <CheckCircle2 size={16} />
-                  <span>{isRtl ? 'مطابقة ثلاثية تمنع الهدر المالي' : '3-Way Match Protection'}</span>
+                  <span>{t('heroBoxTitle')}</span>
                 </div>
                 <p className="text-[11px] text-white/80">
-                  {isRtl ? 'لا يتم صرف أي فاتورة دون مطابقتها مع ما تم استلامه فعلياً.' : 'Zero payment without physical receipt validation.'}
+                  {t('heroBoxDesc')}
                 </p>
               </div>
             </div>
@@ -161,22 +95,20 @@ function Purchases() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'كفاءة الإنفاق' : 'Cost Optimization'}
+              {t('visionEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-              {isRtl ? 'إدارة مشتريات احترافية تضمن أفضل سعر وأعلى جودة' : 'Strategic Sourcing & Spend Visibility'}
+              {t('visionTitle')}
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-              {isRtl
-                ? 'يُمكّن نظام مشتريات USoft فريق التوريد لديك من التفاوض على شروط أفضل، متابعة مواعيد التسليم، وضبط ميزانيات الأقسام بحيث لا تتجاوز أي إدارة سقفها المالي المعتمد.'
-                : 'Empower your procurement department with real-time vendor insights, contract tracking, and strict budgetary controls.'}
+              {t('visionDesc')}
             </p>
           </div>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => {
-              const Icon = f.icon
+              const Icon = featureIcons[i] || Sparkles
               return (
                 <div
                   key={i}
@@ -199,10 +131,10 @@ function Purchases() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-[#2F80ED] dark:text-[#38BDF8]">
-              {isRtl ? 'المسار المستندي' : 'Workflow'}
+              {t('workflowEyebrow')}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-1">
-              {isRtl ? 'مراحل دورة المشتريات داخل منظومة USoft' : 'Procurement Cycle from Request to Payment'}
+              {t('workflowTitle')}
             </h2>
           </div>
 
@@ -227,19 +159,17 @@ function Purchases() {
             <Sparkles size={32} />
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
-            {isRtl ? 'جاهز لترشيد نفقات التوريد وضبط مشتريات شركتك؟' : 'Ready to Optimize Your Corporate Spend?'}
+            {t('closingTitle')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-            {isRtl
-              ? 'تواصل مع فريق USoft الآن للحصول على استشارة فنية واستعراض حي لمنظومة المشتريات والموردين.'
-              : 'Contact our procurement specialists and schedule a tailored live demonstration today.'}
+            {t('closingDesc')}
           </p>
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 rounded-xl bg-[#2F80ED] hover:bg-[#1C68CC] dark:bg-[#38BDF8] dark:hover:bg-white dark:text-[#0A1220] px-8 py-3.5 text-sm font-bold text-white shadow-md transition"
             >
-              <span>{isRtl ? 'احجز موعد عرض توضيحي (Demo)' : 'Book a Live Demo'}</span>
+              <span>{t('closingBtn')}</span>
               <ArrowIcon size={16} />
             </Link>
           </div>

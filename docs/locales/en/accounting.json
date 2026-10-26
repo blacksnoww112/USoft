@@ -1,0 +1,65 @@
+{
+  "heroBadge": "Financial Accounting Engine",
+  "heroTitle": "General Ledger & Financial Accounting",
+  "heroSubtitle": "The financial backbone of your business, built for maximum accuracy, total cash flow oversight, and effortless period closures in full compliance with accounting standards.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "100% Balanced Ledgers",
+  "heroBoxDesc": "Instant real-time financial reporting.",
+  "visionEyebrow": "Core Architecture",
+  "visionTitle": "Why USoft General Ledger is Built Differently",
+  "visionDesc": "Eliminate isolated financial silos. Every warehouse movement, customer sale, vendor invoice, and payroll expense translates into automatic double-entry ledgers instantly.",
+  "features": [
+    {
+      "title": "Multi-Level Dynamic Chart of Accounts",
+      "desc": "Flexible chart of accounts compliant with Egyptian and International (IFRS) standards with hierarchical coding and clear classifications."
+    },
+    {
+      "title": "Automated Journal Entry Posting",
+      "desc": "Automatic posting of entries generated across sales, procurement, inventory, payroll, and assets without human intervention."
+    },
+    {
+      "title": "Multi-Dimensional Cost Centers",
+      "desc": "Allocate revenue and expenditures across branches, projects, or production lines to evaluate standalone profitability."
+    },
+    {
+      "title": "Cash & Bank Management with Reconciliation",
+      "desc": "Real-time multi-currency bank account and cash drawer tracking, automated bank reconciliation, and check register."
+    },
+    {
+      "title": "ETA E-Invoicing & Tax Compliance",
+      "desc": "Full integration with the Egyptian Tax Authority (ETA) for certified e-invoices, VAT 14%, and automated statutory returns."
+    },
+    {
+      "title": "Real-Time Financial Statements & Trial Balance",
+      "desc": "Instant generation of Trial Balance, Comprehensive P&L, Balance Sheet, and Cash Flow statements with period comparisons."
+    }
+  ],
+  "workflowEyebrow": "Workflow",
+  "workflowTitle": "Financial Workflow Step-by-Step",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Operations & Inception",
+      "desc": "Transactions initiate across sales, POS, purchasing, and payroll."
+    },
+    {
+      "step": "02",
+      "title": "Automated Ledger Creation",
+      "desc": "Engine creates balanced double-entry vouchers automatically."
+    },
+    {
+      "step": "03",
+      "title": "Posting & Cost Center Allocation",
+      "desc": "Instant posting to general ledger and related cost centers."
+    },
+    {
+      "step": "04",
+      "title": "Financial Intelligence & Reports",
+      "desc": "Audited reports and P&L statements made available for executives."
+    }
+  ],
+  "closingTitle": "Ready to Transform Your Corporate Financials?",
+  "closingDesc": "Speak with our ERP advisors today and schedule a live walkthrough tailored to your industry.",
+  "closingBtn": "Book a Live Demo"
+}

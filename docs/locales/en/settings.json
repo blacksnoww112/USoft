@@ -1,0 +1,65 @@
+{
+  "heroBadge": "System Configuration & Security",
+  "heroTitle": "Enterprise ERP Settings, Security & ETA Sync",
+  "heroSubtitle": "Robust enterprise architecture built for absolute security: certified tax authority integration, role-based access control, and automated encrypted backups.",
+  "demoBtn": "Request Free Demo",
+  "allSolutionsBtn": "All Solutions",
+  "heroBoxTitle": "Enterprise-Grade Security",
+  "heroBoxDesc": "Encrypted databases and automated disaster recovery.",
+  "visionEyebrow": "Security & Governance",
+  "visionTitle": "Protecting Your Corporate Data & Continuity",
+  "visionDesc": "Your corporate financials and operations require institutional-grade safeguarding. USoft is engineered with military-grade encryption, detailed activity logging, and failover resilience.",
+  "features": [
+    {
+      "title": "Certified Egyptian Tax Authority (ETA) Integration",
+      "desc": "Native integration with Egyptian Tax Authority (ETA) SDK for electronic signatures, seals, and instant live invoice/receipt dispatch."
+    },
+    {
+      "title": "Granular Role-Based Access Control (RBAC)",
+      "desc": "Define granular permissions per role (create, edit, post, void, print) with branch-level and warehouse-level access boundaries."
+    },
+    {
+      "title": "Comprehensive Audit Trail & User Activity Logs",
+      "desc": "Tamper-proof audit logs recording every creation, modification, and cancellation with timestamp, user ID, and IP tracking."
+    },
+    {
+      "title": "Multi-Company, Multi-Branch & Multi-Currency",
+      "desc": "Manage multiple legal entities, branch locations, and international currencies in a single consolidated database."
+    },
+    {
+      "title": "Automated Cloud Backups & 256-Bit Data Encryption",
+      "desc": "Scheduled automated cloud backups with AES 256-bit encryption ensuring instant disaster recovery and business continuity."
+    },
+    {
+      "title": "Open REST APIs & Third-Party Integration",
+      "desc": "Secure REST APIs connecting USoft ERP seamlessly with e-commerce portals, CRM systems, payment gateways, and logistics apps."
+    }
+  ],
+  "workflowEyebrow": "Implementation",
+  "workflowTitle": "Streamlined Implementation Process",
+  "steps": [
+    {
+      "step": "01",
+      "title": "Company Profile",
+      "desc": "Set legal tax ID, commercial registry, branches, and branding."
+    },
+    {
+      "step": "02",
+      "title": "Tax Authentication",
+      "desc": "Link electronic seal token and validate ETA connection."
+    },
+    {
+      "step": "03",
+      "title": "User Roles & Security",
+      "desc": "Create user profiles and assign departmental permission matrices."
+    },
+    {
+      "step": "04",
+      "title": "Automated Backups",
+      "desc": "Enable automated encrypted cloud backup schedules."
+    }
+  ],
+  "closingTitle": "Ready to Secure and Scale Your ERP Architecture?",
+  "closingDesc": "Consult with our engineering team regarding data migration, ETA setup, and deployment options.",
+  "closingBtn": "Book a Live Demo"
+}
