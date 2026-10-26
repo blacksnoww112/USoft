@@ -87,9 +87,21 @@ function Home() {
 
           {/* Text on the right */}
           <div className={`relative z-10 order-2 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-            <div className="inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/85">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#38BDF8]" aria-hidden="true" />
-              {t('heroBadge')}
+            {/* Catchy Welcome Banner */}
+            <div className="mb-4 inline-flex animate-fade-in items-center gap-2.5 rounded-full border border-[#38BDF8]/40 bg-linear-to-r from-[#38BDF8]/20 via-[#2F80ED]/20 to-purple-500/20 px-4 py-1.5 text-xs sm:text-sm font-bold text-white shadow-[0_0_25px_rgba(56,189,248,0.25)] backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38BDF8] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38BDF8]"></span>
+              </span>
+              <span className="text-[#38BDF8] font-black">{t('heroWelcomeHighlight')}</span>
+              <span className="text-white/95">{t('heroWelcomeText')}</span>
+            </div>
+
+            <div>
+              <div className="inline-flex animate-fade-in items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/85">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#38BDF8]" aria-hidden="true" />
+                {t('heroBadge')}
+              </div>
             </div>
             <h1 id="hero-heading" className="mb-6 mt-6 animate-fade-up text-white font-black leading-tight" style={{ fontSize: 'clamp(2.2rem, 5vw, 4.4rem)' }}>
               {t('heroTitle')}
