@@ -7,7 +7,12 @@
   "introEyebrow": "One Connected Platform",
   "introTitle": "Designed Around the Way You Work",
   "introText": "Instead of managing disconnected systems, the platform connects data and workflows across departments and branches for clearer visibility and faster decisions.",
-  "introPoints": { "one": "Connected data", "two": "Scalable experience", "three": "Clearer reporting", "four": "Arabic & English UI" },
+  "introPoints": {
+    "one": "Connected data",
+    "two": "Scalable experience",
+    "three": "Clearer reporting",
+    "four": "Arabic & English UI"
+  },
   "overviewImageAlt": "Team using a business platform",
   "overviewCaption": "From daily operations to the bigger picture",
   "modulesEyebrow": "Core modules",
@@ -19,22 +24,158 @@
   "closingText": "Talk to our team to define the right modules and journey for your business.",
   "closingCta": "Talk to Our Team",
   "modules": {
-    "accounting": { "title": "General Accounting", "desc": "Manage your chart of accounts, journals, cost centers, and financial reports.", "features": ["Flexible chart of accounts", "Manual and automated journals", "Clear financial statements"] },
-    "sales": { "title": "Sales & Customers", "desc": "Track the sales cycle from quotation to collection and customer accounts.", "features": ["Quotations and invoices", "Collections and returns", "Receivables aging"] },
-    "purchases": { "title": "Purchasing & Suppliers", "desc": "Organize purchase requests, receiving, invoices, and payments.", "features": ["Purchase requests and orders", "Receiving and inspection", "Supplier accounts"] },
-    "inventory": { "title": "Inventory & Warehouses", "desc": "Monitor products, movements, stock counts, and reorder levels across locations.", "features": ["Warehouse transfers", "Periodic and annual counts", "Reorder alerts"] },
-    "assets": { "title": "Fixed Assets", "desc": "Track assets from acquisition through depreciation and disposal.", "features": ["Asset categories and groups", "Periodic depreciation", "Book value tracking"] },
-    "hr": { "title": "Personnel Affairs", "desc": "Manage employee files, departments, jobs, and core workforce data.", "features": ["Employee profiles", "Contracts and jobs", "HR reports"] },
-    "attendance": { "title": "Attendance", "desc": "Track attendance, leave, lateness, and connect it to payroll.", "features": ["Attendance records", "Leave and permissions", "Lateness and overtime"] },
-    "payroll": { "title": "Payroll", "desc": "Calculate salaries, allowances, deductions, and advances.", "features": ["Monthly payroll runs", "Allowances and deductions", "Payroll reporting"] },
-    "pos": { "title": "Point of Sale", "desc": "A fast sales interface connected to products, inventory, and collections.", "features": ["Barcode support", "Cashiers and shifts", "Daily returns"] },
-    "reports": { "title": "Reports & Analytics", "desc": "A reporting center that helps leadership understand performance clearly.", "features": ["Financial and operational reports", "Period and branch filters", "Scalable indicators"] },
-    "shareholders": { "title": "Shareholders Management", "desc": "Organize shareholder records, equity quotas, and associated ownership reports.", "features": ["Shareholder database", "Equity distribution", "Ownership reporting"] },
-    "outpatient": { "title": "Outpatient Clinics", "desc": "Comprehensive management of appointments, medical examinations, and patient diagnoses.", "features": ["Appointment & visit booking", "Electronic medical records", "Billing & health insurance"] },
-    "inpatient": { "title": "Inpatient & Patient Accounts", "desc": "Full inpatient lifecycle tracking, bed management, medication, and patient billing.", "features": ["Admission & bed management", "Doctor orders & nursing", "Patient accounts & billing"] },
-    "realestate": { "title": "Real Estate Investment", "desc": "Manage real estate projects, unit reservations, installment schedules, and collections.", "features": ["Unit & master plan management", "Booking & lease/sales agreements", "Installment schedules & checks"] },
-    "contracting": { "title": "Contracting & Construction", "desc": "Manage construction projects, BOQs, owner claims, and subcontractor progress billing.", "features": ["BOQ quantity surveying", "Owner & subcontractor progress billing", "Project cost control"] },
-    "production": { "title": "Production & Manufacturing", "desc": "Plan production lines, bill of materials (BOM), work orders, costing, and quality control.", "features": ["Product trees & BOM formulations", "Work orders & MRP planning", "Industrial costing & QC inspection"] },
-    "specialized": { "title": "Specialized Solutions", "desc": "Adapt the platform to specific industries and business requirements.", "features": ["Activity-based design", "Customizable forms", "Integration-ready"] }
+    "accounting": {
+      "title": "General Accounting",
+      "desc": "Manage your chart of accounts, journals, cost centers, and financial reports.",
+      "features": [
+        "Flexible chart of accounts",
+        "Manual and automated journals",
+        "Clear financial statements"
+      ]
+    },
+    "purchases": {
+      "title": "Purchasing & Suppliers",
+      "desc": "Organize purchase requests, receiving, invoices, and payments.",
+      "features": [
+        "Purchase requests and orders",
+        "Receiving and inspection",
+        "Supplier accounts"
+      ]
+    },
+    "inventory": {
+      "title": "Inventory & Warehouses",
+      "desc": "Monitor products, movements, stock counts, and reorder levels across locations.",
+      "features": [
+        "Warehouse transfers",
+        "Periodic and annual counts",
+        "Reorder alerts"
+      ]
+    },
+    "sales": {
+      "title": "Sales & Customers",
+      "desc": "Track the sales cycle from quotation to collection and customer accounts.",
+      "features": [
+        "Quotations and invoices",
+        "Collections and returns",
+        "Receivables aging"
+      ]
+    },
+    "assets": {
+      "title": "Fixed Assets",
+      "desc": "Track assets from acquisition through depreciation and disposal.",
+      "features": [
+        "Asset categories and groups",
+        "Periodic depreciation",
+        "Book value tracking"
+      ]
+    },
+    "production": {
+      "title": "Production & Manufacturing",
+      "desc": "Plan production lines, bill of materials (BOM), work orders, costing, and quality control.",
+      "features": [
+        "Product trees & BOM formulations",
+        "Work orders & MRP planning",
+        "Industrial costing & QC inspection"
+      ]
+    },
+    "realestate": {
+      "title": "Real Estate Investment",
+      "desc": "Manage real estate projects, unit reservations, installment schedules, and collections.",
+      "features": [
+        "Unit & master plan management",
+        "Booking & lease/sales agreements",
+        "Installment schedules & checks"
+      ]
+    },
+    "contracting": {
+      "title": "Contracting & Construction",
+      "desc": "Manage construction projects, BOQs, owner claims, and subcontractor progress billing.",
+      "features": [
+        "BOQ quantity surveying",
+        "Owner & subcontractor progress billing",
+        "Project cost control"
+      ]
+    },
+    "pos": {
+      "title": "Point of Sale",
+      "desc": "A fast sales interface connected to products, inventory, and collections.",
+      "features": [
+        "Barcode support",
+        "Cashiers and shifts",
+        "Daily returns"
+      ]
+    },
+    "shareholders": {
+      "title": "Shareholders Management",
+      "desc": "Organize shareholder records, equity quotas, and associated ownership reports.",
+      "features": [
+        "Shareholder database",
+        "Equity distribution",
+        "Ownership reporting"
+      ]
+    },
+    "outpatient": {
+      "title": "Outpatient Clinics",
+      "desc": "Comprehensive management of appointments, medical examinations, and patient diagnoses.",
+      "features": [
+        "Appointment & visit booking",
+        "Electronic medical records",
+        "Billing & health insurance"
+      ]
+    },
+    "inpatient": {
+      "title": "Inpatient & Patient Accounts",
+      "desc": "Full inpatient lifecycle tracking, bed management, medication, and patient billing.",
+      "features": [
+        "Admission & bed management",
+        "Doctor orders & nursing",
+        "Patient accounts & billing"
+      ]
+    },
+    "specialized": {
+      "title": "Electronic Invoicing",
+      "desc": "Adapt the platform to specific industries and business requirements.",
+      "features": [
+        "Activity-based design",
+        "Customizable forms",
+        "Integration-ready"
+      ]
+    },
+    "hr": {
+      "title": "Personnel Affairs",
+      "desc": "Manage employee files, departments, jobs, and core workforce data.",
+      "features": [
+        "Employee profiles",
+        "Contracts and jobs",
+        "HR reports"
+      ]
+    },
+    "attendance": {
+      "title": "Attendance",
+      "desc": "Track attendance, leave, lateness, and connect it to payroll.",
+      "features": [
+        "Attendance records",
+        "Leave and permissions",
+        "Lateness and overtime"
+      ]
+    },
+    "payroll": {
+      "title": "Payroll",
+      "desc": "Calculate salaries, allowances, deductions, and advances.",
+      "features": [
+        "Monthly payroll runs",
+        "Allowances and deductions",
+        "Payroll reporting"
+      ]
+    },
+    "reports": {
+      "title": "Reports & Analytics",
+      "desc": "A reporting center that helps leadership understand performance clearly.",
+      "features": [
+        "Financial and operational reports",
+        "Period and branch filters",
+        "Scalable indicators"
+      ]
+    }
   }
 }
