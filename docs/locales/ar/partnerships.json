@@ -14,8 +14,8 @@
     "tech": "الشركاء الاستراتيجيون"
   },
   "stats": {
-    "totalPartners": { "value": "+250", "label": "شركة ومؤسسة شريكة" },
-    "sectorsCount": { "value": "6+", "label": "قطاعات أعمال رئيسية" },
+    "totalPartners": { "value": "+150", "label": "شركة ومؤسسة شريكة" },
+    "sectorsCount": { "value": "+12", "label": "قطاعات أعمال رئيسية" },
     "retentionRate": { "value": "98%", "label": "نسبة تجديد واستمرارية" },
     "experienceYears": { "value": "+20", "label": "عاماً من الثقة المتبادلة" }
   },

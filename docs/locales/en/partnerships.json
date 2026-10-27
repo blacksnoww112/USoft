@@ -14,8 +14,8 @@
     "tech": "Strategic & Tech Partners"
   },
   "stats": {
-    "totalPartners": { "value": "+250", "label": "Partner Organizations" },
-    "sectorsCount": { "value": "6+", "label": "Core Business Sectors" },
+    "totalPartners": { "value": "+150", "label": "Partner Organizations" },
+    "sectorsCount": { "value": "+12", "label": "Core Business Sectors" },
     "retentionRate": { "value": "98%", "label": "Retention & Renewal Rate" },
     "experienceYears": { "value": "+20", "label": "Years of Mutual Trust" }
   },

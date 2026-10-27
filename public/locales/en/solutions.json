@@ -79,7 +79,7 @@
       ]
     },
     "realestate": {
-      "title": "Real Estate Investment",
+      "title": "Real Estate Investments",
       "desc": "Manage real estate projects, unit reservations, installment schedules, and collections.",
       "features": [
         "Unit & master plan management",
@@ -96,6 +96,15 @@
         "Project cost control"
       ]
     },
+    "specialized": {
+      "title": "Electronic Invoicing",
+      "desc": "Adapt the platform to specific industries and business requirements.",
+      "features": [
+        "Activity-based design",
+        "Customizable forms",
+        "Integration-ready"
+      ]
+    },
     "pos": {
       "title": "Point of Sale",
       "desc": "A fast sales interface connected to products, inventory, and collections.",
@@ -103,15 +112,6 @@
         "Barcode support",
         "Cashiers and shifts",
         "Daily returns"
-      ]
-    },
-    "shareholders": {
-      "title": "Shareholders Management",
-      "desc": "Organize shareholder records, equity quotas, and associated ownership reports.",
-      "features": [
-        "Shareholder database",
-        "Equity distribution",
-        "Ownership reporting"
       ]
     },
     "outpatient": {
@@ -130,15 +130,6 @@
         "Admission & bed management",
         "Doctor orders & nursing",
         "Patient accounts & billing"
-      ]
-    },
-    "specialized": {
-      "title": "Electronic Invoicing",
-      "desc": "Adapt the platform to specific industries and business requirements.",
-      "features": [
-        "Activity-based design",
-        "Customizable forms",
-        "Integration-ready"
       ]
     },
     "hr": {
@@ -166,6 +157,15 @@
         "Monthly payroll runs",
         "Allowances and deductions",
         "Payroll reporting"
+      ]
+    },
+    "shareholders": {
+      "title": "Shareholders Management",
+      "desc": "Organize shareholder records, equity quotas, and associated ownership reports.",
+      "features": [
+        "Shareholder database",
+        "Equity distribution",
+        "Ownership reporting"
       ]
     },
     "reports": {
