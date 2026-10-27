@@ -23,6 +23,12 @@
   ],
   "statsEyebrow": "Trust Built Over Time",
   "statsTitle": "Numbers That Reflect Our Clients' Trust",
+  "stats": [
+    { "value": "150+", "label": "Clients who trust us" },
+    { "value": "12+", "label": "Integrated modules" },
+    { "value": "99.9%", "label": "System uptime" },
+    { "value": "Sun - Thu", "subValue": "9:00 AM - 5:00 PM", "label": "Technical support" }
+  ],
   "ctaTitle": "Want to Get to Know Us Better?",
   "ctaSubtitle": "Talk to our team and discover how we can help you build a clearer operating system.",
   "ctaBtn": "Contact Us"

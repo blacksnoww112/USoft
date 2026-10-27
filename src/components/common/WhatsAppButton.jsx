@@ -18,9 +18,9 @@ const CONTACT_NUMBERS = [
   },
   {
     id: 'support',
-    phone: '201022264123',
-    display: '01022264123',
-    formatted: '+20 102 226 4123',
+    phone: '201022411116',
+    display: '201022411116',
+    formatted: '+20 102 241 1116',
     nameAr: 'الدعم الفني والاستشارات',
     nameEn: 'Technical Support & Consulting',
     descAr: 'الاستشارات التقنية والمساعدة الفورية',

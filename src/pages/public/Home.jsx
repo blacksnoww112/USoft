@@ -5,6 +5,7 @@ import {
   ArrowLeft, ArrowRight,
   BarChart3, Users, ShoppingCart, Package, FileText,
   CheckCircle2, Building2, Factory, Briefcase, Truck, Globe2,
+  HardHat, Hospital,
   TrendingUp, Eye, GitBranch, Languages, Scale,
 } from 'lucide-react'
 import useLanguageStore from '../../store/languageStore'
@@ -32,7 +33,7 @@ const WHY_ICONS = {
   bilingual: Languages,
 }
 
-const INDUSTRY_ICONS = [Building2, Factory, Briefcase, Truck, Globe2]
+const INDUSTRY_ICONS = [Building2, Factory, ShoppingCart, HardHat, Briefcase, Hospital]
 
 const PARTNER_IMAGES = [
   getAssetPath('/images/partners/showcase-1.jpg'),
@@ -328,7 +329,7 @@ function Home() {
             return (
               <div
                 key={i}
-                className="group flex min-w-[140px] cursor-default flex-col items-center gap-3 rounded-xl border border-[#E4E7EC] bg-[#F5F7FA] px-8 py-6 animate-fade-up transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED] hover:bg-[#EBF2FF] hover:shadow-card-lg"
+                className="group flex min-w-[140px] max-w-[200px] flex-1 cursor-default flex-col items-center gap-3 rounded-xl border border-[#E4E7EC] bg-[#F5F7FA] px-4 py-6 animate-fade-up transition-all duration-500 hover:-translate-y-2 hover:border-[#2F80ED] hover:bg-[#EBF2FF] hover:shadow-card-lg"
                 style={{ animationDelay: `${i * 0.08}s` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-white border border-[#E4E7EC] flex items-center justify-center group-hover:bg-[#2F80ED] transition-colors duration-200">

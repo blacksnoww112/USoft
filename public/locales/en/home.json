@@ -45,7 +45,7 @@
     "title": "Experience You Can Measure. Trust You Can Build.",
     "subtitle": "Editable showcase figures that communicate presence, experience, and the value delivered to customers.",
     "stats": {
-      "companies": { "icon": "01", "value": "+250", "label": "Companies & organizations" },
+      "companies": { "icon": "01", "value": "+150", "label": "Companies & organizations" },
       "clients": { "icon": "02", "value": "+1,500", "label": "Clients & users" },
       "years": { "icon": "03", "value": "+20", "label": "Years of experience" }
     }
@@ -60,7 +60,14 @@
     "bilingual": { "title": "Arabic & English", "desc": "A flexible interface for multilingual teams and business needs." }
   },
   "industriesTitle": "Solutions for Multiple Industries",
-  "industries": ["Commerce", "Manufacturing", "Services", "Distribution", "Organizations"],
+  "industries": [
+    "Enterprises",
+    "Manufacturing",
+    "Trading & Commerce",
+    "Contracting & Real Estate",
+    "Services",
+    "Hospitals"
+  ],
   "finalCtaTitle": "Build a Clearer View of Your Business",
   "finalCtaSubtitle": "Discover how one platform can make your operations more organized and your decisions more confident.",
   "finalCtaBtn": "Talk to Our Team"

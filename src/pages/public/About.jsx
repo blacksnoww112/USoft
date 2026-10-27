@@ -26,7 +26,15 @@ const STATS = [
   { valueAr: '+150', valueEn: '150+', labelAr: 'عميل يثق بنا في مصر والشرق الأوسط', labelEn: 'Clients who trust us', icon: Users },
   { valueAr: '12+', valueEn: '12+', labelAr: 'وحدة ونظام ERP متكامل', labelEn: 'Integrated modules', icon: Layers },
   { valueAr: '99.9%', valueEn: '99.9%', labelAr: 'نسبة استقرار وجاهزية المنظومة', labelEn: 'System uptime', icon: ShieldCheck },
-  { valueAr: 'الأحد - الخميس', valueEn: 'Sun - Thu', labelAr: 'فريق دعم فني واستشارات متواصل', labelEn: 'Technical support', icon: Headphones },
+  {
+    valueAr: 'الأحد - الخميس',
+    subValueAr: 'من 9 صباحاً إلى 5 مساءً',
+    valueEn: 'Sun - Thu',
+    subValueEn: '9:00 AM - 5:00 PM',
+    labelAr: 'فريق دعم فني واستشارات متواصل',
+    labelEn: 'Technical support',
+    icon: Headphones,
+  },
 ]
 
 const MISSION_ICONS = [Layers, BarChart2, CheckCircle2, Users]
@@ -350,20 +358,35 @@ function About() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {STATS.map((stat, i) => {
               const Icon = stat.icon
+              const value = dir === 'rtl' ? stat.valueAr : stat.valueEn
+              const subValue = dir === 'rtl' ? stat.subValueAr : stat.subValueEn
+              const label = dir === 'rtl' ? stat.labelAr : stat.labelEn
+
               return (
                 <div
                   key={i}
-                  className="group rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-[#F5F7FA] dark:bg-[#0F1B2F] p-5 text-center shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2F80ED]/40 hover:bg-white dark:hover:bg-[#132238] hover:shadow-card-lg md:p-6"
+                  className="group flex flex-col justify-between rounded-2xl border border-[#E4E7EC] dark:border-slate-800 bg-[#F5F7FA] dark:bg-[#0F1B2F] p-5 text-center shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2F80ED]/40 hover:bg-white dark:hover:bg-[#132238] hover:shadow-card-lg md:p-6"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-[#E4E7EC] dark:border-slate-700 text-[#2F80ED] dark:text-[#38BDF8] shadow-xs transition-transform duration-300 group-hover:scale-110">
-                    <Icon size={20} />
+                  <div>
+                    <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-white dark:bg-slate-800 border border-[#E4E7EC] dark:border-slate-700 text-[#2F80ED] dark:text-[#38BDF8] shadow-xs transition-transform duration-300 group-hover:scale-110">
+                      <Icon size={20} />
+                    </div>
+                    <div className="mb-2">
+                      <p className={`font-black text-[#173B67] dark:text-white transition duration-500 group-hover:scale-105 ${
+                        subValue ? 'text-lg sm:text-xl font-bold' : 'text-2xl md:text-3xl font-mono'
+                      }`}>
+                        {value}
+                      </p>
+                      {subValue && (
+                        <p className="mt-1 text-xs sm:text-sm font-semibold text-[#2F80ED] dark:text-[#38BDF8]">
+                          {subValue}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <p className="mb-2 text-2xl font-black text-[#173B67] dark:text-white transition duration-500 group-hover:scale-105 md:text-3xl font-mono">
-                    {dir === 'rtl' ? stat.valueAr : stat.valueEn}
-                  </p>
                   <p className="text-xs text-[#667085] dark:text-slate-300 font-medium leading-relaxed">
-                    {dir === 'rtl' ? stat.labelAr : stat.labelEn}
+                    {label}
                   </p>
                 </div>
               )
