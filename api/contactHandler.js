@@ -5,13 +5,20 @@ dotenv.config()
 
 // Create reusable transporter object using SMTP
 export function getTransporter() {
+  const user = process.env.SMTP_USER
+  const pass = process.env.SMTP_PASS
+
+  if (!user || !pass) {
+    throw new Error('بيانات البريد غير مكتملة على السيرفر: يرجى إضافة SMTP_USER و SMTP_PASS في Vercel')
+  }
+
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: Number(process.env.SMTP_PORT) || 587,
     secure: process.env.SMTP_SECURE === 'true',
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user,
+      pass,
     },
   })
 }

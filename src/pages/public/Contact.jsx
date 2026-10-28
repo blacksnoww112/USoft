@@ -37,7 +37,7 @@ function Contact() {
       const apiUrl =
         import.meta.env.VITE_CONTACT_API_URL ||
         (typeof window !== 'undefined' && window.location.hostname.includes('github.io')
-          ? 'https://u-soft-website.vercel.app/api/contact'
+          ? 'https://u-soft.vercel.app/api/contact'
           : '/api/contact')
 
       const response = await fetch(apiUrl, {
@@ -54,10 +54,11 @@ function Contact() {
       setSubmitted(true)
     } catch (err) {
       console.error('Contact form submission error:', err)
+      const detail = err.message && !err.message.includes('Failed to fetch') ? ` (${err.message})` : ''
       setErrorMsg(
         dir === 'rtl'
-          ? 'تعذر إرسال الرسالة في الوقت الحالي. يرجى المحاولة مرة أخرى أو التواصل معنا عبر الهاتف/واتساب.'
-          : 'Unable to send message at this time. Please try again or contact us via phone/WhatsApp.'
+          ? `تعذر إرسال الرسالة في الوقت الحالي${detail}. يرجى المحاولة مرة أخرى أو التواصل معنا عبر الهاتف/واتساب.`
+          : `Unable to send message at this time${detail}. Please try again or contact us via phone/WhatsApp.`
       )
     }
   }
