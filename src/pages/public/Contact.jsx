@@ -34,7 +34,13 @@ function Contact() {
   const onSubmit = async (formData) => {
     try {
       setErrorMsg('')
-      const response = await fetch('/api/contact', {
+      const apiUrl =
+        import.meta.env.VITE_CONTACT_API_URL ||
+        (typeof window !== 'undefined' && window.location.hostname.includes('github.io')
+          ? 'https://u-soft-website.vercel.app/api/contact'
+          : '/api/contact')
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
