@@ -7,8 +7,9 @@ import App from './App.jsx'
 // Clean up legacy hash routing URLs if user lands with #/ (e.g. /#/about -> /about)
 if (typeof window !== 'undefined' && window.location.hash && window.location.hash.startsWith('#/')) {
   const hashPath = window.location.hash.slice(1)
-  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '')
-  window.history.replaceState(null, '', (base ? base : '') + hashPath)
+  const isGitHub = window.location.hostname.includes('github.io')
+  const base = isGitHub ? '/USoft' : ''
+  window.history.replaceState(null, '', base + hashPath)
 }
 
 createRoot(document.getElementById('root')).render(

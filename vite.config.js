@@ -72,13 +72,19 @@ function removeGhFallbackPlugin() {
 }
 
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '/' : (process.env.VITE_BASE_URL || '/USoft/'),
-  plugins: [
-    tailwindcss(),
-    react(),
-    removeGhFallbackPlugin(),
-    contactApiPlugin(),
-    copy404Plugin(),
-  ],
-}))
+export default defineConfig(({ command }) => {
+  const isVercel = process.env.VERCEL === '1'
+  const isDev = command === 'serve'
+  const base = (isDev || isVercel) ? '/' : (process.env.VITE_BASE_URL || '/USoft/')
+
+  return {
+    base,
+    plugins: [
+      tailwindcss(),
+      react(),
+      removeGhFallbackPlugin(),
+      contactApiPlugin(),
+      copy404Plugin(),
+    ],
+  }
+})

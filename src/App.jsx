@@ -8,6 +8,16 @@ import useLanguageStore from './store/languageStore'
 import useThemeStore from './store/themeStore'
 import './config/i18n.js'
 
+const getBasename = () => {
+  if (typeof window !== 'undefined') {
+    if (window.location.hostname.includes('github.io')) {
+      return '/USoft'
+    }
+    return '/'
+  }
+  return import.meta.env.BASE_URL || '/'
+}
+
 function App() {
   const { language, dir } = useLanguageStore()
   const { theme } = useThemeStore()
@@ -28,7 +38,7 @@ function App() {
   }, [theme])
 
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL || '/'}>
+    <BrowserRouter basename={getBasename()}>
       {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
       <ScrollToTop />
       <AppRoutes />
