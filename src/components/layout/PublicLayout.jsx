@@ -9,6 +9,7 @@ import WhatsAppButton from '../common/WhatsAppButton'
 import useLanguageStore from '../../store/languageStore'
 import useThemeStore from '../../store/themeStore'
 import { getAssetPath } from '../../utils/assetPath'
+import { getEmailLink, getEmailTarget } from '../../utils/emailLink'
 
 const NAV_LINKS = [
   { to: '/',             key: 'home'         },
@@ -194,7 +195,9 @@ function PublicLayout({ children }) {
                   {FOOTER_EMAILS.map((email) => (
                     <li key={email}>
                       <a
-                        href={`mailto:${email}`}
+                        href={getEmailLink(email)}
+                        target={getEmailTarget()}
+                        rel="noopener noreferrer"
                         className="text-white/70 text-sm hover:text-white hover:underline transition-colors block"
                         dir="ltr"
                       >

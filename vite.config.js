@@ -72,8 +72,8 @@ function removeGhFallbackPlugin() {
 }
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: './',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : (process.env.VITE_BASE_URL || '/USoft/'),
   plugins: [
     tailwindcss(),
     react(),
@@ -81,4 +81,4 @@ export default defineConfig({
     contactApiPlugin(),
     copy404Plugin(),
   ],
-})
+}))

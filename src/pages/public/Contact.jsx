@@ -11,6 +11,7 @@ import {
 } from 'lucide-react'
 import Button from '../../components/common/Button'
 import { getAssetPath } from '../../utils/assetPath'
+import { getEmailLink, getEmailTarget } from '../../utils/emailLink'
 
 const PHONES = ['01022264121', '01022264123', '+20222638031', '+20222638041']
 const EMAILS = ['info@usoft-eg.com', 'Sales@usoft-eg.com']
@@ -79,7 +80,12 @@ function Contact() {
             <h1 className="mb-5 text-white font-black leading-tight" style={{ fontSize: 'clamp(2rem, 4.5vw, 4rem)' }}>{t('heroTitle')}</h1>
             <p className="max-w-xl text-lg leading-relaxed text-white/72">{t('heroSubtitle')}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href={`mailto:${EMAILS[0]}`} className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-6 py-3 font-bold text-white hover:text-black transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl dark:shadow-[0_0_24px_rgba(56,189,248,0.25)]">
+              <a
+                href={getEmailLink(EMAILS[0])}
+                target={getEmailTarget()}
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-6 py-3 font-bold text-white hover:text-black transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-xl dark:shadow-[0_0_24px_rgba(56,189,248,0.25)]"
+              >
                 <Mail size={18} />{t('emailUs')}
               </a>
               <a href={`tel:${PHONES[0].replaceAll(' ', '')}`} className="inline-flex items-center gap-2 rounded-xl border border-white/25 px-6 py-3 font-bold text-white transition duration-300 hover:-translate-y-1 hover:bg-white/10">
@@ -117,7 +123,9 @@ function Contact() {
                 {EMAILS.map((email) => (
                   <a
                     key={email}
-                    href={`mailto:${email}`}
+                    href={getEmailLink(email)}
+                    target={getEmailTarget()}
+                    rel="noopener noreferrer"
                     className="block text-start text-sm text-[#667085] dark:text-slate-300 transition duration-200 hover:text-[#2F80ED] dark:hover:text-[#38BDF8] hover:underline"
                   >
                     <span dir="ltr" className="inline-block">{email}</span>
@@ -323,7 +331,9 @@ function Contact() {
           <h2 className="mb-3 text-3xl font-black text-white">{t('bottomTitle')}</h2>
           <p className="mb-7 text-white/70">{t('bottomSubtitle')}</p>
           <a
-            href={`mailto:${EMAILS[1]}`}
+            href={getEmailLink(EMAILS[1])}
+            target={getEmailTarget()}
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-[#38BDF8] px-7 py-3 font-bold text-white hover:text-black transition hover:-translate-y-1 hover:bg-white hover:shadow-xl dark:shadow-[0_0_24px_rgba(56,189,248,0.3)]"
           >
             <Mail size={18} />{EMAILS[1]}
