@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import Topbar from './Topbar'
+import StarryBackground from '../common/StarryBackground'
 import useLanguageStore from '../../store/languageStore'
 
 function AppLayout({ children, activeModule }) {
@@ -9,13 +10,16 @@ function AppLayout({ children, activeModule }) {
   const isRtl = dir === 'rtl'
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#070D18] text-[#172033] dark:text-[#F8FAFC] transition-colors duration-300">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#070D18] text-[#172033] dark:text-[#F8FAFC] transition-colors duration-300 relative">
+      {/* ── Space Starfield Dots (Behind Content at z-0, Dark Mode only) ── */}
+      <StarryBackground />
+
       {/* Sidebar (Desktop & Mobile Drawer) */}
       <Sidebar mobileOpen={mobileOpen} onCloseMobile={() => setMobileOpen(false)} />
 
-      {/* Main Content Area */}
+      {/* Main Content Area (Above Starfield) */}
       <div
-        className={`flex min-h-screen flex-col transition-all duration-300 ${
+        className={`flex min-h-screen flex-col transition-all duration-300 relative z-10 ${
           isRtl ? 'lg:mr-72' : 'lg:ml-72'
         }`}
       >

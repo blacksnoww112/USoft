@@ -355,6 +355,15 @@
   margin-top: 0.25rem;
 }
 
+/* ─── Global Starfield Canvas Behind Content (Dark Mode) ─────────── */
+#starry-canvas-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
 /* ─── Gradient backgrounds ───────────────────────────────────────── */
 .hero-gradient {
   background: linear-gradient(135deg, #0F2847 0%, #173B67 50%, #1a4a8a 100%);
@@ -363,21 +372,24 @@
   background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
 }
 
-/* ─── Dark Mode Specific Overrides ───────────────────────────────── */
+/* ─── Dark Mode Specific Overrides & Starfield Translucency ──────── */
+.dark section {
+  background-color: transparent !important;
+}
 .dark .hero-gradient {
-  background: linear-gradient(135deg, #060B14 0%, #0B192C 50%, #112240 100%);
+  background: linear-gradient(135deg, rgba(6, 11, 20, 0.88) 0%, rgba(11, 25, 44, 0.88) 50%, rgba(17, 34, 64, 0.88) 100%) !important;
 }
 .dark .bg-white {
-  background-color: #0F1B2F !important;
+  background-color: rgba(15, 27, 47, 0.85) !important;
 }
 .dark .bg-\[\#F5F7FA\] {
-  background-color: #070D18 !important;
+  background-color: rgba(7, 13, 24, 0.85) !important;
 }
 .dark .bg-\[\#F8FAFC\] {
-  background-color: #0B1526 !important;
+  background-color: rgba(11, 21, 38, 0.85) !important;
 }
 .dark .bg-\[\#EBF2FF\] {
-  background-color: #172A46 !important;
+  background-color: rgba(23, 42, 70, 0.85) !important;
 }
 .dark .border-\[\#E4E7EC\] {
   border-color: #1E2E48 !important;
